@@ -17,7 +17,9 @@
   "scripts": {
     "fix:css": "yarn prettier --write 'assets/**/*.css'; yarn stylelint --fix 'assets/**/*.css'",
     "fix:md": "yarn prettier --write './*.md'; yarn prettier --write './**/*.md'",
-    "fix": "yarn run fix:css; yarn run fix:md"
+    "fix": "yarn run fix:css; yarn run fix:md",
+    "build": "hugo server",
+    "deploy": "./deploy.sh"
   },
   "browserslist": [
     "last 2 versions",
