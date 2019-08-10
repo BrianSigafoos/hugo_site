@@ -1,6 +1,6 @@
 ---
 date: 2019-08-10T08:03:18-07:00
-slug: learning-golang
+slug: learn-go
 title: Learning Go
 summary: Some resources I've found incredibly useful in learning Go, aka Golang.
 ---
@@ -30,6 +30,14 @@ this is still the best book for picking up Go.
 - [Many links on golang.org Documentation](https://golang.org/doc/)
   - Especially see: **codewalks**
 
+### Golang news and updates
+
+- [Official blog](https://blog.golang.org)
+- [The Go Gazette](http://www.go-gazette.com/)
+- [Golang Weekly](https://www.golangweekly.com/)
+- [r/golang](https://www.reddit.com/r/golang/) on Reddit
+- My [Twitter list of Golang folks](https://twitter.com/BrianSigafoos/lists/golang)
+
 ### Cheatsheets
 
 - [Learn Go in Y Minutes](https://learnxinyminutes.com/docs/go/)
@@ -52,16 +60,15 @@ this is still the best book for picking up Go.
 
 ### Development
 
-- Versions of Go
-  - Use gimme for easy version switching: `brew install gimme; eval "$(gimme 1.12.7)"`
-  - Add this to your shell init script (~/.bash_profile, ~/.profile, etc)
-
 ```shell
 export GOPATH=~/go
 export PATH="$GOPATH/bin:$PATH"
 eval "$(gimme 1.12.7)"
 ```
 
+- Versions of Go
+  - Use gimme for easy version switching: `brew install gimme; eval "$(gimme 1.12.7)"`
+  - Add the code above to your shell init script: ~/.bash_profile, ~/.profile, etc
 - Use Go modules ([read this wiki](https://github.com/golang/go/wiki/Modules))
   - You can either:
     - A: git clone the code outside your GOPATH (ie, next to your other code) to use go modules automatically (recommended)
@@ -71,3 +78,13 @@ eval "$(gimme 1.12.7)"
 
 - VS Code
   - [Go modules in VS Code](https://github.com/Microsoft/vscode-go/wiki/Go-modules-support-in-Visual-Studio-Code)
+
+### And finally... the Go Gopher!
+
+- [Learn about Go's adorable mascot, the Go Gopher, created by Renee French](https://blog.golang.org/gopher).
+
+![Gophers](https://blog.golang.org/store/gophers.jpg)
+
+![5 years](https://golang.org/doc/gopher/fiveyears.jpg)
+
+![Go Gopher](https://golang.org/doc/gopher/modelsheet.jpg)

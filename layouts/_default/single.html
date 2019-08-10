@@ -10,9 +10,7 @@
 
     <p class="font-mono text-faint text-sm">
       {{ if not (.Params.hide_date) }}
-        <time class="inline-block" datetime="{{ .Date }}">
-          {{- .Date.Format "Jan 2, 2006" -}}
-        </time>
+        {{ .Date.Format "Jan 2, 2006" }}
         ·
       {{ end }}
 
@@ -24,6 +22,11 @@
     <div class="border-t border-gray text-readable my-8 pt-4">
       {{ .Content }}
     </div>
+
+    {{ if .Params.show_gravatar }}
+      <img src="https://www.gravatar.com/avatar/{{ md5 "brian.sigafoos@gmail.com" }}?s=400&d=identicon"
+        width="200" height="200" alt="Photo of Brian">
+    {{ end }}
 
     {{ if not (.Params.hide_home_link )}}
       <div class="my-8">
