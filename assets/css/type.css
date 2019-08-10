@@ -113,8 +113,13 @@ blockquote {
   @apply mb-0;
 }
 
+pre,
+code {
+  @apply text-base;
+}
+
 pre {
-  @apply text-sm p-6 overflow-auto;
+  @apply p-6 overflow-auto;
 }
 
 .btn {

@@ -1,19 +1,22 @@
 {{ define "main" }}
-  <div class="my-32">
-    <h1 class="title">
-      Page not found
-    </h1>
+  <div class="container my-16 max-w-4xl">
+    <div class="my-32">
+      <h1 class="title">
+        Page not found
+      </h1>
 
-    <h4 class="subtitle">
-      If you see this repeatedly, please
-      <a href="/about" class="link-accent">contact me</a> to report it.
-    </h4>
+      <h4 class="subtitle">
+        If you see this repeatedly, please
+        <a href="{{ .Site.Home.Permalink }}/about">contact me</a>
+        to report it.
+      </h4>
 
-    <a href="/" class="btn btn-primary">
-      Visit homepage
-    </a>
-    <a href="https://github.com/BrianSigafoos/hugo_site" class="btn btn-default">
-      View source code
-    </a>
+      <a href="/" class="btn btn-primary">
+        Visit homepage
+      </a>
+      <a href="https://github.com/BrianSigafoos/hugo_site" class="btn btn-default">
+        View source code
+      </a>
+    </div>
   </div>
 {{ end }}
