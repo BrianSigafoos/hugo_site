@@ -7,14 +7,15 @@
 
       <h4 class="subtitle">
         If you see this repeatedly, please
-        <a href="{{ .Site.Home.Permalink }}/about">contact me</a>
+        <a href="{{ .Site.Params.about_path }}">contact me</a>
         to report it.
       </h4>
 
-      <a href="/" class="btn btn-primary">
+      <!-- Buttons -->
+      <a href="{{ .Site.Home.Permalink }}" class="btn btn-primary">
         Visit homepage
       </a>
-      <a href="https://github.com/BrianSigafoos/hugo_site" class="btn btn-default">
+      <a href="{{ .Site.Params.source_code_url }}" class="btn btn-default" target="source" rel="nofollow">
         View source code
       </a>
     </div>

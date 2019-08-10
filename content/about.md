@@ -16,8 +16,8 @@ I'm a software engineer and startup founder. I love building products that try
 to make the world better and bring people together.
 
 Since 2017, I've helped make email more trustworthy with
-[Valimail](https://www.valimail.com). Valimail stops phish emails
-automatically, helping businesses protect their customers and employees
+[Valimail](https://www.valimail.com). Valimail stops phishing emails
+automatically. It helps businesses protect their customers and employees
 from fraud.
 
 Since 2006, I've used sports to bring people together with
@@ -32,7 +32,7 @@ In 2013, I was named a
 ["high-impact entrepreneur"](https://endeavor.org/blog/in-the-news/28-high-impact-entrepreneurs-from-12-countries-join-the-endeavor-network-first-entrepreneurs-selected-from-miami-usa-morocco-and-uae/)
 by Endeavor Global.
 
-And before all of that, I played
+I also played
 [basketball at Harvard](https://news.harvard.edu/gazette/story/2001/12/the-big-picture-16-2/)
 and as a pro in 4 countries.
 

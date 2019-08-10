@@ -15,6 +15,15 @@
       }
     },
     {
+      "label": "yarn fix",
+      "type": "shell",
+      "command": "yarn fix",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
       "label": "yarn deploy - hugo - prod",
       "type": "shell",
       "command": "yarn deploy",

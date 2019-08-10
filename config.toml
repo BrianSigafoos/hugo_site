@@ -8,7 +8,10 @@ pygmentsStyle = "native"
 disqusShortname = "briansigafoos"
 googleAnalytics = "UA-42740116-1"
 
+[author]
+  name = "Brian Sigafoos"
+  email = "brian.sigafoos@gmail.com"
+
 [params]
-  twitter = "https://twitter.com/BrianSigafoos"
-  github = "https://github.com/BrianSigafoos"
-  linkedin = "https://linkedin.com/in/sigafoos"
+  about_path = "/about"
+  source_code_url = "https://github.com/BrianSigafoos/hugo_site"
