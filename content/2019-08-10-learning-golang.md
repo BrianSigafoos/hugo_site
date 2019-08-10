@@ -7,6 +7,9 @@ summary: Some resources I've found incredibly useful in learning Go, aka Golang.
 
 ### Ready to learn Go?
 
+Start exploring Go by writing tests with
+[Learn Go with Tests](https://github.com/quii/learn-go-with-tests).
+
 Above all, I'd recommend the
 [The Go Programming Language](https://www.amazon.com/dp/B0184N7WWS/) book.
 It was published in 2015, but thanks to the stability of the Go language,
@@ -23,12 +26,12 @@ this is still the best book for picking up Go.
 ### Read and do
 
 - [**The Go Programming Language**](https://www.amazon.com/dp/B0184N7WWS/) ⭑
+- [**Learn Go with Tests**](https://github.com/quii/learn-go-with-tests) ⭑
 - [A Tour of Go](https://tour.golang.org/welcome/1)
 - [Effective Go](https://golang.org/doc/effective_go.html)
 - [Package Docs](https://golang.org/pkg/)
 - [Language Specification](https://golang.org/ref/spec)
-- [Many links on golang.org Documentation](https://golang.org/doc/)
-  - Especially see: **codewalks**
+- [Many links on golang.org Documentation](https://golang.org/doc/). Especially the **codewalks**.
 
 ### Golang news and updates
 
