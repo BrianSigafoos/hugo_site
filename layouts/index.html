@@ -1,33 +1,36 @@
 {{ define "main" }}
-  <!-- <h1 class="font-bold text-3xl text-gray-500">
-    {{ .Title }}
-  </h1> -->
+  <div class="container my-16 max-w-4xl">
+    {{ .Content }}
 
-  {{ .Content }}
+    {{ range .Pages }}
+      <div class="mt-12">
+        <h2 class="title">
+          <a href="{{ .Permalink }}" class="text-bright">
+            {{ .Title }}
+          </a>
+        </h2>
 
-  {{ range .Pages }}
-    <div class="mt-12">
-      <h2 class="title">
-        <a href="{{ .Permalink }}" class="text-bright">
-          {{ .Title }}
-        </a>
-      </h2>
+        <h4 class="subtitle mb-0">
+          {{ .Summary }}
+        </h4>
 
-      <h4 class="subtitle mb-0">
-        {{ .Summary }}
-      </h4>
+        <p class="font-mono text-sm mt-2">
+          {{ if not (.Params.hide_date) }}
+            <a href="{{ .Permalink }}" class="text-faint" rel="nofollow">
+              {{- .Date.Format "Jan 2, 2006" -}}
+            </a>
+            <span class="text-faint">·</span>
+          {{ end }}
 
-      <p class="font-mono text-faint text-sm mt-2">
-        <time class="inline-block" datetime="{{ .Date }}">
-          {{- .Date.Format "2-Jan-2006" -}}
-        </time>
-
-        ·
-
-        <a href="{{ .Permalink }}" class="link-accent font-mono">
-          {{add .ReadingTime 1 }} minutes to read
-        </a>
-      </p>
-    </div>
-  {{ end }}
+          <a href="{{ .Permalink }}" rel="nofollow">
+            {{ if not (.Params.hide_read_time) }}
+              {{ .ReadingTime }} min read
+            {{ else }}
+              Read more…
+            {{ end }}
+          </a>
+        </p>
+      </div>
+    {{ end }}
+  </div>
 {{ end }}

@@ -114,11 +114,11 @@ blockquote {
 }
 
 pre {
-  @apply text-sm bg-gray p-4 overflow-auto;
+  @apply text-sm p-6 overflow-auto;
 }
 
 .btn {
-  @apply inline-block mb-1 py-2 px-6 rounded-full cursor-pointer font-bold;
+  @apply text-base inline-block mb-1 py-2 px-6 cursor-pointer font-mono font-bold;
 }
 
 .btn-default {

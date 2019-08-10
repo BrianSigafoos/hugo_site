@@ -8,6 +8,7 @@
 
   <title>{{ if .IsPage }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
 
+  <!-- Styles -->
   {{ if .Site.IsServer }}
     {{ $style := resources.Get "css/styles.css" | postCSS (dict "config" "./assets/css/dev/postcss.config.js") }}
     <link rel="stylesheet" href="{{ $style.Permalink }}" />
@@ -16,7 +17,10 @@
     <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" />
   {{ end }}
 
-  <!-- Favicon and touch icon -->
+  <!-- Scripts -->
+  {{ template "_internal/google_analytics_async.html" . }}
+
+  <!-- Favicons -->
   <link rel="shortcut icon" href="/favicon.png?20190809" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png?20190809" />
 </head>
@@ -26,9 +30,7 @@
   {{- partial "header.html" . -}}
 
   <!-- Main -->
-  <div class="container mt-16 max-w-4xl">
-    {{- block "main" . }}{{- end }}
-  </div>
+  {{- block "main" . }}{{- end }}
 
   <!-- Footer -->
   {{- partial "footer.html" . -}}
