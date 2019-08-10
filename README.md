@@ -1,11 +1,12 @@
-# Hugo site for briansigafoos.github.io
+# Hugo site for briansigafoos.com
 
 ## Workflow
 
-- Add posts to `content/` using `hugo new <post-name>`
-- Run `yarn build` locally
-- Run `yarn fix` to run linters with autofix
-- Publish by running `yarn deploy`
+- Run `hugo new <post-name>` to add new posts to `content\...`
+- Run `yarn build` to view site locally at http://localhost:1313
+- Run `yarn fix` to run linters with autocorrect
+- Run `yarn deploy` to publish changes to [github.com/BrianSigafoos/briansigafoos.github.io](https://github.com/BrianSigafoos/briansigafoos.github.io) which powers [briansigafoos.com](https://briansigafoos.com)
+- Create a PR with those changes for this repo
 
 ## Debugging
 
