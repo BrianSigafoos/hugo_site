@@ -3,10 +3,14 @@
 ## Workflow
 
 - Add posts to `content/` using `hugo new <post-name>`
-- Run `hugo server --disableFastRender --gc` locally
+- Run `yarn build` locally
 - Run `yarn fix` to run linters with autofix
-- Publish by running `hugo --gc --cleanDestinationDir` and open a PR
+- Publish by running `yarn deploy`
 
 ## Setup
 
-- Coming soon
+- Setting up [GitHub pages instructions](https://gohugo.io/hosting-and-deployment/hosting-on-github/#readout)
+
+```shell
+git submodule add -b master git@github.com:BrianSigafoos/briansigafoos.github.io.git public
+```
