@@ -1,0 +1,93 @@
+---
+date: 2018-10-15T05:49:44-07:00
+slug: postgresql
+title: Postgres tips
+summary: A quick reference for working with PostgreSQL databases
+---
+
+### Total size
+
+Get an estimate of the number of rows for an enormous table called "events".
+
+```sql
+SELECT reltuples::bigint AS rows_estimate FROM pg_class WHERE relname="events";
+```
+
+Or get a nice table with the largest N relations (`LIMIT 200`) and their
+total size in bytes, total size pretty, and estimate of the number of rows.
+
+```sql
+SELECT
+    nspname || '.' || relname AS "relation",
+    pg_total_relation_size(C.oid) AS "total_size_bytes",
+    pg_size_pretty(pg_total_relation_size(C.oid)) AS "total_size_pretty",
+    reltuples::BIGINT AS "rows_estimate"
+  FROM pg_class C
+  LEFT JOIN pg_namespace N ON (N.oid = C.relnamespace)
+  WHERE nspname NOT IN ('pg_catalog', 'information_schema')
+    AND C.relkind <> 'i'
+    AND nspname !~ '^pg_toast'
+  ORDER BY pg_total_relation_size(C.oid) DESC
+  LIMIT 200;
+```
+
+### pg_dump
+
+```bash
+cat .../<your-app>/.../database.yml
+DB_HOST=<from database.yml>
+DB_NAME=<from database.yml>
+DB_USER=<from database.yml>
+DB_DUMP_FILE=db.dump
+# -Fc format custom, -v verbose
+time (pg_dump -Fc -v -U $DB_USER -h $DB_HOST -d $DB_NAME -f $DB_DUMP_FILE)
+```
+
+```bash
+SERVER_USER=<ie deploy>
+SERVER_IP=<ie 1.2.3.4 >
+DB_NAME=<ie database_prod>
+REMOTE_DB_DUMP_FILE=db.dump
+DATE=$(date +"%Y%m%d%H%M")
+LOCAL_DB_DUMP=$HOME/.../$DB_NAME\-$DATE.dump
+
+echo Fetching production database dump
+scp $SERVER_USER@$SERVER_IP:$REMOTE_DB_DUMP_FILE $LOCAL_DB_DUMP
+```
+
+### pg_restore
+
+Simple pg_restore for local development
+
+```bash
+cat .../<your-app>/.../database.yml
+DB_NAME=<from database.yml>
+DB_DUMP_FILE=
+# -Fc format custom, -v verbose
+time (pg_restore -Fc -v -c -d $DB_NAME $DB_DUMP_FILE)
+```
+
+More realistic scenario on production or staging server, using a `pg_restore.list`
+option with `-L pg_restore.list`
+
+```bash
+pg_restore -l db.dump | grep -Fv -e 'COMMENT - EXTENSION' -e 'master' -e 'rdsadmin' > pg_restore.list
+# -Fc format custom, -v verbose, -1 single-transaction, -e exit on error
+time (pg_restore -Fc -O -v -1 -e -h $DB_HOST -d $DB_NAME -U $DB_USER -L pg_restore.list $DB_DUMP_FILE)
+```
+
+### EXPLAIN
+
+Add `EXPLAIN` before a query to get its execution plan.
+Example: `EXPLAIN SELECT * FROM users WHERE id = 42;`
+
+Add `EXPLAIN ANALYZE` for the statement to be actually executed, not only
+planned. This is fine for `SELECT`. But, since the query is executed, be careful
+with `INSERT, UPDATE, DELETE, CREATE TABLE AS`. Wrap those with a `BEGIN`
+and `ROLLBACK`:
+
+```sql
+BEGIN;
+EXPLAIN ANALYZE ...;
+ROLLBACK;
+```
