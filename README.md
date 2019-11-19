@@ -27,3 +27,9 @@
 ```shell
 git submodule add -b master git@github.com:BrianSigafoos/briansigafoos.github.io.git public
 ```
+
+## Upgrade Hugo
+
+```shell
+brew upgrade hugo
+```
