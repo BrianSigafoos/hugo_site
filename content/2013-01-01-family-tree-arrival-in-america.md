@@ -97,15 +97,15 @@ View this as a [large map](http://mapsengine.google.com/map/u/0/embed?mid=z2e_QH
 ---
 
 **Brian Sigafoos tree** (Rosenkranz, Snyder, Simon, Pafford, Wriedt, Brown, Heibner, Woodson & Kempe, Leonard, Sutherland, Lechliter, Wright)
-<a href="/img/posts/family-tree-1.jpg">![family tree 1](/img/posts/family-tree-1.jpg)</a>
+[![family tree 1](/img/posts/family-tree-1.jpg)](/img/posts/family-tree-1.jpg)
 Snapshot of Ancestry.com [family tree](http://trees.ancestry.com/pt/pedigree.aspx?tid=50499831) with 700 people, 200 surnames
 
 ---
 
 **David Simon tree** (Dove, Armstrong, Rohrbach, Reger, Rueger, Schoch, Schaub)
-<a href="/img/posts/family-tree-2.jpg">![family tree 2](/img/posts/family-tree-2.jpg)</a>
+[![family tree 2](/img/posts/family-tree-2.jpg)](/img/posts/family-tree-2.jpg)
 
 ---
 
 **Clarence Leonard tree** (Wood, Godfrey, Pratt, Tinkham, Richmond, Deane, Strong, Rogers, Williams, Churchman, Cosford)
-<a href="/img/posts/family-tree-3.jpg">![family tree 3](/img/posts/family-tree-3.jpg)</a>
+[![family tree 3](/img/posts/family-tree-3.jpg)](/img/posts/family-tree-3.jpg)
