@@ -15,3 +15,8 @@ googleAnalytics = "UA-42740116-1"
 [params]
   about_path = "/about"
   source_code_url = "https://github.com/BrianSigafoos/hugo_site"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
