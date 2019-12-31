@@ -40,3 +40,5 @@ You can contact me on
 [Twitter](https://twitter.com/BrianSigafoos),
 [LinkedIn](http://www.linkedin.com/in/sigafoos), or
 [GitHub](https://github.com/BrianSigafoos).
+I'm also on [Goodreads](https://www.goodreads.com/user/show/12078717-brian) and
+here's my [reading list](/reading).
