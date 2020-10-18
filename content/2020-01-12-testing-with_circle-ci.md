@@ -2,7 +2,7 @@
 date: 2020-01-12T06:09:51-08:00
 slug: parallel-tests-on-circle-ci
 title: Parallel tests on CircleCI
-summary: Speed up builds by running Rails tests in parallel and learn more about CircleCI 2.1 features
+summary: Speed up builds by running Rails tests in parallel and learn more about CircleCI 2.1 features.
 ---
 
 By running tests in parallel on
