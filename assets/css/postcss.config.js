@@ -16,15 +16,6 @@ module.exports = {
       path: [themeDir]
     }),
     require('tailwindcss')(themeDir + 'assets/css/tailwind.config.js'),
-    require('@fullhuman/postcss-purgecss')({
-      content: ['layouts/**/*.html', 'assets/css/*.css'],
-      extractors: [
-        {
-          extractor: TailwindExtractor,
-          extensions: ['html']
-        }],
-      fontFace: true
-    }),
     require('autoprefixer')({
       grid: true
     }),
