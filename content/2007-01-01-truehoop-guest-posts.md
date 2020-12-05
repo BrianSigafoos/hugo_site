@@ -1,8 +1,8 @@
 ---
 date: 2007-01-01 12:00:00
 slug: truehoop-guest-blog-posts
-title: Posts from the West Bank
-summary: A series of blog posts published on TrueHoop, from when I first arrived in the West Bank and Israel as a Program Manager for PeacePlayers International.
+title: Posts from the West Bank in 2006
+summary: A series of blog posts capturing the first few months of joining a peace non-profit in the West Bank and Israel. Published on TrueHoop, later acquired by ESPN.
 ---
 
 ### Our Man in the Middle East

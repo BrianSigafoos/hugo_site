@@ -27,6 +27,12 @@
 - Setting up [GitHub pages instructions](https://gohugo.io/hosting-and-deployment/hosting-on-github/#readout)
 
 ```shell
+# https://stackoverflow.com/questions/47403358/fatal-in-unpopulated-submodule
+git rm --cached . -rf
+
+git add --all
+
+# https://gohugo.io/hosting-and-deployment/hosting-on-github/#step-by-step-instructions
 git submodule add -b master git@github.com:BrianSigafoos/briansigafoos.github.io.git public
 ```
 
