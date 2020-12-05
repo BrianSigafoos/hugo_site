@@ -22,6 +22,8 @@
 
 ## Setup
 
+- `brew install hugo`
+
 - Setting up [GitHub pages instructions](https://gohugo.io/hosting-and-deployment/hosting-on-github/#readout)
 
 ```shell
