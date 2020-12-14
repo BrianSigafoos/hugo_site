@@ -5,7 +5,6 @@ title: Favorite Ruby gems
 summary: A list of my favorite Ruby gems, mostly for Rails projects.
 ---
 
-
 1. [flipper](https://github.com/jnunemaker/flipper) - release new features behind a feature flag
 1. [sidekiq](https://github.com/mperham/sidekiq) + [sidekiq-cron](https://github.com/ondrejbartas/sidekiq-cron) - async jobs + scheduled jobs
 1. [turbolinks](https://github.com/turbolinks/turbolinks) + [StimulusJS](https://github.com/stimulusjs/stimulus) (JS) + [TailwindCSS](https://github.com/tailwindlabs/tailwindcss) (CSS) - better than a JS framework like React for smaller teams, with rapid iteration and a snappy-enough web app.
@@ -25,5 +24,5 @@ summary: A list of my favorite Ruby gems, mostly for Rails projects.
 1. [faker](https://github.com/faker-ruby/faker) - generate fake data for tests
 1. [i18n-tasks](https://github.com/glebm/i18n-tasks) - autoformat and prune i18n translations
 1. [devise](https://github.com/heartcombo/devise) + [auth_trail](https://github.com/ankane/authtrail) + [recaptcha](https://github.com/ambethia/recaptcha) - authentication + (suspicious) login tracking + block bots using recaptcha
-1. [pundit](https://github.com/varvet/pundit) or [cancancan]( https://github.com/cancancommunity/cancancan) - authorization
+1. [pundit](https://github.com/varvet/pundit) or [cancancan](https://github.com/cancancommunity/cancancan) - authorization
 1. [pg](https://github.com/ged/ruby-pg) + [pghero](https://github.com/ankane/pghero) + [activerecord-import](https://github.com/zdennis/activerecord-import) - PosgreSQL + performance dashboard + bulk insert
