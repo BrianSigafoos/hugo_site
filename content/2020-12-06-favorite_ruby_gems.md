@@ -12,6 +12,7 @@ summary: A list of my favorite Ruby gems, mostly for Rails projects.
 1. [brakeman](https://github.com/presidentbeef/brakeman) + [bundler-audit](https://github.com/rubysec/bundler-audit) + [ruby_audit](https://github.com/civisanalytics/ruby_audit) - CI audit tools to create a CI audit/scan job that scans your code for vulnerabilities
 1. [blazer](blazer) - use SQL to make dashboard and event alerts, instead of building internal dashboards.
 1. [annotate](https://github.com/ctran/annotate_models) - annotate Rails models with db schema info
+1. [counter_culture](https://github.com/magnusvk/counter_culture) - turbo-charged counter caches for Rails
 1. [stripe](https://github.com/stripe/stripe-ruby) + [money-rails](https://github.com/RubyMoney/money-rails) / [money](https://github.com/Rubymoney/money) - for payments
 1. [premailer](https://github.com/premailer/premailer/) - inline CSS for mailers
 1. [rack-attack](https://github.com/rack/rack-attack) - middleware for throttling and blocking
@@ -26,3 +27,4 @@ summary: A list of my favorite Ruby gems, mostly for Rails projects.
 1. [devise](https://github.com/heartcombo/devise) + [auth_trail](https://github.com/ankane/authtrail) + [recaptcha](https://github.com/ambethia/recaptcha) - authentication + (suspicious) login tracking + block bots using recaptcha
 1. [pundit](https://github.com/varvet/pundit) or [cancancan](https://github.com/cancancommunity/cancancan) - authorization
 1. [pg](https://github.com/ged/ruby-pg) + [pghero](https://github.com/ankane/pghero) + [activerecord-import](https://github.com/zdennis/activerecord-import) - PosgreSQL + performance dashboard + bulk insert
+1. [view_component](https://github.com/github/view_component) - framework for reusable and testable view components in Rails, inspired by React
