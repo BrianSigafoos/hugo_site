@@ -12,7 +12,7 @@ almost any test suite can go from tens of minutes to single minutes.
 Below is an example CircleCI config that demonstrates how to set up parallelism.
 See `parallelism: 4` in the `test` job.
 
-It also demostrates how to use the most useful CircleCI 2.1 features: orbs,
+It also demonstrates how to use the most useful CircleCI 2.1 features: orbs,
 commands, executors, jobs, workflows, and context.
 
 Tip: to save time, download the

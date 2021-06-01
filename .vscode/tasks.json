@@ -31,6 +31,16 @@
       "presentation": {
         "reveal": "always"
       }
+    },
+    {
+      "label": "prettier auto-correct file",
+      "type": "shell",
+      "command": "yarn prettier --write ${relativeFile}",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
     }
   ]
 }
