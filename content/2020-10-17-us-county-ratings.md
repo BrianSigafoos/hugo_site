@@ -7,7 +7,7 @@ summary: A spreadsheet to rate US counties objectively across many factors from 
 
 ### Thinking of moving?
 
-Here's a dataset and [public spreadsheet](https://docs.google.com/spreadsheets/d/1esvSOFB4U3BOBDVHU4nDwZesP8_LxTnKN5LGmkb8lC8/edit#gid=1776821842) that might be useful. Use the "weighting" to allow 2 people to weight different factors per each's preference.
+Here's a dataset and [public spreadsheet](https://docs.google.com/spreadsheets/d/1esvSOFB4U3BOBDVHU4nDwZesP8_LxTnKN5LGmkb8lC8/edit#gid=1776821842) that might be useful. Use the "weighting" to allow 2 people to weight different factors per each person's preference.
 
 <iframe width='100%' height='600' frameborder='0' src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT74TXEXRDhBgmz-_iexHaRWcTsxdYvUvz74FyWKFVz_WpXJ0iCwu8fHzjG8cCT0-6pQpbDaRu_h8oP/pubhtml?widget=true&amp;headers=false"></iframe>
 
