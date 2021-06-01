@@ -17,7 +17,7 @@ Critically, these automations make it easier to write, read, and maintain code.
 1. Use keybindings in your IDE to auto-format code with a few key strokes
 1. Add `lint-staged` to automatically format and lint code before every commit
 1. Have CI, Circle CI or Github Actions, run full linters and vulnerability scanners in parallel with your test suite
-1. Require Pull Requests have the lint and security scan jobs pass, in order to be merged
+1. Require all Pull Requests have your lint jobs pass before merging
 
 ### Add essential linters and auto-formatters
 
@@ -264,7 +264,7 @@ workflows:
             - setup
 ```
 
-### Require Pull Requests have the lint and security scan jobs pass, in order to be merged
+### Require all Pull Requests have your lint jobs pass before merging
 
 Update your GitHub repository Settings for Branches to "Require status checks to pass before merging". Select the check that only passes in the lint job in your CI passes.
 
