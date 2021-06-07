@@ -46,4 +46,3 @@ brew upgrade hugo
 
 - `cd public` into sub repo
 - Use git commands to fix, like `git reset HEAD~1`
-
