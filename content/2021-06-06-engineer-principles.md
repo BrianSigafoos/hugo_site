@@ -1,6 +1,6 @@
 ---
 date: 2021-06-06T07:37:35-04:00
-slug: engineer-principles
+slug: principles-for-engineers
 title: Principles for engineers
 summary: Focus on delivering value to customers, communicate proactively, encourage critique, take initiative, debug scientifically, and practice habits.
 ---
