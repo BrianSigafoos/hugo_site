@@ -7,28 +7,53 @@
     "postcss": "8.3.0",
     "postcss-cli": "8.3.1",
     "postcss-import": "14.0.2",
-    "prettier": "2.3.0",
+    "prettier": "2.3.1",
     "stylelint": "13.13.1",
+    "stylelint-config-prettier": "8.0.2",
     "stylelint-config-standard": "22.0.0",
-    "stylelint-scss": "3.19.0",
-    "tailwindcss": "2.1.2"
+    "tailwindcss": "2.1.4"
   },
   "scripts": {
     "fix:css": "yarn prettier --write 'assets/**/*.css'; yarn stylelint --fix 'assets/**/*.css'",
     "fix:md": "yarn prettier --write './*.md'; yarn prettier --write './**/*.md'",
     "fix": "yarn run fix:css; yarn run fix:md",
     "build": "hugo server --gc",
+    "debug": "NODE_ENV=production hugo server --gc",
     "deploy": "./deploy.sh"
-  },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true,
-    "trailingComma": "none"
   },
   "browserslist": [
     "last 2 versions",
     "> 1%",
     "maintained node versions",
     "not dead"
-  ]
+  ],
+  "postcss": {
+    "plugins": {
+      "tailwindcss": {},
+      "autoprefixer": {}
+    }
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "none"
+  },
+  "stylelint": {
+    "extends": [
+      "stylelint-config-standard",
+      "stylelint-config-prettier"
+    ],
+    "rules": {
+      "at-rule-no-unknown": [
+        true,
+        {
+          "ignoreAtRules": [
+            "screen",
+            "layer",
+            "tailwind"
+          ]
+        }
+      ]
+    }
+  }
 }

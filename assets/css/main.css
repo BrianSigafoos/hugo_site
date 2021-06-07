@@ -1,0 +1,233 @@
+/* See tailwind.config.js for color primary: 'var(--color-primary)'
+   and .container setup. */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #17bf63;
+    --bg-bright: #fff; /* bg-white */
+    --bg-gray: #edf2f7; /* gray-200 */
+    --border-gray: #e2e8f0; /* gray-300 */
+    --text-bright: #1a202c; /* gray-900 */
+    --text-color: #4a5568; /* gray-700 */
+    --text-muted: #718096; /* gray-600 */
+    --text-faint: #a0aec0; /* gray-500 */
+    --shadow-color-a: rgba(0, 0, 0, 0.1);
+    --shadow-color-b: rgba(0, 0, 0, 0.06);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-bright: #1a202c; /* gray-900 */
+      --bg-gray: #0a0b10; /* bg-gray-970 */
+      --border-gray: #4a5568; /* gray-700 */
+      --text-bright: #f7fafc; /* gray-100 */
+      --text-color: #cbd5e0; /* gray-400 */
+      --text-muted: #a0aec0; /* gray-500 */
+      --text-faint: #718096; /* gray-600 */
+      --shadow-color-a: rgba(255, 255, 255, 0.2);
+      --shadow-color-b: rgba(255, 255, 255, 0.12);
+    }
+  }
+
+  body {
+    color: var(--text-color);
+    background-color: var(--bg-bright);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--text-bright);
+  }
+
+  .subtitle {
+    @apply font-light leading-snug mt-2;
+
+    color: var(--text-muted);
+  }
+
+  .bg-bright {
+    background-color: var(--bg-bright);
+  }
+
+  .bg-gray {
+    background-color: var(--bg-gray);
+  }
+
+  .border-gray {
+    border-color: var(--border-gray);
+  }
+
+  .text-bright {
+    color: var(--text-bright);
+  }
+
+  .text-color {
+    color: var(--text-color);
+  }
+
+  .text-muted {
+    color: var(--text-muted);
+  }
+
+  .text-faint {
+    color: var(--text-faint);
+  }
+
+  .btn-default {
+    @apply text-primary border border-solid border-primary;
+
+    background-color: var(--bg-bright);
+  }
+
+  /* prettier-ignore */
+  .shadow {
+    box-shadow:
+      0 1px 3px 0 var(--shadow-color-a),
+      0 1px 2px 0 var(--shadow-color-b);
+  }
+
+  /* Type */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold mt-4 mb-2;
+  }
+
+  h1 {
+    @apply text-3xl;
+  }
+
+  h2 {
+    @apply text-2xl;
+  }
+
+  h3 {
+    @apply text-xl;
+  }
+
+  h4 {
+    @apply text-xl;
+  }
+
+  @screen sm {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply font-bold mt-6 mb-4;
+    }
+
+    h1 {
+      @apply text-5xl;
+    }
+
+    h2 {
+      @apply text-4xl;
+    }
+
+    h3 {
+      @apply text-3xl;
+    }
+
+    h4 {
+      @apply text-2xl;
+    }
+  }
+
+  .gist h1,
+  .gist h2,
+  .gist h3,
+  .gist h4 {
+    color: var(--color-primary);
+  }
+
+  .title {
+    @apply leading-none mb-0;
+  }
+
+  a {
+    color: var(--color-primary);
+  }
+
+  a:hover,
+  a:focus {
+    @apply underline;
+  }
+
+  blockquote {
+    @apply border-l-4 border-primary pl-4 py-2 text-sm text-muted bg-gray;
+  }
+
+  .text-readable p,
+  .text-readable blockquote,
+  .text-readable ul,
+  .text-readable ol {
+    @apply text-lg mb-2;
+
+    line-height: 1.58;
+  }
+
+  @screen sm {
+    .text-readable p,
+    .text-readable blockquote,
+    .text-readable ul,
+    .text-readable ol {
+      @apply text-xl mb-4;
+    }
+  }
+
+  .text-readable ul {
+    @apply list-disc list-inside;
+  }
+
+  .text-readable ul ul {
+    @apply ml-12;
+  }
+
+  .text-readable ol {
+    @apply list-decimal list-inside;
+  }
+
+  .text-readable p:last-child,
+  .text-readable ul:last-child {
+    @apply mb-0;
+  }
+
+  pre,
+  code {
+    @apply text-base;
+  }
+
+  pre {
+    @apply p-6 overflow-auto;
+  }
+
+  .btn {
+    @apply text-base inline-block mb-1 py-2 px-6 cursor-pointer font-mono font-bold;
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--text-bright);
+  }
+
+  /* Overrides */
+  .gist .gist-file {
+    border: none !important;
+  }
+
+  .gist .gist-data {
+    background-color: inherit !important;
+  }
+}
