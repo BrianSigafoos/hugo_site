@@ -41,3 +41,9 @@ git submodule add -b master git@github.com:BrianSigafoos/briansigafoos.github.io
 ```shell
 brew upgrade hugo
 ```
+
+## Fix public sub repo
+
+- `cd public` into sub repo
+- Use git commands to fix, like `git reset HEAD~1`
+
