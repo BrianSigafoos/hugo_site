@@ -2,7 +2,7 @@
 date: 2021-06-13T12:06:27-04:00
 slug: app-stack
 title: A modern app tech stack, built for speed
-summary: Iterate more quickly using Rails with ViewComponents + Tailwind CSS + Hotwire. Build faster with no custom CSS and limited JS.
+summary: Iterate more quickly using Rails with ViewComponent + Tailwind CSS + Hotwire. Build faster with no custom CSS and limited JS.
 ---
 
 ### A simpler stack, for 2021
@@ -24,9 +24,9 @@ Now, thanks to Tailwind CSS, a utility-first CSS framework, you can "rapidly bui
 - Write HTML in [Rails](https://rubyonrails.org/) ERB templates
   - Send all HTML from the server, with [Turbo](https://turbo.hotwire.dev/) in the frontend automatically handling navigation, form submission, and more
   - Instead of partials, write reusable HTML components using [ViewComponent](https://viewcomponent.org/)
-- Write NO custom CSS. Instead use [Tailwind CSS](https://tailwindcss.com/) classes directly in ViewComponents
+- Write NO custom CSS. Instead use [Tailwind CSS](https://tailwindcss.com/) classes directly in ViewComponent components
 - Write as little Javascript as possible. Use [Stimulus](https://stimulus.hotwire.dev/) to add "sprinkles of JS"
-  - Make JS generalizable, for example: AutosubmitController and not ProductSearchFormController
+  - Make any JS generalizable, for example: AutosubmitController and not ProductSearchFormController
 
 ### More principles for sustained team velocity
 
