@@ -1,6 +1,6 @@
 ---
 date: 2021-06-13T12:06:27-04:00
-slug: app-stack
+slug: app-tech-stack-2021
 title: A modern app tech stack, built for speed
 summary: Iterate more quickly using Rails with ViewComponent + Tailwind CSS + Hotwire. Build faster with no custom CSS and limited JS.
 ---
