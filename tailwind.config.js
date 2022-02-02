@@ -1,9 +1,6 @@
 module.exports = {
-  // mode: 'jit',
-  purge: {
-    enabled: true,
-    content: ['layouts/**/*.html'],
-  },
+  mode: 'jit',
+  content: ['layouts/**/*.html'],
   theme: {
     extend: {
       colors: {
