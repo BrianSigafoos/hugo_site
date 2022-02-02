@@ -33,7 +33,7 @@ git rm --cached . -rf
 git add --all
 
 # https://gohugo.io/hosting-and-deployment/hosting-on-github/#step-by-step-instructions
-git submodule add -b master git@github.com:BrianSigafoos/briansigafoos.github.io.git public
+git submodule add -b main git@github.com:BrianSigafoos/briansigafoos.github.io.git public
 ```
 
 ## Upgrade Hugo
