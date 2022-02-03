@@ -2,7 +2,7 @@
 
 ## Workflow
 
-- Run `hugo new <post-name>` to add new posts to `content\...`
+- Run `hugo new content/<post-name>.md` to add new posts to `content/...`
 - Run `yarn build` to view site locally at http://localhost:1313
 - Run `yarn fix` to run linters with autocorrect
 - Run `yarn deploy` to publish changes to [github.com/BrianSigafoos/briansigafoos.github.io](https://github.com/BrianSigafoos/briansigafoos.github.io) which powers [briansigafoos.com](https://briansigafoos.com)
