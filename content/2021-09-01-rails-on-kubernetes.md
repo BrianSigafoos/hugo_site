@@ -38,12 +38,11 @@ Follow these guidelines and check out the [demo app repo](https://github.com/Bri
 This goes along with my post to [Auto-format and lint everything](/linters)
 
 - Automate setting up Docker/local development with VS Code tasks.
-- Run "build" tasks in VS Code that open/reload multiple shells for either:
-
+- Run "build" tasks in VS Code that open/reload multiple shells for either.
   - Docker development
   - Local development
 
-  See [tasks setup in the demo app repo](https://github.com/BrianSigafoos/docker-rails-webpacker-app/blob/main/.vscode/tasks.json).
+See [tasks setup in the demo app repo](https://github.com/BrianSigafoos/docker-rails-webpacker-app/blob/main/.vscode/tasks.json).
 
 ### Kubernetes pre-requisites
 
