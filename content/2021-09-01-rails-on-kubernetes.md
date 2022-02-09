@@ -38,10 +38,10 @@ Follow these guidelines and check out the [demo app repo](https://github.com/Bri
 This goes along with my post to [Auto-format and lint everything](/linters)
 
 - Automate setting up Docker/local development with VS Code tasks.
+- Run "build" tasks in VS Code that open/reload multiple shells for either:
 
-  - Run "build" tasks in VS Code that open/reload multiple shells for either:
-    - Docker development
-    - Local development
+  - Docker development
+  - Local development
 
   See [tasks setup in the demo app repo](https://github.com/BrianSigafoos/docker-rails-webpacker-app/blob/main/.vscode/tasks.json).
 
@@ -346,7 +346,7 @@ A summary of the key recommendations from each section are:
 The [demo app](https://github.com/BrianSigafoos/docker-rails-webpacker-app) does the checked ones above and everyone really should. They're straightforward to implement.
 See the Dockerfile for "nonroot" USER setup and USER_ID
 
-The other parts are as simple as passing some options in the K8s Deployment spec
+The other parts are as simple as passing some options in the [K8s Deployment spec](https://github.com/BrianSigafoos/docker-rails-webpacker-app/blob/main/kubernetes/base/deployment-app.yaml)
 
 ```yaml
 spec:
