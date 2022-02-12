@@ -163,7 +163,7 @@ summary: Vocab lists of fruit, vegetables, animals, and more.
 | baseball cap   | la casquette             | قبعة البيسبول          |
 | sunglasses     | les lunettes de soleil   | نظارة شمسيه            |
 | bracelet       | le bracelet              | إسورة                  |
-| earings        | les boucles d'oreilles   | الخواتم                |
+| earrings        | les boucles d'oreilles   | الخواتم                |
 | jewelry        | les bijoux (m)           | مجوهرات                |
 | necklace       | le collier               | قلادة                  |
 | ring           | l'anneau                 | حلقة                   |
