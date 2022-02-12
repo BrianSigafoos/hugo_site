@@ -103,3 +103,69 @@ summary: Vocab lists of fruit, vegetables, animals, and more.
 | zucchini         | la courgette           | كوسة               |
 
 {{< /table >}}
+
+### Clothes
+
+{{<table "w-full table-arabic-last-col">}}
+
+| English        | French                   | Arabic                 |
+| -------------- | ------------------------ | ---------------------- |
+| clothes        | les vetements            | ملابس                  |
+| clothes        | les fringues             | ملابس                  |
+| cardigan       | le cardigan              | كارديجان               |
+| dress          | la robe                  | فستان                  |
+| hoodie         | le sweat à capuche       | زنط                    |
+| jacket         | la veste                 | السترة                 |
+| jeans          | le jean                  | جينز                   |
+| lady's shirt   | le chemisier             | قميص سيدة              |
+| leather jacket | le blouson en cuir       | سترة جلدية             |
+| pants          | le pantalon              | بنطال                  |
+| shirt          | la chemise               | قميص                   |
+| shorts         | le short                 | السراويل القصيرة       |
+| skirt          | la jupe                  | تنورة                  |
+| sweater        | le pull                  | سترة                   |
+| sweat pants    | les joggings (m)         | سروال العرق            |
+| sweatshirt     | le sweat-shirt           | البلوز                 |
+| t-shirt        | le T-shirt               | تي شيرت                |
+| tank top       | le débardeur             | اعلى الدبابة           |
+| tie            | la cravate               | ربطة عنق               |
+| tights         | les collants (m)         | لباس ضيق               |
+| turtleneck     | le (pull à) col-roulé    | الياقة المدورة         |
+| underpants     | le caleçon               | السروال                |
+| v-neck sweater | le pull en V             | سترة الخامس الرقبة     |
+| bathing suit   | le maillot de bain       | ثوب السباحة            |
+| bathrobe       | le peignoir              | رداء الحمام            |
+| bra            | le soutien-gorge         | حمالة صدر              |
+| briefs         | le slip                  | ملخصات                 |
+| lingerie       | la lingerie              | الملابس الداخلية       |
+| panties        | la culotte               | سراويل                 |
+| pyjamas        | le pyjama                | لباس نوم               |
+| socks          | les chaussettes (f)      | جوارب                  |
+| stockings      | les bas                  | جوارب                  |
+| underwear      | le sous-vetement         | ثياب داخلية            |
+| boots          | les bottes               | الأحذية                |
+| running shoes  | les chaussures de course | الاحذية                |
+| sandals        | les sandales             | صنادل                  |
+| shoes          | les chaussures           | أحذية                  |
+| slippers       | les chausson (m)         | النعال                 |
+| sneakers       | les baskets              | أحذية رياضية           |
+| beanie         | le bonnet                | قبعة صغيرة             |
+| coat           | le manteau               | معطف                   |
+| gloves         | les gants                | قفازات                 |
+| hat            | le chapeau               | قبعة                   |
+| mittens        | les mitaines             | القفز                  |
+| puffy jacket   | la doudoune              | سترة منتفخ             |
+| raincoat       | l'imperméable            | معطف واق من المطر      |
+| scarf          | l'écharpe (f)            | وشاح                   |
+| ski hat        | le chapeau de ski        | قبعة التزلج على الجليد |
+| accessories    | les accessoires          | مستلزمات               |
+| backpack       | le sac à dos             | حقيبة الظهر            |
+| baseball cap   | la casquette             | قبعة البيسبول          |
+| sunglasses     | les lunettes de soleil   | نظارة شمسيه            |
+| bracelet       | le bracelet              | إسورة                  |
+| earings        | les boucles d'oreilles   | الخواتم                |
+| jewelry        | les bijoux (m)           | مجوهرات                |
+| necklace       | le collier               | قلادة                  |
+| ring           | l'anneau                 | حلقة                   |
+
+{{< /table >}}
