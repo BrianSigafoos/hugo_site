@@ -51,6 +51,10 @@
     color: var(--text-muted);
   }
 
+  .table-arabic-last-col td:last-child {
+    @apply text-right text-lg p-1;
+  }
+
   .bg-bright {
     background-color: var(--bg-bright);
   }
@@ -148,7 +152,8 @@
   .gist h1,
   .gist h2,
   .gist h3,
-  .gist h4 {
+  .gist h4,
+  .gist p {
     color: var(--color-primary);
   }
 

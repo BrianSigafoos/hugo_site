@@ -1,6 +1,7 @@
 module.exports = {
   mode: 'jit',
-  content: ['layouts/**/*.html'],
+  content: ['layouts/**/*.html', 'content/*.md'],
+  safelist: ['gist', 'gist-data', 'gist-file'],
   theme: {
     extend: {
       colors: {
