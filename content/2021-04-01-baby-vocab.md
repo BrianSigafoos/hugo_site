@@ -1,8 +1,8 @@
 ---
 date: 2021-04-01T12:03:13-05:00
 slug: baby-vocab
-title: Baby vocabulary in English, French, and Arabic
-summary: Vocab lists of fruit, vegetables, animals, and more.
+title: Baby vocab in English, French, and Arabic
+summary: Vocabulary lists of fruit, vegetables, animals, and more.
 ---
 
 ### Fruits
@@ -104,6 +104,36 @@ summary: Vocab lists of fruit, vegetables, animals, and more.
 
 {{< /table >}}
 
+### Nuts and seeds
+
+{{<table "w-full table-arabic-last-col">}}
+
+| English        | French                  | Arabic            |
+| -------------- | ----------------------- | ----------------- |
+| almond         | l'amande (f)            | لوز               |
+| almond butter  | le beurre d'amande      | زبدة اللوز        |
+| Brazil nut     | la noix du Brésil       | جوز برازيلية      |
+| cashew         | la noix de cajou        | الكاجو            |
+| cashew butter  | le beurre de cajou      | زبدة الكاجو       |
+| chestnut       | la châtaigne            | كستناء            |
+| coconut        | la noix de coco         | جوزة الهند        |
+| hazelnut       | la noisette             | البندق            |
+| macadamia nut  | la noix de macadamia    | المكاديميا البندق |
+| peanut         | la cacahuète            | الفول السوداني    |
+| pecan nut      | la noix de pécan        | الجوز البقان      |
+| pine nut       | la noix de pin          | حبوب الصنوبر      |
+| pistachio      | la pistache             | الفستق            |
+| walnut         | la noix                 | جوز               |
+| seed           | la graine               | بذرة              |
+| chia seed      | la graine de chia       | بذرة تشيا         |
+| flax seed      | la graine de lin        | بذور الكتان       |
+| hemp seed      | la graine de chanvre    | بذور القنب        |
+| pumpkin seed   | la graine de citrouille | بذور اليقطين      |
+| sesame seed    | la graine de sésame     | بذور السمسم       |
+| sunflower seed | la graine de tournesol  | حبوب دوار الشمس   |
+
+{{< /table >}}
+
 ### Clothes
 
 {{<table "w-full table-arabic-last-col">}}
@@ -163,7 +193,7 @@ summary: Vocab lists of fruit, vegetables, animals, and more.
 | baseball cap   | la casquette             | قبعة البيسبول          |
 | sunglasses     | les lunettes de soleil   | نظارة شمسيه            |
 | bracelet       | le bracelet              | إسورة                  |
-| earrings        | les boucles d'oreilles   | الخواتم                |
+| earrings       | les boucles d'oreilles   | الخواتم                |
 | jewelry        | les bijoux (m)           | مجوهرات                |
 | necklace       | le collier               | قلادة                  |
 | ring           | l'anneau                 | حلقة                   |
