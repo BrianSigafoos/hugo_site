@@ -15,7 +15,7 @@
     "fix:css": "yarn prettier --write 'assets/**/*.css'",
     "fix:md": "yarn prettier --write './*.md'; yarn prettier --write './**/*.md'",
     "fix": "yarn run fix:css; yarn run fix:md",
-    "latest": "brew upgrade hugo; yarn upgrade; yarn outdated; yarn run submodule:latest",
+    "latest": "brew upgrade hugo; yarn upgrade --latest; yarn run submodule:latest",
     "submodule:latest": "git submodule foreach --recursive git checkout main; git submodule foreach --recursive git pull origin main"
   },
   "browserslist": [

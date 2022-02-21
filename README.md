@@ -2,10 +2,11 @@
 
 ## Workflow
 
-- Run `yarn sync` to do:
+- Run `yarn latest` to ensure everything is up to date:
   - `brew upgrade hugo` to get latest version, same as CI/CD
+  - `yarn upgrade --latest` update packages
   - `yarn submodule:latest` to get latest in ./public
-- Run `hugo new content/<post-name>.md` to add new posts to `content/...`
+- Run `hugo new content/<NAME>.md` to add new posts to `content/...`
 - Run `yarn build` to view site locally at http://localhost:1313
 - Run `yarn fix` to run linters with autocorrect
 - Create a PR with changes
