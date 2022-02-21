@@ -1,5 +1,5 @@
 ---
-date: 2022-02-16T08:37:12-04:00
+date: 2022-02-01T09:00:00-04:00
 slug: beyonce-rule
 title: The Beyoncé Rule
 summary: >
