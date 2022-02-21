@@ -45,3 +45,5 @@ jobs:
         with:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
           external_repository: BrianSigafoos/briansigafoos.github.io
+          publish_branch: main
+          publish_dir: ./public
