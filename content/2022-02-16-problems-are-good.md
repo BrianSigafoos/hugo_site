@@ -2,7 +2,7 @@
 date: 2022-02-16T08:37:12-04:00
 slug: problems
 title: >
-  "Problems are good. We solve problems"
+  “Problems are good. We solve problems”
 summary: An optimistic, action-oriented attitude for software engineering
 ---
 
