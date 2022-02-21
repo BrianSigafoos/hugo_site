@@ -32,8 +32,15 @@ git rm --cached . -rf
 
 git add --all
 
+# After a git clone, remove the public directory locally and then
+# re-add the git submodule
+rm -rf public
+
 # https://gohugo.io/hosting-and-deployment/hosting-on-github/#step-by-step-instructions
 git submodule add -b main git@github.com:BrianSigafoos/briansigafoos.github.io.git public
+
+# To get latest from the git submodule
+git submodule update --recursive --remote
 ```
 
 ## Upgrade Hugo
