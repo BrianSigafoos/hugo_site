@@ -39,8 +39,14 @@ rm -rf public
 # https://gohugo.io/hosting-and-deployment/hosting-on-github/#step-by-step-instructions
 git submodule add -b main git@github.com:BrianSigafoos/briansigafoos.github.io.git public
 
+#
+# Working with git submodules
+#
 # To get latest from the git submodule
 git submodule update --recursive --remote
+# Also
+git submodule foreach --recursive git checkout main
+git submodule foreach --recursive git pull origin main
 ```
 
 ## Upgrade Hugo
