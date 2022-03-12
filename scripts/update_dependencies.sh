@@ -17,11 +17,10 @@ git checkout -b $NEW_BRANCH
 echo "Updating dependencies"
 brew bundle
 yarn upgrade --latest
-# Wrapper for:
+yarn submodule:latest
+# yarn submodule:latest is a wrapper for:
 #   git submodule foreach --recursive git checkout main
 #   git submodule foreach --recursive git pull origin main
-yarn run submodule:latest
-
 
 echo "Committing changes"
 git commit -a -m "Update dependencies $READABLE_DATE" --no-verify
