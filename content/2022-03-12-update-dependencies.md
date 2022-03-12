@@ -14,7 +14,7 @@ Now, with [Github's Dependabot](https://github.com/dependabot), individual PR's 
 
 Constantly deploying small batches of changes is less risky than larger batch sizes.
 
-What about NodeJS sub-dependencies and some Ruby sub-dependencies that Dependabot seems to ignore? I've found it useful to run a script 1x weekly to sweep up all these updates into a single PR in the semi-automated script, the key parts are:
+What about NodeJS sub-dependencies and some Ruby sub-dependencies that Dependabot seems to ignore? I've found it useful to run a script 1x weekly to sweep up all these updates into a single PR with a semi-automated script. The script updates dependencies and opens a PR with the changes. Here are the key parts:
 
 ```bash
 brew bundle
