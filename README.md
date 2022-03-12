@@ -6,7 +6,7 @@
 
   - `brew bundle`
   - `yarn upgrade --latest`
-  - `yarn run submodule:latest`
+  - `yarn submodule:latest`
     - `git submodule foreach --recursive git checkout main`
     - `git submodule foreach --recursive git pull origin main`
 
