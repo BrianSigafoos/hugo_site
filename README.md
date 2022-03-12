@@ -3,6 +3,13 @@
 ## Workflow
 
 - Run `yarn update` to ensure everything is up to date, see script/update_dependencies.sh
+
+  - `brew bundle`
+  - `yarn upgrade --latest`
+  - `yarn run submodule:latest`
+    - `git submodule foreach --recursive git checkout main`
+    - `git submodule foreach --recursive git pull origin main`
+
 - Merge opened PR for dependencies
 - Run `hugo new content/<NAME>.md` to add new posts to `content/...`
 - Run `yarn build` to view site locally at http://localhost:1313
