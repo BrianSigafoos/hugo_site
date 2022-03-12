@@ -10,12 +10,12 @@
     "tailwindcss": "3.0.23"
   },
   "scripts": {
+    "update": "scripts/update_dependencies.sh",
     "build": "hugo server --gc",
     "debug": "NODE_ENV=production hugo server --gc",
     "fix:css": "yarn prettier --write 'assets/**/*.css'",
     "fix:md": "yarn prettier --write './*.md'; yarn prettier --write './**/*.md'",
     "fix": "yarn run fix:css; yarn run fix:md",
-    "latest": "brew upgrade hugo; yarn upgrade --latest; yarn run submodule:latest",
     "submodule:latest": "git submodule foreach --recursive git checkout main; git submodule foreach --recursive git pull origin main"
   },
   "browserslist": [
