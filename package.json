@@ -16,7 +16,7 @@
     "debug": "NODE_ENV=production hugo server --gc",
     "fix": "yarn run fix:css; yarn run fix:md",
     "fix:css": "yarn prettier --write 'assets/**/*.css'",
-    "fix:md": "yarn prettier --write './*.md'; yarn prettier --write './**/*.md'",
+    "fix:md": "yarn prettier --write './*.md'; yarn prettier --write './**/*.md'"
   },
   "browserslist": [
     "supports es6-module"
