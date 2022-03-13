@@ -12,7 +12,7 @@ What's well tested? A good mix of mostly small, fast tests and some slower integ
 Previously, we'd have to run a script for dependency updates and open a pull request (PR). Often, this pull request would contain many dependency updates.
 Now, with [Github's Dependabot](https://github.com/dependabot), individual PR's are constantly opened for individual dependency updates. The CI test suite tests that change in isolation and if the tests are green, we can merge and deploy with confidence.
 
-Constantly deploying a small change, or small batch of changes, is musch less risky than larger batch sizes.
+Constantly deploying a small change, or small batch of changes, is much less risky than larger batch sizes.
 
 What about NodeJS sub-dependencies and some Ruby sub-dependencies that Dependabot seems to ignore? I've found it useful to run a script 1x weekly to sweep up all these updates into a single PR with a semi-automated script. The script updates dependencies and opens a PR with the changes. Here are the key parts:
 
