@@ -5,7 +5,7 @@ title: Automate dependency updates
 summary: Use automated tools like Github's Dependabot and Actions to automate dependency updates
 ---
 
-Once code is well tested and [CI/CD is set up](rails-on-kubernetes), we can be confident in continuously merging and deploying dependency upgrades.
+Once code is well tested and [CI/CD is set up](/rails-on-kubernetes), we can be confident in continuously merging and deploying dependency upgrades.
 
 What's well tested? A good mix of mostly small, fast tests and some slower integration and system tests.
 
