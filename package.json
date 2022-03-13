@@ -14,6 +14,7 @@
     "latest": "git checkout main; git pull origin main; git submodule foreach --recursive git checkout main; git submodule foreach --recursive git pull origin main",
     "build": "hugo server --gc",
     "debug": "NODE_ENV=production hugo server --gc",
+    "pr": "gh pr create --fill --draft",
     "fix": "yarn run fix:css; yarn run fix:md",
     "fix:css": "yarn prettier --write 'assets/**/*.css'",
     "fix:md": "yarn prettier --write './*.md'; yarn prettier --write './**/*.md'"
