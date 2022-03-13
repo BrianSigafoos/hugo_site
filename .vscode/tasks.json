@@ -2,7 +2,27 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "yarn build - hugo server - dev",
+      "label": "yarn update - update dependencies",
+      "type": "shell",
+      "command": "yarn update",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "yarn latest - latest submodules",
+      "type": "shell",
+      "command": "yarn latest",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "yarn build - dev server",
       "type": "shell",
       "command": "yarn build",
       "problemMatcher": [],
@@ -15,18 +35,9 @@
       }
     },
     {
-      "label": "yarn fix",
+      "label": "yarn fix - autocorrect",
       "type": "shell",
       "command": "yarn fix",
-      "problemMatcher": [],
-      "presentation": {
-        "reveal": "always"
-      }
-    },
-    {
-      "label": "yarn deploy - hugo - prod",
-      "type": "shell",
-      "command": "yarn deploy",
       "problemMatcher": [],
       "presentation": {
         "reveal": "always"
