@@ -32,29 +32,10 @@
       --shadow-color-b: rgba(255, 255, 255, 0.12);
     }
   }
+}
 
-  body {
-    color: var(--text-color);
-    background-color: var(--bg-bright);
-  }
-
-  h1,
-  h2,
-  h3,
-  h4 {
-    color: var(--text-bright);
-  }
-
-  .subtitle {
-    @apply font-light leading-snug mt-2;
-
-    color: var(--text-muted);
-  }
-
-  .table-arabic-last-col td:last-child {
-    @apply text-right text-lg p-1;
-  }
-
+@layer components {
+  /* Colors */
   .bg-bright {
     background-color: var(--bg-bright);
   }
@@ -87,6 +68,22 @@
     @apply text-primary border border-solid border-primary;
 
     background-color: var(--bg-bright);
+  }
+
+  /* Styles */
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-bright;
+  }
+
+  .subtitle {
+    @apply text-muted font-light leading-snug mt-2;
+  }
+
+  .table-arabic-last-col td:last-child {
+    @apply text-right text-lg p-1;
   }
 
   /* prettier-ignore */
@@ -161,8 +158,9 @@
     @apply leading-none mb-0;
   }
 
+  /* .bg-primary, .text-primary, etc come from tailwind.config.js */
   a {
-    color: var(--color-primary);
+    @apply text-primary;
   }
 
   a:hover,
@@ -223,8 +221,7 @@
   }
 
   .btn-primary {
-    background-color: var(--color-primary);
-    color: var(--text-bright);
+    @apply bg-bright text-primary;
   }
 
   /* Overrides */

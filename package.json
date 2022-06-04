@@ -12,7 +12,7 @@
   "scripts": {
     "update": "scripts/update_dependencies.sh",
     "latest": "git checkout main; git pull origin main; git submodule foreach --recursive git checkout main; git submodule foreach --recursive git pull origin main",
-    "build": "hugo server --gc",
+    "build": "hugo server --gc --buildDrafts",
     "debug": "NODE_ENV=production hugo server --gc",
     "pr": "gh pr create --fill --draft",
     "fix": "yarn run fix:css; yarn run fix:md",
