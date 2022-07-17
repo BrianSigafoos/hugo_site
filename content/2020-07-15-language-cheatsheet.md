@@ -245,6 +245,7 @@ function isEven(number) {
 #### References for Javascript
 
 - [MDN Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [MDN Javascript Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide)
 - [A Re-introduction to Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript)
 - [Learn Javascript in Y Minutes](https://learnxinyminutes.com/docs/javascript/)
 
