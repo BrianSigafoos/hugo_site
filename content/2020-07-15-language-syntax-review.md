@@ -1,11 +1,11 @@
 ---
-title: Language Syntax Review
+title: Language syntax review
 slug: syntax
 date: 2020-07-16T20:21:41-04:00
-summary: Quick review of basic syntax for Go, Javascript, and Ruby
+summary: Quick review of basic syntax for Go, Javascript, Ruby, Rails, and SQL
 ---
 
-Jump to [Go](#go) · [Javascript](#javascript) · [Ruby](#ruby)
+Jump to [Go](#go) · [Javascript](#javascript) · [Ruby](#ruby) · [Rails](#rails) · [SQL](#sql)
 
 ---
 
@@ -100,7 +100,7 @@ for { // Infinite loop.
 - [Learn Go in Y Minutes](https://learnxinyminutes.com/docs/go/)
 - [A Tour of Go](https://go.dev/tour)
 
-Jump to [Go](#go) · [Javascript](#javascript) · [Ruby](#ruby)
+Jump to [Go](#go) · [Javascript](#javascript) · [Ruby](#ruby) · [Rails](#rails) · [SQL](#sql)
 
 ---
 
@@ -285,6 +285,8 @@ fetch(API_URL_WITH_PARAMS)
 - [A Re-introduction to Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript)
 - [Learn Javascript in Y Minutes](https://learnxinyminutes.com/docs/javascript/)
 
+Jump to [Go](#go) · [Javascript](#javascript) · [Ruby](#ruby) · [Rails](#rails) · [SQL](#sql)
+
 ---
 
 ### Ruby
@@ -445,4 +447,93 @@ puts parsed
   - [Array](https://ruby-doc.org/core-3.1.2/Array.html)
 - [Learn Ruby in Y Minutes](https://learnxinyminutes.com/docs/ruby/)
 
-Jump to [Go](#go) · [Javascript](#javascript) · [Ruby](#ruby)
+Jump to [Go](#go) · [Javascript](#javascript) · [Ruby](#ruby) · [Rails](#rails) · [SQL](#sql)
+
+---
+
+### Rails
+
+#### Routes
+
+Try to always use ["resourceful" routes in Rails](https://guides.rubyonrails.org/routing.html#resource-routing-the-rails-default)
+
+```ruby
+# config/routes.rb
+Rails.application.routes.draw do
+  resources :networks, only: [] do
+    resources :devices
+    resource :topology, only: :show
+  end
+end
+
+# Produces:
+#              Prefix Verb   URI Pattern                                      Controller#Action
+#     network_devices GET    /networks/:network_id/devices(.:format)          devices#index
+#                     POST   /networks/:network_id/devices(.:format)          devices#create
+#  new_network_device GET    /networks/:network_id/devices/new(.:format)      devices#new
+# edit_network_device GET    /networks/:network_id/devices/:id/edit(.:format) devices#edit
+#      network_device GET    /networks/:network_id/devices/:id(.:format)      devices#show
+#                     PATCH  /networks/:network_id/devices/:id(.:format)      devices#update
+#                     PUT    /networks/:network_id/devices/:id(.:format)      devices#update
+#                     DELETE /networks/:network_id/devices/:id(.:format)      devices#destroy
+#    network_topology GET    /networks/:network_id/topology(.:format)         topologies#show
+```
+
+Define routing tests/specs first.
+
+```ruby
+# spec/routing/devices_routing_spec.rb
+require 'rails_helper'
+
+RSpec.describe DevicesController, type: :routing do
+  describe 'routing' do
+    it 'routes to #show' do
+      expect(get: '/networks/1/devices/2').to route_to('devices#show', network_id: '1', id: '2')
+    end
+
+    it 'routes to #new' do
+      expect(get: '/networks/1/devices/new').to route_to('devices#new', network_id: '1')
+    end
+
+    it 'routes to #create' do
+      expect(post: '/networks/1/devices').to route_to('devices#create', network_id: '1')
+    end
+
+    it 'routes to #update' do
+      expect(put:   '/networks/1/devices/2').to route_to('devices#update', network_id: '1', id: '2')
+      expect(patch: '/networks/1/devices/2').to route_to('devices#update', network_id: '1', id: '2')
+    end
+
+    it 'routes to #destroy' do
+      expect(delete: '/networks/1/devices/id123').to route_to('devices#destroy', network_id: '1', id: 'id123')
+    end
+  end
+end
+```
+
+```ruby
+namespace :app do
+  scope ':account_slug' do
+    resource :home, only: :show               # Singular "show" only route
+    resources :messages, only: %i[index edit]
+  end
+end
+
+# Produces:
+#           Prefix Verb  URI Pattern                                    Controller#Action
+#         app_home GET   /app/:account_slug/home(.:format)              app/homes#show
+#     app_messages GET   /app/:account_slug/messages(.:format)          app/messages#index
+# edit_app_message GET   /app/:account_slug/messages/:id/edit(.:format) app/messages#edit
+```
+
+
+
+Jump to [Go](#go) · [Javascript](#javascript) · [Ruby](#ruby) · [Rails](#rails) · [SQL](#sql)
+
+---
+
+### SQL
+
+
+
+Jump to [Go](#go) · [Javascript](#javascript) · [Ruby](#ruby) · [Rails](#rails) · [SQL](#sql)
