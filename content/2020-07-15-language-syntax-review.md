@@ -455,14 +455,26 @@ Jump to [Go](#go) · [Javascript](#javascript) · [Ruby](#ruby) · [Rails](#rail
 
 #### Routes
 
-Try to always use ["resourceful" routes in Rails](https://guides.rubyonrails.org/routing.html#resource-routing-the-rails-default)
+- Try to always use ["resourceful" routes in Rails](https://guides.rubyonrails.org/routing.html#resource-routing-the-rails-default)
+- Always write routing tests/specs first, with the same code change as the routes themselves
 
 ```ruby
 # config/routes.rb
 Rails.application.routes.draw do
   resources :networks, only: [] do
     resources :devices
-    resource :topology, only: :show
+    resource :topology, only: :show   # Singular "show" only route
+  end
+
+
+  namespace :app do                 # namespace adds module (folder) and prefix '/app'
+    scope ':account_slug' do        # scope just adds scope to path
+      resources :messages, only: %i[index edit]
+    end
+  end
+
+  scope module: :billing do       # scope module: adds module (folder) only, no prefix
+    resources :plans, only: :index
   end
 end
 
@@ -477,9 +489,12 @@ end
 #                     PUT    /networks/:network_id/devices/:id(.:format)      devices#update
 #                     DELETE /networks/:network_id/devices/:id(.:format)      devices#destroy
 #    network_topology GET    /networks/:network_id/topology(.:format)         topologies#show
+#        app_messages GET    /app/:account_slug/messages(.:format)            app/messages#index
+#    edit_app_message GET    /app/:account_slug/messages/:id/edit(.:format)   app/messages#edit
+#               plans GET    /plans(.:format)                                 billing/plans#index
 ```
 
-Define routing tests/specs first.
+Example tests
 
 ```ruby
 # spec/routing/devices_routing_spec.rb
@@ -509,21 +524,6 @@ RSpec.describe DevicesController, type: :routing do
     end
   end
 end
-```
-
-```ruby
-namespace :app do
-  scope ':account_slug' do
-    resource :home, only: :show               # Singular "show" only route
-    resources :messages, only: %i[index edit]
-  end
-end
-
-# Produces:
-#           Prefix Verb  URI Pattern                                    Controller#Action
-#         app_home GET   /app/:account_slug/home(.:format)              app/homes#show
-#     app_messages GET   /app/:account_slug/messages(.:format)          app/messages#index
-# edit_app_message GET   /app/:account_slug/messages/:id/edit(.:format) app/messages#edit
 ```
 
 
