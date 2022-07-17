@@ -466,9 +466,8 @@ Rails.application.routes.draw do
     resource :topology, only: :show   # Singular "show" only route
   end
 
-
-  namespace :app do                 # namespace adds module (folder) and prefix '/app'
-    scope ':account_slug' do        # scope just adds scope to path
+  namespace :app do                 # namespace adds module (folder) and prefix '/app' to URI
+    scope ':account_slug' do        # scope just adds prefix :account_slug to URI
       resources :messages, only: %i[index edit]
     end
   end
