@@ -463,16 +463,16 @@ Jump to [Go](#go) · [Javascript](#javascript) · [Ruby](#ruby) · [Rails](#rail
 Rails.application.routes.draw do
   resources :networks, only: [] do
     resources :devices
-    resource :topology, only: :show   # Singular "show" only route
+    resource :topology, only: :show # singular "show"-only route
   end
 
-  namespace :app do                 # namespace adds module (folder) and prefix '/app' to URI
+  namespace :app do                 # namespace adds module (folder) AND prefix '/app' to URI
     scope ':account_slug' do        # scope just adds prefix :account_slug to URI
       resources :messages, only: %i[index edit]
     end
   end
 
-  scope module: :billing do       # scope module: adds module (folder) only, no prefix
+  scope module: :billing do         # scope module adds module (folder) only, no prefix to URI
     resources :plans, only: :index
   end
 end
