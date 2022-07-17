@@ -199,7 +199,15 @@ cache.get('a') // Get value or `undefined`
 cache.delete('a') // Delete element by key, returns true on success, or false if not found
 ```
 
-#### Stacks and Queues in Javascript
+#### Arrays in Javascript
+
+```javascript
+const array1 = [1, 2, 3];
+array1.includes(2)) // true
+array1.includes(3)) // false
+```
+
+Stacks and Queues
 
 ```javascript
 // Stacks (LIFO)
@@ -374,7 +382,15 @@ cache['a']        # Get value or `nil`
 cache.delete('a') # Delete element by key, returns value on success or `nil` if  not found
 ```
 
-#### Stacks and Queues in Ruby
+#### Arrays in Ruby
+
+```ruby
+array1 = [1, 2, 3]
+array1.include?(1) # true
+array1.include?(4) # false
+```
+
+Stacks and Queues in Ruby
 
 ```ruby
 # Stacks (LIFO)
