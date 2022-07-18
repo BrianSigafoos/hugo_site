@@ -30,8 +30,11 @@ Good linters and auto-formatters have sane defaults, allow some customization, a
 - [Stylelint](https://stylelint.io) - CSS, including SCSS, Sass, etc
 - [i18n-tasks](https://github.com/glebm/i18n-tasks) - For I18n (internationalization) files
 - [lint-staged](https://github.com/okonet/lint-staged) - Run linters against staged git files
-- [gofmt](https://golang.org/cmd/gofmt/) - Go, built into th language!
+- [gofmt](https://golang.org/cmd/gofmt/) - Go, built into the language!
 - [golangci-lint](https://github.com/golangci/golangci-lint) - Go
+- [Brakeman](https://github.com/presidentbeef/brakeman) - Check Rails apps for security vulnerabilities
+- [bundler-audit](https://github.com/rubysec/bundler-audit) - Ruby: checks vulnerable versions of gems in Gemfile.lock
+- [ruby_audit](https://github.com/civisanalytics/ruby_audit) - Ruby: checks your current version of Ruby and RubyGems against known
 
 #### Rubocop config
 
