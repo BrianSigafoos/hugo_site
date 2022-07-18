@@ -453,6 +453,77 @@ Jump to [Go](#go) · [Javascript](#javascript) · [Ruby](#ruby) · [Rails](#rail
 
 ### Rails
 
+#### Generators
+
+```ruby
+rails generate <type> --help # for examples
+
+# Model (+ migration, test, fixtures)
+# rails generate model NAME [field[:type][:index] field[:type][:index]] [options]
+rails generate model post title:string blog:references published:boolean position:integer
+rails generate model product supplier:references{polymorphic}
+
+# Migration
+# rails generate migration NAME [field[:type][:index] field[:type][:index]] [options]
+rails generate migration AddTitlePublishedToPost title:string published:boolean
+```
+
+#### Models code order (preference)
+
+```ruby
+class User < ApplicationRecord
+  # concerns first
+  include HasUniqueIdentifier
+
+  # default scope (if any, hopefully none)
+  default_scope { where(active: true) }
+
+  # constants
+  GENDERS = { unknown: 0, female: 1, male: 2, non_binary: 3, not_disclosed: 4 }.freeze
+
+  # attr related macros
+  attr_accessor :formatted_date_of_birth
+
+  # enums after attr macros, prefer the hash syntax (GENDERS constant is a hash)
+  enum gender_enum: GENDERS, _prefix: :gender
+
+  # association macros
+  belongs_to :country
+
+  has_many :authentications, dependent: :destroy
+
+  # validation macros
+  validates :email,
+            :username, presence: true
+  validates :username, uniqueness: { case_sensitive: false } }
+
+  # callbacks
+  after_create  :accept_latest_terms!,    unless: :created_by_invite?
+
+  # scopes
+  scope :published, -> { where(published: true) }
+
+  # delegations
+  delegate :currency, to: :country
+
+  # class methods
+  def self.by_email(email)
+    # ...
+  end
+
+  # instance methods
+  def name
+    # ...
+  end
+
+  private
+
+  # callback methods
+  def accept_latest_terms!
+    # ...
+  end
+```
+
 #### Routes
 
 - Try to always use ["resourceful" routes in Rails](https://guides.rubyonrails.org/routing.html#resource-routing-the-rails-default)
@@ -525,6 +596,9 @@ RSpec.describe DevicesController, type: :routing do
 end
 ```
 
+#### References for Rails
+
+- [Rails Guides](https://guides.rubyonrails.org/)
 
 
 Jump to [Go](#go) · [Javascript](#javascript) · [Ruby](#ruby) · [Rails](#rails) · [SQL](#sql)
@@ -533,6 +607,144 @@ Jump to [Go](#go) · [Javascript](#javascript) · [Ruby](#ruby) · [Rails](#rail
 
 ### SQL
 
+#### Basics of SQL
 
+```sql
+-- Always use syntax that explicitly lists column order when inserting data
+INSERT INTO
+    weather (city, temp_lo, temp_hi, prcp, date)
+VALUES
+    ('San Francisco', 43, 57, 0.0, '1994-11-29');
+
+-- Aggregate
+SELECT
+    city,
+    max(temp_lo)
+FROM
+    weather
+GROUP BY
+    city;
+
+-- Filter grouped rows, using HAVING
+SELECT
+    city,
+    max(temp_lo)
+FROM
+    weather
+GROUP BY
+    city
+HAVING
+    max(temp_lo) < 40;
+```
+
+#### Advanced SQL
+
+```sql
+-- Find duplicates using having count(*) > 1
+select
+    count(*) as duplicate_reports_count,
+    day_id, receiver_name, domain, account_slug, identifier
+from
+    table_name
+group by
+    day_id, receiver_name, domain, account_slug, identifier
+having
+    count(*) > 1;
+
+-- Example of case statement, to_char() to format float as a percent.
+select
+    day_id,
+
+    case
+        when (sum(passing_count) / sum(messages_count)::float >= 0.95) then 'passing'
+        when (sum(passing_count) / sum(messages_count)::float <= 0.50) then 'failing'
+        else 'partially passing'
+    end as status,
+
+    to_char(
+        sum(messages_count) / sum(count)::float * 100.0, '999D9%'
+    ) as passing_pct,
+
+    sum(messages_count) as total_messages_count,
+from
+    group_originating_and_geo_by_day_ids
+where
+    day_id >= 20191001
+    and day_id <= 20191231
+    and account_slug = 'sales-demos'
+    and originating_esp_slug != 'internal'
+    and originating_esp_slug != 'unknown'
+group by
+    day_id,
+    dmarc_policy_org_domain,
+    originating_esp_slug
+order by
+    day_id desc
+limit
+    1000
+;
+```
+
+#### Advanced - Window Functions SQL
+
+> A window function performs a calculation across a set of table rows that are somehow related to the current row. This is comparable to the type of calculation that can be done with an aggregate function. However, window functions do not cause rows to become grouped into a single output row like non-window aggregate calls would. Instead, the rows retain their separate identities. Behind the scenes, the window function is able to access more than just the current row of the query result.
+
+> Here is an example that shows how to compare each employee's salary with the average salary in his or her department:
+
+```sql
+SELECT
+    depname,
+    empno,
+    salary,
+    avg(salary)
+OVER (PARTITION BY depname)
+FROM
+    empsalary;
+```
+
+#### VACUUM
+
+Why `VACUUM`?
+
+> In normal PostgreSQL operation, tuples that are deleted or obsoleted by an
+> update are not physically removed from their table; they remain present until
+> a VACUUM is done. Therefore it's necessary to do VACUUM periodically,
+> especially on frequently-updated tables.
+> ([reference](https://www.postgresql.org/docs/11/sql-vacuum.html))
+
+`VACUUM ANALYZE` performs a `VACUUM` and then an `ANALYZE` for each selected
+table.
+
+`ANALYZE` updates statistics used by the planner to determine the most efficient
+way to execute a query.
+
+`VACUUM FULL` reclaims more space, but takes much longer and **exclusively locks
+the table**. This method also requires extra disk space, since it writes a new
+copy of the table and doesn't release the old copy until the operation is
+complete.
+
+#### Admin SQL
+
+```sql
+-- Cancel a query
+SELECT pg_cancel_backend(<query_id>);
+
+-- Get role members and grantors
+select a.roleid, b.rolname rolename, a.member, c.rolname membername, a.grantor, d.usename grantorname, a.admin_option
+from pg_auth_members a
+join pg_roles b
+on a.roleid = b.oid
+join pg_roles c
+on a.member = c.oid
+join pg_user d
+on a.grantor = d.usesysid;
+```
+
+#### References for SQL
+
+- [PostgreSQL Docs](https://www.postgresql.org/docs/current/)
+  - [SQL Syntax](https://www.postgresql.org/docs/current/sql.html)
+- [EXPLAIN - depesz](https://explain.depesz.com/)
+- [Postgres post - Brian Sigafoos](/postgres)
 
 Jump to [Go](#go) · [Javascript](#javascript) · [Ruby](#ruby) · [Rails](#rails) · [SQL](#sql)
