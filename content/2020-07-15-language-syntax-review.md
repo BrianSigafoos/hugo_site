@@ -479,13 +479,7 @@ class User < ApplicationRecord
   default_scope { where(active: true) }
 
   # constants
-  GENDERS = {
-    unknown:       0,
-    female:        1,
-    male:          2,
-    non_binary:    3,
-    not_disclosed: 4
-  }.freeze
+  GENDERS = { unknown: 0, female: 1, male: 2, non_binary: 3, not_disclosed: 4 }.freeze
 
   # attr related macros
   attr_accessor :formatted_date_of_birth
