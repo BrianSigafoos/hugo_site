@@ -613,6 +613,115 @@ Jump to [Go](#go) · [Javascript](#javascript) · [Ruby](#ruby) · [Rails](#rail
 
 ### SQL
 
+#### Basics
 
+```sql
+-- Always use syntax that explicitly lists column order when inserting data
+INSERT INTO
+    weather (city, temp_lo, temp_hi, prcp, date)
+VALUES
+    ('San Francisco', 43, 57, 0.0, '1994-11-29');
+
+-- Aggregate
+SELECT
+    city,
+    max(temp_lo)
+FROM
+    weather
+GROUP BY
+    city;
+```
+
+#### Advanced SQL
+
+```sql
+-- Find duplicates using having count(*) > 1
+select
+    count(*) as duplicate_reports_count,
+    day_id, receiver_name, domain, account_slug, identifier
+from
+    table_name
+group by
+    day_id, receiver_name, domain, account_slug, identifier
+having
+    count(*) > 1;
+
+-- Example of case statement, to_char() to format float as a percent.
+select
+    day_id,
+
+    case
+        when (sum(passing_count) / sum(messages_count)::float >= 0.95) then 'passing'
+        when (sum(passing_count) / sum(messages_count)::float <= 0.50) then 'failing'
+        else 'partially passing'
+    end as status,
+
+    to_char(
+        sum(messages_count) / sum(count)::float * 100.0, '999D9%'
+    ) as passing_pct,
+
+    sum(messages_count) as total_messages_count,
+from
+    group_originating_and_geo_by_day_ids
+where
+    day_id >= 20191001
+    and day_id <= 20191231
+    and account_slug = 'sales-demos'
+    and originating_esp_slug != 'internal'
+    and originating_esp_slug != 'unknown'
+group by
+    day_id,
+    dmarc_policy_org_domain,
+    originating_esp_slug
+order by
+    day_id desc
+limit
+    1000
+;
+```
+
+#### VACUUM
+
+Why `VACUUM`?
+
+> In normal PostgreSQL operation, tuples that are deleted or obsoleted by an
+> update are not physically removed from their table; they remain present until
+> a VACUUM is done. Therefore it's necessary to do VACUUM periodically,
+> especially on frequently-updated tables.
+> ([reference](https://www.postgresql.org/docs/11/sql-vacuum.html))
+
+`VACUUM ANALYZE` performs a `VACUUM` and then an `ANALYZE` for each selected
+table.
+
+`ANALYZE` updates statistics used by the planner to determine the most efficient
+way to execute a query.
+
+`VACUUM FULL` reclaims more space, but takes much longer and **exclusively locks
+the table**. This method also requires extra disk space, since it writes a new
+copy of the table and doesn't release the old copy until the operation is
+complete.
+
+#### Admin SQL
+
+```sql
+-- Cancel a query
+SELECT pg_cancel_backend(<query_id>);
+
+-- Get role members and grantors
+select a.roleid, b.rolname rolename, a.member, c.rolname membername, a.grantor, d.usename grantorname, a.admin_option
+from pg_auth_members a
+join pg_roles b
+on a.roleid = b.oid
+join pg_roles c
+on a.member = c.oid
+join pg_user d
+on a.grantor = d.usesysid;
+```
+
+#### References for SQL
+
+- [PostgreSQL Docs](https://www.postgresql.org/docs/current/)
+- [EXPLAIN - depesz](https://explain.depesz.com/)
+- [Postgres post - Brian Sigafoos](/postgres)
 
 Jump to [Go](#go) · [Javascript](#javascript) · [Ruby](#ruby) · [Rails](#rails) · [SQL](#sql)
