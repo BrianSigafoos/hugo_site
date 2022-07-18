@@ -613,7 +613,7 @@ Jump to [Go](#go) · [Javascript](#javascript) · [Ruby](#ruby) · [Rails](#rail
 
 ### SQL
 
-#### Basics
+#### Basics of SQL
 
 ```sql
 -- Always use syntax that explicitly lists column order when inserting data
@@ -630,6 +630,17 @@ FROM
     weather
 GROUP BY
     city;
+
+-- Filter grouped rows, using HAVING
+SELECT
+    city,
+    max(temp_lo)
+FROM
+    weather
+GROUP BY
+    city
+HAVING
+    max(temp_lo) < 40;
 ```
 
 #### Advanced SQL
@@ -680,6 +691,23 @@ limit
 ;
 ```
 
+#### Advanced - Window Functions SQL
+
+> A window function performs a calculation across a set of table rows that are somehow related to the current row. This is comparable to the type of calculation that can be done with an aggregate function. However, window functions do not cause rows to become grouped into a single output row like non-window aggregate calls would. Instead, the rows retain their separate identities. Behind the scenes, the window function is able to access more than just the current row of the query result.
+
+> Here is an example that shows how to compare each employee's salary with the average salary in his or her department:
+
+```sql
+SELECT
+    depname,
+    empno,
+    salary,
+    avg(salary)
+OVER (PARTITION BY depname)
+FROM
+    empsalary;
+```
+
 #### VACUUM
 
 Why `VACUUM`?
@@ -721,6 +749,7 @@ on a.grantor = d.usesysid;
 #### References for SQL
 
 - [PostgreSQL Docs](https://www.postgresql.org/docs/current/)
+  - [SQL Syntax](https://www.postgresql.org/docs/current/sql.html)
 - [EXPLAIN - depesz](https://explain.depesz.com/)
 - [Postgres post - Brian Sigafoos](/postgres)
 
