@@ -453,6 +453,83 @@ Jump to [Go](#go) · [Javascript](#javascript) · [Ruby](#ruby) · [Rails](#rail
 
 ### Rails
 
+#### Generators
+
+```ruby
+rails generate <type> --help # for examples
+
+# Model (+ migration, test, fixtures)
+# rails generate model NAME [field[:type][:index] field[:type][:index]] [options]
+rails generate model post title:string blog:references published:boolean position:integer
+rails generate model product supplier:references{polymorphic}
+
+# Migration
+# rails generate migration NAME [field[:type][:index] field[:type][:index]] [options]
+rails generate migration AddTitlePublishedToPost title:string published:boolean
+```
+
+#### Models code order (preference)
+
+```ruby
+class User < ApplicationRecord
+  # concerns first
+  include HasUniqueIdentifier
+
+  # default scope (if any, hopefully none)
+  default_scope { where(active: true) }
+
+  # constants
+  GENDERS = {
+    unknown:       0,
+    female:        1,
+    male:          2,
+    non_binary:    3,
+    not_disclosed: 4
+  }.freeze
+
+  # attr related macros
+  attr_accessor :formatted_date_of_birth
+
+  # enums after attr macros, prefer the hash syntax (GENDERS constant is a hash)
+  enum gender_enum: GENDERS, _prefix: :gender
+
+  # association macros
+  belongs_to :country
+
+  has_many :authentications, dependent: :destroy
+
+  # validation macros
+  validates :email,
+            :username, presence: true
+  validates :username, uniqueness: { case_sensitive: false } }
+
+  # callbacks
+  after_create  :accept_latest_terms!,    unless: :created_by_invite?
+
+  # scopes
+  scope :published, -> { where(published: true) }
+
+  # delegations
+  delegate :currency, to: :country
+
+  # class methods
+  def self.by_email(email)
+    # ...
+  end
+
+  # instance methods
+  def name
+    # ...
+  end
+
+  private
+
+  # callback methods
+  def accept_latest_terms!
+    # ...
+  end
+```
+
 #### Routes
 
 - Try to always use ["resourceful" routes in Rails](https://guides.rubyonrails.org/routing.html#resource-routing-the-rails-default)
@@ -525,6 +602,9 @@ RSpec.describe DevicesController, type: :routing do
 end
 ```
 
+#### References for Rails
+
+- [Rails Guides](https://guides.rubyonrails.org/)
 
 
 Jump to [Go](#go) · [Javascript](#javascript) · [Ruby](#ruby) · [Rails](#rails) · [SQL](#sql)
