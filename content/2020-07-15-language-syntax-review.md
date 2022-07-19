@@ -5,7 +5,7 @@ date: 2020-07-16T20:21:41-04:00
 summary: Quick review of basic syntax for Go, Javascript, Ruby, Rails, and SQL
 ---
 
-Jump to [Go](#go) · [Javascript](#javascript) · [Ruby](#ruby) · [Rails](#rails) · [SQL](#sql)
+Jump to [Go](#go) · [Javascript](#javascript) · [Rails](#rails) · [Ruby](#ruby) · [SQL](#sql)
 
 ---
 
@@ -100,7 +100,7 @@ for { // Infinite loop.
 - [Learn Go in Y Minutes](https://learnxinyminutes.com/docs/go/)
 - [A Tour of Go](https://go.dev/tour)
 
-Jump to [Go](#go) · [Javascript](#javascript) · [Ruby](#ruby) · [Rails](#rails) · [SQL](#sql)
+Jump to [Go](#go) · [Javascript](#javascript) · [Rails](#rails) · [Ruby](#ruby) · [SQL](#sql)
 
 ---
 
@@ -309,7 +309,7 @@ test('isValid', () => {
 - [A Re-introduction to Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript)
 - [Learn Javascript in Y Minutes](https://learnxinyminutes.com/docs/javascript/)
 
-Jump to [Go](#go) · [Javascript](#javascript) · [Ruby](#ruby) · [Rails](#rails) · [SQL](#sql)
+Jump to [Go](#go) · [Javascript](#javascript) · [Rails](#rails) · [Ruby](#ruby) · [SQL](#sql)
 
 ---
 
@@ -484,11 +484,55 @@ end
   - [Array](https://ruby-doc.org/core-3.1.2/Array.html)
 - [Learn Ruby in Y Minutes](https://learnxinyminutes.com/docs/ruby/)
 
-Jump to [Go](#go) · [Javascript](#javascript) · [Ruby](#ruby) · [Rails](#rails) · [SQL](#sql)
+Jump to [Go](#go) · [Javascript](#javascript) · [Rails](#rails) · [Ruby](#ruby) · [SQL](#sql)
 
 ---
 
 ### Rails
+
+### ActiveRecord
+
+#### Using .group(...) SQL `GROUP BY`
+
+```ruby
+# Return hash of top 3 city_id's AND counts
+Account.subscribed.group(:city_id).order('count_id desc').limit(3).count('id')
+# SELECT
+#   COUNT("accounts"."id") AS count_id,
+#   "accounts"."city_id" AS accounts_city_id
+# WHERE "accounts"."subscribed" = TRUE
+# GROUP BY "accounts"."city_id"
+# ORDER BY count_id desc
+# LIMIT 3
+#
+# => {2551=>99, 1001=>95, 9800=>89}
+
+# Return hash of top 3 city names AND counts
+Account.subscribed.joins(:city).group('cities.name').order('count_id desc').limit(3).count('id')
+# SELECT
+#   COUNT("accounts"."id") AS count_id,
+#   "cities"."name"        AS cities_name
+# FROM "accounts"
+#   INNER JOIN "cities" ON "cities"."id" = "accounts"."city_id"
+# WHERE "accounts"."subscribed" = TRUE
+# GROUP BY "cities"."name"
+# ORDER BY count_id desc
+# LIMIT 3
+#
+# => {"New York"=>99, "London"=>95, "Sydney"=>89}
+
+# Return top 3 city records without counts (could do same above, with counts if desired)
+City.joins(:accounts).where('accounts.subscribed = TRUE').group(:id).order('count(accounts.id) desc').limit(3)
+# SELECT "cities".*
+# FROM "cities"
+#   LEFT OUTER JOIN "accounts" ON "accounts"."city_id" = "cities"."id"
+# WHERE (accounts.subscribed = TRUE)
+# GROUP BY "cities"."id"
+# ORDER BY count(accounts.id) desc
+# LIMIT 3
+#
+# => [#<City...>,#<City...>,#<City...>,]
+```
 
 #### Generators
 
@@ -637,7 +681,7 @@ end
 
 - [Rails Guides](https://guides.rubyonrails.org/)
 
-Jump to [Go](#go) · [Javascript](#javascript) · [Ruby](#ruby) · [Rails](#rails) · [SQL](#sql)
+Jump to [Go](#go) · [Javascript](#javascript) · [Rails](#rails) · [Ruby](#ruby) · [SQL](#sql)
 
 ---
 
@@ -783,4 +827,4 @@ on a.grantor = d.usesysid;
 - [EXPLAIN - depesz](https://explain.depesz.com/)
 - [Postgres post - Brian Sigafoos](/postgres)
 
-Jump to [Go](#go) · [Javascript](#javascript) · [Ruby](#ruby) · [Rails](#rails) · [SQL](#sql)
+Jump to [Go](#go) · [Javascript](#javascript) · [Rails](#rails) · [Ruby](#ruby) · [SQL](#sql)
