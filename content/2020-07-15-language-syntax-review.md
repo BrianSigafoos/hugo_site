@@ -495,7 +495,7 @@ Jump to [Go](#go) · [Javascript](#javascript) · [Rails](#rails) · [Ruby](#rub
 #### Using .group(...) SQL `GROUP BY`
 
 ```ruby
-# Get top 3 city_id's AND counts
+# Return hash of top 3 city_id's AND counts
 Account.subscribed.group(:city_id).order('count_id desc').limit(3).count('id')
 # SELECT
 #   COUNT("accounts"."id") AS count_id,
@@ -507,7 +507,7 @@ Account.subscribed.group(:city_id).order('count_id desc').limit(3).count('id')
 #
 # => {2551=>99, 1001=>95, 9800=>89}
 
-# Get top 3 city names AND counts
+# Return hash of top 3 city names AND counts
 Account.subscribed.joins(:city).group('cities.name').order('count_id desc').limit(3).count('id')
 # SELECT
 #   COUNT("accounts"."id") AS count_id,
@@ -521,8 +521,8 @@ Account.subscribed.joins(:city).group('cities.name').order('count_id desc').limi
 #
 # => {"New York"=>99, "London"=>95, "Sydney"=>89}
 
-# From cities table, could also query
-City.left_joins(:accounts).where('accounts.subscribed = TRUE').group(:id).order('count(accounts.id) desc').limit(3)
+# Return top 3 city records without counts (could do same above, with counts if desired)
+City.joins(:accounts).where('accounts.subscribed = TRUE').group(:id).order('count(accounts.id) desc').limit(3)
 # SELECT "cities".*
 # FROM "cities"
 #   LEFT OUTER JOIN "accounts" ON "accounts"."city_id" = "cities"."id"
