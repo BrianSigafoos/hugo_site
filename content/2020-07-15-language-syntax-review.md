@@ -186,6 +186,14 @@ let pets = ['cat', 'dog', 'hamster', 'hedgehog']
 for (let pet of pets) {
   myPets += pet + ' '
 } // myPets = 'cat dog hamster hedgehog '
+
+// Same for strings `let char of x`
+const cache = {}
+let string = 'abcd'
+// Count character frequency
+for (let char of string) {
+  cache[char] = (cache[char] || 0) + 1
+}
 ```
 
 #### Hash Maps in Javascript
@@ -276,6 +284,22 @@ fetch(API_URL_WITH_PARAMS)
 // oReq.addEventListener('load', reqListener)
 // oReq.open('GET', API_URL_WITH_PARAMS)
 // oReq.send()
+```
+
+#### Test Setup
+
+```javascript
+// Using "jest" in package.json
+
+import { twoSum, isValid } from './solution'
+
+test('twoSum', () => {
+  expect(twoSum([2, 7, 11], 9)).toEqual([0, 1])
+})
+
+test('isValid', () => {
+  expect(isValid('{([])}')).toBe(true)
+})
 ```
 
 #### References for Javascript
@@ -440,6 +464,19 @@ parsed = JSON.parse(res.body)
 puts parsed
 ```
 
+#### Test Setup
+
+```ruby
+require 'minitest/autorun'
+# require 'pry'
+
+class TestSolution < Minitest::Test
+  def test_t1
+    assert_equal [0, 1], two_sum([2, 7, 11], 9)
+  end
+end
+```
+
 #### References for Ruby
 
 - [Core Docs](https://ruby-doc.org/core-3.1.2/)
@@ -599,7 +636,6 @@ end
 #### References for Rails
 
 - [Rails Guides](https://guides.rubyonrails.org/)
-
 
 Jump to [Go](#go) · [Javascript](#javascript) · [Ruby](#ruby) · [Rails](#rails) · [SQL](#sql)
 
