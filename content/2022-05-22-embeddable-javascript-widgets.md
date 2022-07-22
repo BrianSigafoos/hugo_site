@@ -41,7 +41,8 @@ The code to embed the widget is simple:
 </div>
 ```
 
-And here is a widget rendered (locally only [via this repo for now](https://github.com/BrianSigafoos/docker-rails-webpacker-app))
+And here is a widget rendered below.
+Note: this only works locally for now [via this repo](https://github.com/BrianSigafoos/docker-rails-webpacker-app).
 
 <div class="demoapp demoapp-widget"><script src="http://lvh.me:3000/widgets/1Y5kZh.js"></script><p>Widget created with <a href="https://github.com/BrianSigafoos/docker-rails-webpacker-app">Docker Rails Demo App</a> by Brian</p></div>
 
