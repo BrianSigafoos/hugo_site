@@ -2,8 +2,7 @@
 date: 2022-05-22T11:23:59-05:00
 slug: javascript-widgets
 title: Embeddable Javascript widgets in Rails
-summary: Create a simple embeddable item, following the pattern of Github gist embedding.
-draft: true
+summary: How to embed anything from a Rails app, following the pattern of Github gists embed snippets.
 ---
 
 ### Github gists example
