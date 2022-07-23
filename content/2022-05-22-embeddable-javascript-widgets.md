@@ -1,8 +1,8 @@
 ---
 date: 2022-05-22T11:23:59-05:00
 slug: javascript-widgets
-title: Embeddable Javascript widgets in Rails
-summary: How serve javascript embeds from a Rails app, following the pattern of Github gists embed snippets.
+title: Embeddable Javascript widgets
+summary: How to create a Github gist-like embeddable widget using Rails
 ---
 
 ### Github gists example
@@ -54,3 +54,4 @@ Note: this only works locally for now [via this repo](https://github.com/BrianSi
   - You'll want to scope the CSS to only your app `:where(.demoapp) { ... }`, for example
 - Add code to generate the copyable widget snippet
 - Add code to preview the widget snippet in your app, without any CSS on that page
+- Use something like Hugo (that powers this blog) to locally create a page and then embed the snippet. This will confirm CORS is set up correctly as the widget is called from the local Hugo-served page and to the local Rails endpoint.
