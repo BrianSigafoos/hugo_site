@@ -86,10 +86,6 @@
     @apply text-base inline-block mb-1 py-2 px-6 cursor-pointer font-mono font-bold;
   }
 
-  .btn-primary {
-    @apply bg-bright text-primary;
-  }
-
   /* Overrides */
   .gist .gist-file {
     border: none !important;
