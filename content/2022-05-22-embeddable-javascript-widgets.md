@@ -33,19 +33,11 @@ document.write(
 
 The code to embed the widget is simple:
 
+<!-- prettier-ignore -->
 ```html
 <div class="demoapp demoapp-widget">
   <script src="http://lvh.me:3000/widgets/mKVEFN.js"></script>
-  <p>
-    Widget created with
-    <a
-      target="_blank"
-      rel="noopener"
-      href="https://github.com/BrianSigafoos/docker-rails-webpacker-app"
-      >Docker Rails Demo App</a
-    >
-    by Brian
-  </p>
+  <p>Widget created with <a href="https://github.com/BrianSigafoos/docker-rails-webpacker-app">Docker Rails Demo App</a> by Brian</p>
 </div>
 ```
 
