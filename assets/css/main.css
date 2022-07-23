@@ -70,6 +70,10 @@
     background-color: var(--bg-bright);
   }
 
+  .table-arabic-last-col td:last-child {
+    @apply text-right text-lg p-1;
+  }
+
   .gist h1,
   .gist h2,
   .gist h3,
