@@ -1,33 +1,38 @@
 {{ define "main" }}
   <div class="container my-16 max-w-4xl">
+    {{ .Content }}
+
     {{ range .Pages }}
-      <div class="mt-12">
-        <h2>
-          <a href="{{ .Permalink }}" class="text-bright">
+      <div class="mt-10 md:mt-12">
+        <a href="{{ .Permalink }}" class="block">
+          <p class="text-xl md:text-2xl lg:text-3xl font-semibold text-bright">
             {{ .Title }}
-          </a>
-        </h2>
+          </p>
 
-        <h4>
-          {{ .Summary }}
-        </h4>
+          <p class="mt-2 md:mt-3 md:text-lg lg:text-xl text-muted">
+            {{ .Summary }}
+          </p>
+        </a>
 
-        <p class="font-mono text-sm mt-2">
+        <div class="mt-2 md:mt-3 font-mono text-xs md:text-sm space-x-4">
           {{ if not (.Params.hide_date) }}
-            <a href="{{ .Permalink }}" class="text-faint" rel="nofollow">
+            <span class="text-muted">
               {{- .Date.Format "Jan 2, 2006" -}}
-            </a>
-            <span class="text-faint">·</span>
+            </span>
           {{ end }}
 
-          <a href="{{ .Permalink }}" rel="nofollow">
+          <span>
             {{ if not (.Params.hide_read_time) }}
-              {{ .ReadingTime }} min read
+              <a href="{{ .Permalink }}" class="text-primary hover:underline">
+                {{ .ReadingTime }} min read
+              </a>
             {{ else }}
-              Read more…
+              <a href="{{ .Permalink }}" class="text-primary hover:underline">
+                Read more…
+              </a>
             {{ end }}
-          </a>
-        </p>
+          </span>
+        </div>
       </div>
     {{ end }}
   </div>
