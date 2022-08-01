@@ -2,7 +2,7 @@
 date: 2014-01-27 19:50:00
 slug: recipes
 title: Cooking recipes
-summary: Some recipes I've come back to again and again
+summary: Delicious cooking recipes that I come back to again and again
 ---
 
 Jump to [Baking](#baking) · [Dinner](#dinner) · [Drinks](#drinks)
@@ -154,4 +154,3 @@ its great to mix it up with raspberries for something sweeter or strawberries
 or blueberries.
 
 Jump to [Baking](#baking) · [Dinner](#dinner) · [Drinks](#drinks)
-
