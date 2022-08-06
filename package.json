@@ -3,6 +3,7 @@
   "description": "Weblog v2",
   "license": "MIT",
   "devDependencies": {
+    "@hotwired/stimulus": "3.1.0",
     "@tailwindcss/typography": "0.5.4",
     "autoprefixer": "10.4.8",
     "postcss": "8.4.14",
