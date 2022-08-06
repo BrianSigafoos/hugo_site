@@ -1,11 +1,9 @@
 import { Application } from '@hotwired/stimulus'
 
-import ColorSchemeController from "./controllers/color_scheme_controller"
+import ColorSchemeController from './controllers/color_scheme_controller'
 
 window.Stimulus = Application.start()
-Stimulus.register("color-scheme", ColorSchemeController)
-
-console.log('JS Loaded')
+Stimulus.register('color-scheme', ColorSchemeController)
 
 // Enable Stimulus debug mode in development
 /* eslint-disable no-undef */

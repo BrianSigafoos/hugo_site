@@ -2,7 +2,7 @@
 date: 2022-07-22T13:28:51-04:00
 slug: dark-mode-css-variables
 title: Dark mode with CSS variables and Stimulus
-summary: How to add Dark Mode using CSS variables and Stimulus, plus a color palette toggler
+summary: How to add Dark Mode using CSS variables and Stimulus, plus a color palette picker
 ---
 
 ## Live Demo
@@ -36,7 +36,6 @@ Click the buttons below for a live demo of toggling dark mode and changing the p
   </button>
 </div>
 
-
 ## The Power of CSS Variables
 
 By using CSS variables we can write CSS/SCSS that references variables instead of hardcoded values.
@@ -67,7 +66,7 @@ Before using hardcoded values:
 }
 
 .bg-bright {
-  background-color: #fff
+  background-color: #fff;
 }
 
 .bg-gray {
@@ -111,11 +110,11 @@ After using CSS variables:
 }
 ```
 
-## Using :root in CSS to toggle Dark Mode or a Color Palette
+## Use :root in CSS to set up the toggle-ability
 
 Then simply add CSS for `:root { ... }` as a base for color and dark mode. The below code sets the default dark mode to "light" and then only applies "dark" if the viewer's browser/OS "prefers-color-scheme" is "dark".
 
-The `body` tags allow using JS to toggle the dark mode or primary color easily: `body[data-color-scheme='<COLOR_SCHEME>']`  specificity for `body[data-color-primary='<COLOR_PRIMARY>']`
+The `body` tags allow using JS to add a user to set their preference to override the defaults.
 
 ```scss
 // Default colors
@@ -175,10 +174,131 @@ body[data-color-primary='pink'] {
 }
 ```
 
-## Adding Stimulus to make it interactive
+## Add Stimulus to make it interactive
 
 To allow the user to pick dark mode or choose a color, we'll add [Stimulus](https://stimulus.hotwired.dev/).
 
 To set up Stimulus you can follow their docs, or see [the code powering this blog](https://github.com/BrianSigafoos/hugo_site/pull/72).
 
-The
+First, add Stimulus `@hotwired/stimulus` to your package.json and create an entrypoint / main JS file similar to this:
+
+```js
+import { Application } from '@hotwired/stimulus'
+
+import ColorSchemeController from './controllers/color_scheme_controller'
+
+window.Stimulus = Application.start()
+Stimulus.register('color-scheme', ColorSchemeController)
+```
+
+Then add to the HTML `body` tag in your app some code to tell Stimulus to interact with this `color-scheme` controller:
+
+```html
+<body data-controller="color-scheme" class="...">
+```
+
+Then add a Stimulus controller similar to this one:
+
+```js
+// ./controllers/color_scheme_controller.js
+import { Controller } from '@hotwired/stimulus'
+import DevLog from './shared/DevLog'
+
+const COLORS = ['green', 'teal', 'pink']
+const DARK_SCHEME = 'dark'
+const LIGHT_SCHEME = 'light'
+const SCHEME_KEY = 'appScheme'
+const COLOR_KEY = 'appColor'
+
+export default class extends Controller {
+  // Read from the getter and write that value to the setter.
+  initialize() {
+    this.appScheme = this.currentScheme
+    this.appColor = this.currentColor
+  }
+
+  // Unlike initialize, calling toggle persists the change in localStorage
+  toggleScheme(e) {
+    e.preventDefault()
+
+    let scheme = this.currentScheme === DARK_SCHEME ? LIGHT_SCHEME : DARK_SCHEME
+
+    this.appScheme = scheme
+    this.storeScheme = scheme
+  }
+
+  toggleColor(e) {
+    e.preventDefault()
+
+    let colorIndex = COLORS.findIndex((k) => k === this.currentColor)
+    let color = COLORS[colorIndex + 1] || COLORS[0]
+
+    this.appColor = color
+    this.storeColor = color
+  }
+
+  // Private
+
+  /* eslint-disable class-methods-use-this */
+  set appScheme(val) {
+    document.body.dataset.colorScheme = val
+  }
+
+  set appColor(val) {
+    document.body.dataset.colorPrimary = val
+  }
+
+  set storeScheme(val) {
+    localStorage.setItem(SCHEME_KEY, val)
+  }
+
+  set storeColor(val) {
+    localStorage.setItem(COLOR_KEY, val)
+  }
+
+  // Check localStorage first for preference, then check OS.
+  get currentScheme() {
+    const fromLocal = localStorage.getItem(SCHEME_KEY)
+    if (fromLocal) {
+      DevLog(['Color scheme found in localStorage', fromLocal])
+      return fromLocal
+    }
+
+    const darkFromOS = window.matchMedia('(prefers-color-scheme: dark)').matches
+    if (darkFromOS) {
+      DevLog(['Color scheme found at OS level as dark'])
+      return DARK_SCHEME
+    }
+
+    // Default
+    return LIGHT_SCHEME
+  }
+
+  // Check localStorage first for preference.
+  get currentColor() {
+    const fromLocal = localStorage.getItem(COLOR_KEY)
+    if (fromLocal) {
+      DevLog(['Color primary found in localStorage', fromLocal])
+      return fromLocal
+    }
+
+    return COLORS[0]
+  }
+  /* eslint-enable class-methods-use-this */
+}
+```
+
+Finally add some HTML buttons to allow toggling:
+
+```html
+  <button type="button" data-action="color-scheme#toggleScheme">
+    Toggle dark mode
+  </button>
+
+  <button type="button" data-action="color-scheme#toggleColor">
+    Change primary color
+  </button>
+</div>
+```
+
+That's it!  Try it out here: [Live Demo](#live-demo)
