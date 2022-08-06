@@ -4,14 +4,18 @@
 
 <title>{{ if .IsPage }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
 
-{{ $styles := resources.Get "css/main.css" | postCSS }}
-
+<!-- CSS -->
+{{ $css := resources.Get "css/main.scss" | resources.ToCSS | postCSS }}
 {{ if .Site.IsServer }}
-  <link rel="stylesheet" href="{{ $styles.RelPermalink }}"/>
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}"/>
 {{ else }}
-  {{ $styles := $styles | minify | fingerprint | resources.PostProcess }}
-  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}"/>
+  {{ $css := $css | minify | fingerprint | resources.PostProcess }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}"/>
 {{ end }}
+
+<!-- Javascript -->
+{{ $js := resources.Get "js/index.js" | js.Build "main.js" }}
+<script src="{{ $js.RelPermalink }}"></script>
 
 <!-- Scripts -->
 {{ template "_internal/google_analytics_async.html" . }}

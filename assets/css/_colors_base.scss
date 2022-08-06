@@ -1,0 +1,29 @@
+@layer components {
+  .text-bright {
+    color: var(--text-bright);
+  }
+
+  .text-color {
+    color: var(--text-color);
+  }
+
+  .text-muted {
+    color: var(--text-muted);
+  }
+
+  .text-faint {
+    color: var(--text-faint);
+  }
+
+  .bg-bright {
+    background-color: var(--bg-bright);
+  }
+
+  .bg-gray {
+    background-color: var(--bg-gray);
+  }
+
+  .border-gray {
+    border-color: var(--border-gray);
+  }
+}
