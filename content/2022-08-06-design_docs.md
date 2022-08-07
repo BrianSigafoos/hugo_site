@@ -1,7 +1,8 @@
 ---
 date: 2022-08-06T20:33:08-04:00
+slug: design-docs
 title: Design Docs
-summary: Design docs help gather feedback and
+summary: Why encouraging Design Docs helps teams build better software and a template borrowed from Google
 ---
 
 > As software engineers our job is not to produce code per se, but rather to solve problems.
