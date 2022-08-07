@@ -439,6 +439,14 @@ end
 queue.unshift(c) # Prepend to array (aliased as .prepend)
 ```
 
+#### Regex in Ruby
+
+```ruby
+'ñ'.match?(/[A-Za-z]/)     #=> false
+'ñ'.match?(/\w/)           #=> false
+'ñ'.match?(/[[:alpha:]]/)  #=> true
+```
+
 #### API Call and Parse JSON in Ruby
 
 ```ruby
