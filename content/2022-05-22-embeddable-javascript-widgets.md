@@ -5,7 +5,7 @@ title: Embeddable Javascript widgets
 summary: How to create a Github gist-like embeddable widget using Rails
 ---
 
-### Github gists example
+## Github gists example
 
 Github gists are great and easy to share. Simply paste their embed code onto any page.
 
@@ -29,7 +29,7 @@ document.write(
 )
 ```
 
-### Recreating it in Rails
+## Recreating it in Rails
 
 The code to embed the widget is simple:
 
@@ -46,7 +46,7 @@ Note: this only works locally for now [via this repo](https://github.com/BrianSi
 
 <div class="demoapp demoapp-widget"><script src="http://lvh.me:3000/widgets/1Y5kZh.js"></script><p>Widget created with <a href="https://github.com/BrianSigafoos/docker-rails-webpacker-app">Docker Rails Demo App</a> by Brian</p></div>
 
-### How it works
+## How it works
 
 - Add a new route `resources :widgets, only: :show`
 - Add the new WidgetsController with `skip_before_action :verify_authenticity_token` and `layout false` with a [show.js.erb like this](https://github.com/BrianSigafoos/docker-rails-webpacker-app/blob/main/app/views/widgets/widgets/show.js.erb)

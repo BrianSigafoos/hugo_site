@@ -5,7 +5,7 @@ title: A modern app tech stack, built for speed
 summary: Iterate more quickly using Rails with ViewComponent + Tailwind CSS + Hotwire. Build faster with no custom CSS and limited JS.
 ---
 
-### A simpler stack, for 2021
+## A simpler stack, for 2021
 
 The choice of technology stack has a big impact on your team's ability to build a product quickly.
 
@@ -19,7 +19,7 @@ Similarly to Javascript, CSS in the past decade has required too much expertise 
 
 Now, thanks to Tailwind CSS, a utility-first CSS framework, you can "rapidly build modern websites without ever leaving your HTML".
 
-### Development principles
+## Development principles
 
 - Write HTML in [Rails](https://rubyonrails.org/) ERB templates
   - Send all HTML from the server, with [Turbo](https://turbo.hotwire.dev/) in the frontend automatically handling navigation, form submission, and more
@@ -28,7 +28,7 @@ Now, thanks to Tailwind CSS, a utility-first CSS framework, you can "rapidly bui
 - Write as little Javascript as possible. Use [Stimulus](https://stimulus.hotwire.dev/) to add "sprinkles of JS"
   - Make any JS generalizable, for example: AutosubmitController and not ProductSearchFormController
 
-### More principles for sustained team velocity
+## More principles for sustained team velocity
 
 - Write comprehensive unit tests
 - Write policy tests around authorization levels, for example members vs owners of an account
@@ -37,7 +37,7 @@ Now, thanks to Tailwind CSS, a utility-first CSS framework, you can "rapidly bui
 - Automate dependency upgrades by using [Dependabot](https://dependabot.com/)
 - Add synthetic monitoring using [Uptime](https://support.uptime.com/hc/en-us/articles/360000984785-Synthetic-Monitoring-With-the-Uptime-com-Transaction-Check)
 
-### Modern app tech stack
+## Modern app tech stack
 
 - [Ruby on Rails 6.1+](https://rubyonrails.org/)
 - [Webpacker 6+](https://github.com/rails/webpacker) with Webpack 5+ - automatic code splitting
@@ -51,7 +51,7 @@ Now, thanks to Tailwind CSS, a utility-first CSS framework, you can "rapidly bui
 - [Stripe Checkout](https://stripe.com/en-us/payments/checkout) + Stripe Billing - payments and subscription management, hosted by Stripe
 - [More favorite Ruby gems...]({{< ref "2020-12-06-favorite-ruby-gems.md" >}})
 
-### Paid resources
+## Paid resources
 
 - [TailwindUI](https://tailwindui.com/)
 - [Jumpstart Pro](https://jumpstartrails.com/)

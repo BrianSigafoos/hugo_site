@@ -10,7 +10,7 @@ Update 2022: I'm glad I captured these notes in 2020 for reference in future API
 
 ---
 
-### Principles
+## Principles
 
 - RESTful API only
 - URL-based API version, ex: `/api/v2/`, and not sent in the request header
@@ -37,7 +37,7 @@ Update 2022: I'm glad I captured these notes in 2020 for reference in future API
 - Reporting endpoints should have their own namespace `reporting` and use the SHOW action
 - Define and follow a "blueprint" for releasing new API endpoints (see below)
 
-### Uniform HTTP status error codes
+## Uniform HTTP status error codes
 
 Decision tree for error handling logic MUST be followed:
 
@@ -50,7 +50,7 @@ Decision tree for error handling logic MUST be followed:
 - Return 400 if there are parameter errors
 - Return 422 if validation error
 
-### Error objects
+## Error objects
 
 Always in English only, the frontend will be responsible for I18n using the code key to lookup the I18n value:
 
@@ -62,7 +62,7 @@ Always in English only, the frontend will be responsible for I18n using the code
   ex: for a query parameter - `filter[first_name]`
 - `meta` for returning user inputted values or other things needed for i18n
 
-### Standardize data formats
+## Standardize data formats
 
 Standardize data formats
 
@@ -83,7 +83,7 @@ Date::DATE_FORMATS.merge! date_formats
 - Boolean attributes should fill in the blank "This is …" or "This has …". Should not be prefixed with `is_` or `has_` like is_configured or `has_two_factor_enabled`. Instead: "This is `configured`" and "This has `two_factor_enabled`"
 - Integer counts end in `_count`, not `_ct`
 
-### Serialization of relationships
+## Serialization of relationships
 
 - has_many
   - Never serialize attributes
@@ -100,7 +100,7 @@ Date::DATE_FORMATS.merge! date_formats
     - If exists already, show/update/destroy
     - If doesn’t exist yet, only create
 
-### Filtering
+## Filtering
 
 - Filtering is additive. Each filter is applied to the resource.
 - A parameter may take multiple values through comma separated values.
@@ -126,7 +126,7 @@ Right Hand Side (RHS) Colon MUST be used to convey additional operators and valu
 ?filter[balance]=gt:1000        # filter for balances greater than 1000.
 ```
 
-### Blueprint for releasing new API endpoints
+## Blueprint for releasing new API endpoints
 
 Each step should be a separate PR to quickly get the changes in to the main branch.
 

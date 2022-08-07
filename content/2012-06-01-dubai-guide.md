@@ -5,12 +5,12 @@ title: Travel guide for Dubai guests
 summary: My Airbnb guidebook of travel tips for visitors to Dubai.
 ---
 
-### Visiting Dubai
+## Visiting Dubai
 
 I wrote this guide for friends and [Airbnb][] guests visiting Dubai. Don't miss my top picks section below. Also bookmark this page on your phone. Before you head out download Google Maps and zoom in to load parts of the city you want to view later offline. Google Maps will cache the map and without cell data you should be able to navigate easily.
 [Airbnb]: https://www.airbnb.com/users/show/1207007
 
-#### Dubai's Top Picks
+### Dubai's Top Picks
 
 - [Dubai Fountain][] @ Dubai Mall - free shows every 30min - 6-11pm in front of the Burj Khalifa
   - Eat at Dubai Mall or Souk Al Bahar restaurant or cafe to watch 3-4 fountain shows with dinner
@@ -42,7 +42,7 @@ I wrote this guide for friends and [Airbnb][] guests visiting Dubai. Don't miss 
 [nasimi beach]: http://www.atlantisthepalm.com/restaurants/barsandrestaurants/nasimibeach.aspx
 [rostang]: http://www.atlantisthepalm.com/restaurants/barsandrestaurants/rostang.aspx
 
-#### Getting Around
+### Getting Around
 
 - [Dubai Metro][] is cheap, easy and clean. Open 6am-11pm everyday except Fridays (2pm-12am) - don’t eat/drink on Metro or you’ll get fined! Tip: pay extra (1 time at least) to sit in front (Gold class) of the driverless train
   Metro walkway: use to cross Sheikh Zayed Road (highway) for Dubai Marina and JBR (beach)
@@ -58,14 +58,14 @@ Try a [larger version of this map][]
 
 [larger version of this map]: https://mapsengine.google.com/map/edit?mid=z2e_QHRqNrV4.kKA9u0-Zm9AA
 
-### Around JLT & Dubai Marina
+## Around JLT & Dubai Marina
 
-#### Groceries
+### Groceries
 
 - Carrefour Express open 24/7 + ATM _top pick_ great selection. Directions: from Indigo lobby go outside and turn right. take stairs down and cross the street, then take stairs up to Carrefour
 - Red Rose Market & Cafe coffee, baked goods, outdoor patio overlooking Lake. Directions: from Indigo lobby go outside and first building on the right. go to left side of building
 
-#### Restaurants
+### Restaurants
 
 - [Flames Grills & Curry][] (Indian / Kenyan) \$ _top pick_ directions: just past Soum Soum
 - [The Kitchen of Thai][] \$ directions: walk towards lake from Carrefour
@@ -85,14 +85,14 @@ Try a [larger version of this map][]
 [nais]: http://naiskitchen.com/
 [bill's tex-mex]: http://www.billstexmex.net/
 
-#### Pubs / Bars
+### Pubs / Bars
 
 - [Jazz @ Pizza Express][] at Movenpick Hotel in Cluster A - 10min walk along the lake past Hanoi restaurant, keep going
 - [McGettigan’s Irish Pub][] @ Bonnington Hotel - 5 min walk, behind Al Mas (BIG tower)
 - [Healey’s Bar & Terrace][] above McGettigan’s, more sophisticated with 2-for-1 happy hour special until 8pm
 - [Dubai Marina Yacht Club][] - across the highway (via Metro walkway)
 
-#### Dubai Marina
+### Dubai Marina
 
 - Get there: take Metro walkway to cross over Sheikh Zayed Rd
 - [JBR Walk & JBR Beach][] - nice open air “walk” with food, shops, cafes and large public beach
@@ -103,9 +103,9 @@ Try a [larger version of this map][]
 [dubai marina yacht club]: http://www.dubaimarinayachtclub.com/
 [jbr walk & jbr beach]: https://www.facebook.com/thewalkatjbr
 
-### Around (all of) Dubai
+## Around (all of) Dubai
 
-#### Restaurants
+### Restaurants
 
 Tip: make a reservation to be sure especially on Thu or Fri nights
 
@@ -122,7 +122,7 @@ Tip: make a reservation to be sure especially on Thu or Fri nights
 [le traiteur]: http://dubai.park.hyatt.com/en/hotel/dining/Traiteur.html
 [toro toro]: http://www.torotoro-dubai.com/
 
-#### Drinks / Dancing
+### Drinks / Dancing
 
 - [Barasti Beach Bar][] - voted #1 bar in the world, multiple levels, live music, relaxed dress code (sandals, shorts ok)
 - [Mahiki][] - Tiki style bar / nightclub with dancing after 11pm. Packed usually on Tue/Thu/Fri nights
@@ -141,7 +141,7 @@ Tip: make a reservation to be sure especially on Thu or Fri nights
 [platinum list]: http://dubai.platinumlist.net/
 [ladies night]: http://www.ladiesnightdubai.com/
 
-#### Dubai Indulgences
+### Dubai Indulgences
 
 - [Skydive Dubai][] - AED 1750 for jumping over the Palm Jumeirah
 - [Seawings plane tour][] - AED 1375
@@ -153,7 +153,7 @@ Tip: make a reservation to be sure especially on Thu or Fri nights
 [dolphin bay @ atlantis]: http://www.atlantisthepalm.com/marineandwaterpark/dolphinbay.aspx
 [ski dubai @ mall of the emirates]: http://www.skidxb.com/
 
-#### Dubai Alternatives
+### Dubai Alternatives
 
 - [Dubai Drums][] - monthly Full moon desert drumming
 - [Surf Dubai][] - stand up paddle around the Burj Al Arab
@@ -169,7 +169,7 @@ Tip: make a reservation to be sure especially on Thu or Fri nights
 [dune riders]: http://www.dreamexplorerdubai.com/products/dune-buggy-adventure/dune-riders-adventure-unlimited
 [dubai autodrome]: http://www.dubaiautodrome.com/arrive-drive-2/
 
-### Explore Abu Dhabi
+## Explore Abu Dhabi
 
 - By car: 60-80 min drive from JLT - never go more than 20 kmph over posted speed limit (speed cameras = AED 700 ticket)
 - By bus: call 800 9090 for timetable / prices for RTA Buses from Ibn Battuta Metro Bus Stop (1 stop from JLT)
@@ -178,13 +178,13 @@ Tip: make a reservation to be sure especially on Thu or Fri nights
 - Abu Dhabi mangrove kayaking top pick
 - Yas Marina Circuit - F1 race track - drive a race car around the track, from AED 1250
 
-### Downloads & Apps
+## Downloads & Apps
 
 - Google Maps has metro timings, 80% accurate turn-by-turn directions
 - Google Earth for your iPhone/iPad or Mac/PC to explore Dubai by map and 3D buildings - zoom in on the Palm Jumeirah
 - YaDig iPhone app for reviews of restaurants+
 
-### More resources
+## More resources
 
 - [TimeOut Dubai](http://www.timeoutdubai.com/) weekly music / art / entertainment event listings + restaurant reviews
   - [55 Dubai “bucket list” activities](http://www.timeoutdubai.com/aroundtown/features/40912-the-dubai-bucket-list/page/1)

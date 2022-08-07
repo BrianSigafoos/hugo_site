@@ -5,7 +5,7 @@ title: Metaprogramming in Ruby
 summary: Some patterns, approaches, and "spells" for metaprogramming in Ruby.
 ---
 
-### What is metaprogramming?
+## What is metaprogramming?
 
 Here's a definition from [Metapgramming Ruby 2](https://www.amazon.com/dp/B00N9I0RMQ):
 

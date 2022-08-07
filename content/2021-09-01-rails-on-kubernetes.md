@@ -5,7 +5,7 @@ title: Rails on Kubernetes
 summary: Build a CI/CD pipeline with Github Actions to Kubernetes for a Ruby on Rails app
 ---
 
-### TL;DR
+## TL;DR
 
 - Invest the time to learn Kubernetes and move to CD (Continuous Deployment)
 - Streamline your Docker setup with 1 Dockerfile and 1 docker-compose targeting the "development" stage of the Dockerfile's multi-stage build
@@ -16,13 +16,13 @@ summary: Build a CI/CD pipeline with Github Actions to Kubernetes for a Ruby on 
 - Use Liveness probes to ensure unresponsive containers are killed and replaced, including for Sidekiq thanks to the [sidekiq_alive](https://github.com/arturictus/sidekiq_alive) gem.
 - Do as many of the published security best practices as possible for Kubernetes, starting with non-root user, read-only file system, and no privilege escalation.
 
-### Why Kubernetes, and why Docker?
+## Why Kubernetes, and why Docker?
 
 It's essential to learn how to use containerize apps (Docker) and deploy using Kubernetes. Going from a few scheduled deploys a week to multiple adhoc deploys a day feels revolutionary.
 
 At my work, we deployed more in the first 3 days using Kubernetes than in the previous 3 months using Terraform blue/green deployments.
 
-### Docker principles
+## Docker principles
 
 Follow these guidelines and check out the [demo app repo](https://github.com/BrianSigafoos/docker-rails-webpacker-app) to see how it works.
 
@@ -33,7 +33,7 @@ Follow these guidelines and check out the [demo app repo](https://github.com/Bri
   - Get as close as possible to local / non-Docker development speed with separate webpack-dev-server and HMR - hot module reloading
   - All credit goes to [Ruby on Whales](https://evilmartians.com/chronicles/ruby-on-whales-docker-for-ruby-rails-development) for this and much of the Dockerfile development target
 
-### Automate everything for local development
+## Automate everything for local development
 
 This goes along with my post to [Auto-format and lint everything](/linters)
 
@@ -44,7 +44,7 @@ This goes along with my post to [Auto-format and lint everything](/linters)
 
 See [tasks setup in the demo app repo](https://github.com/BrianSigafoos/docker-rails-webpacker-app/blob/main/.vscode/tasks.json).
 
-### Kubernetes pre-requisites
+## Kubernetes pre-requisites
 
 Getting Kubneretes running on a hosted cloud provider like AWS via their EKS is thankfully getting easier over time..
 
@@ -66,7 +66,7 @@ to benefit from all the shortcuts below like `k ...` and `kgp`, etc.
 
 Here's a [gist with the list of K8s Oh My Zsh aliases](https://gist.github.com/BrianSigafoos/ad634a5be27b42a27c7222f813ec19bd)
 
-### Kubernetes configuration secrets
+## Kubernetes configuration secrets
 
 Store in your password manager, as something like "demoapp k8s .env.production.local".
 Copy and paste the contents to a `.env.production.local` file.
@@ -114,7 +114,7 @@ Try the commands in the next section from the demo app root and see the [kustomi
 
 - Make changes to a folder in /overlays or to the /base and then check the output manually:
 
-### Kubernetes deployments manually
+## Kubernetes deployments manually
 
 You'll only do these if you're making changes to the /kubernetes/base or overlays files. Once everything is set up, for app code changes you'll let Github Actions deploy for you in the next section.
 
@@ -148,7 +148,7 @@ krh deployment/demo-app-canary
 kru deployment/demo-app-canary
 ```
 
-### Kubernetes debugging
+## Kubernetes debugging
 
 This is essential when you're just getting started or making and K8s config changes.
 
@@ -198,7 +198,7 @@ k exec $POD -c $CONTAINER --
 k delete pod app-debug
 ```
 
-### Using Github Actions to deploy
+## Using Github Actions to deploy
 
 - Add a Github Action "workflow" to release (build, then deploy)
   - Example: [.github/workflows/release_canary.yml](https://github.com/BrianSigafoos/docker-rails-webpacker-app/blob/main/.github/workflows/release_canary.yml)
@@ -207,7 +207,7 @@ This is pretty simple overall. For the ["deploy" action](https://github.com/Bria
 
 Kubernetes itself then takes care of the rest.
 
-### Sample deployment script
+## Sample deployment script
 
 Add a simple script `/scripts/deploy_prod.sh` or `/scripts/deploy_canary.sh` to deploy the latest code.
 
@@ -259,9 +259,9 @@ git checkout -
 echo "If needed, run: git stash pop (gstp)"
 ```
 
-### Rails in Kubernetes
+## Rails in Kubernetes
 
-#### Database migrations
+### Database migrations
 
 Always check and use recommendations from [strong_migrations](https://github.com/ankane/strong_migrations#removing-a-column) for removing a column, and more.
 
@@ -288,7 +288,7 @@ Remove column flow:
 5. Remove `ignored_columns` code
 6. Deploy
 
-### PUMA app server
+## PUMA app server
 
 We switched from Passenger to PUMA in production after exploring some options and it has worked perfectly.
 
@@ -297,13 +297,13 @@ We switched from Passenger to PUMA in production after exploring some options an
 - [Gitlab migrate to Puma from Unicorn](https://about.gitlab.com/blog/2020/07/08/migrating-to-puma-on-gitlab/)
 - [Puma docs: Kubernetes on Puma](https://github.com/puma/puma/blob/master/docs/kubernetes.md)
 
-#### Sidekiq workers
+### Sidekiq workers
 
 Liveness probes are a great feature of K8s that will automatically replace any dead (non-responsive) containers with new ones. To get this working for a sidekiq worker container simply use this excellent gem: [sidekiq_alive](https://github.com/arturictus/sidekiq_alive)
 
 More code examples in the [demo app](https://github.com/BrianSigafoos/docker-rails-webpacker-app/blob/main/kubernetes/base/deployment-sidekiq.yaml)
 
-### Kubernetes security best practices
+## Kubernetes security best practices
 
 These were published as [NSA/CISA Kubernetes Hardening Guidance](https://www.nsa.gov/News-Features/Feature-Stories/Article-View/Article/2716980/nsa-cisa-release-kubernetes-hardening-guidance/)
 
@@ -366,7 +366,7 @@ spec:
         runAsNonRoot: true
 ```
 
-### Resources
+## Resources
 
 - [How to use docker multi-stage build to create optimal images for dev and production](https://geshan.com.np/blog/2019/11/how-to-use-docker-multi-stage-build/)
 - [Ruby on Whales: Dockerizing Ruby and Rails development](https://evilmartians.com/chronicles/ruby-on-whales-docker-for-ruby-rails-development)

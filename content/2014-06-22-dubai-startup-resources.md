@@ -6,14 +6,14 @@ summary: Crash course on Dubai's startup ecosystem from co-working spaces to
   accelerators and a list of Dubai startups.
 ---
 
-### Crash course on Dubai's startup ecosystem
+## Crash course on Dubai's startup ecosystem
 
 Times have changed from 6 years ago (2008) when our startup
 [DUPLAYS](http://duplays.com) was just getting off the ground, holding meetings
 at Caribou Coffee. Today Dubai has a number of co-working spaces, accelerators
 and an overall much more vibrant startup scene.
 
-### Co-working spaces
+## Co-working spaces
 
 - [The Shelter](http://shelter.ae) - co-working, events, and more
 - [MAKE Business Hub](http://www.makebusinesshub.com/) - Dubai Marina cafe, co-working space
@@ -22,11 +22,11 @@ and an overall much more vibrant startup scene.
 - [The Pavilion](http://www.pavilion.ae/) - sadly closing/closed
 - [Astrolabs](http://www.astrolabs.me/coworking/) - coming soon!
 
-#### Startup news
+### Startup news
 
 - [Wamda](http://www.wamda.com/) - the source for MENA startup news, that also has a fund, and does great events like Mix N Mentor
 
-#### Accelerators
+### Accelerators
 
 - [i360 Accelerator](http://i360accelerator.com/)
 - [Turn8](http://www.turn8.co/)
@@ -35,7 +35,7 @@ and an overall much more vibrant startup scene.
 - [Sicilon Oasis](http://www.siliconoasisfounders.com/)
 - [Afkar.me](http://afkar.me/)
 
-#### Startups
+### Startups
 
 - [Dubizzle](http://dubizzle.com) - Buy, sell, find anything in Dubai
 - [DUPLAYS](http://duplays.com) - Play rec sports and meet new people

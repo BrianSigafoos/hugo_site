@@ -5,7 +5,7 @@ title: Baby vocab in English, French, and Arabic
 summary: Vocabulary lists of fruit, vegetables, animals, and more.
 ---
 
-### Fruits
+## Fruits
 
 {{<table "w-full table-arabic-last-col">}}
 
@@ -49,7 +49,7 @@ summary: Vocabulary lists of fruit, vegetables, animals, and more.
 
 {{< /table >}}
 
-### Vegetables
+## Vegetables
 
 {{<table "w-full table-arabic-last-col">}}
 
@@ -104,7 +104,7 @@ summary: Vocabulary lists of fruit, vegetables, animals, and more.
 
 {{< /table >}}
 
-### Nuts and seeds
+## Nuts and seeds
 
 {{<table "w-full table-arabic-last-col">}}
 
@@ -134,7 +134,7 @@ summary: Vocabulary lists of fruit, vegetables, animals, and more.
 
 {{< /table >}}
 
-### Clothes
+## Clothes
 
 {{<table "w-full table-arabic-last-col">}}
 
