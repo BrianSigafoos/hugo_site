@@ -5,7 +5,7 @@ title: Ruby code gists for Rails
 summary: Snippets of Ruby code for faster Rails setup, development, and testing.
 ---
 
-### Rails quickstart gists
+## Rails quickstart gists
 
 [Github Gists](https://gist.github.com/) are a great way to share code snippets
 and notes. Here are a few of [mine](https://gist.github.com/BrianSigafoos) for

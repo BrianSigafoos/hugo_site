@@ -7,7 +7,7 @@ summary: How we made Playpass pricing more fair in all countries by
   currency exchange rates.
 ---
 
-### A good problem to have to solve
+## A good problem to have to solve
 
 At the beginning of 2017, my startup [Playpass](https://playpass.com) had a
 good problem. We had customers outside the US who wanted to pay for our service,
@@ -20,7 +20,7 @@ charge customers in [135 currencies](https://stripe.com/docs/currencies).
 
 But how should we set the price for each currency?
 
-### Using exchange rates
+## Using exchange rates
 
 We could just charge everyone a fixed USD amount, converted to their local
 currency. Playpass is a Rails app and we use
@@ -35,7 +35,7 @@ But using exchange rates has two problems:
 
 We wanted prices that would be stable and fair.
 
-### Using PPP rates
+## Using PPP rates
 
 [Purchasing power parity](https://en.wikipedia.org/wiki/Purchasing_power_parity)
 (PPP) solves this for us.
@@ -58,7 +58,7 @@ calculated by Google Finance.
 
 <iframe width='100%' height='400' frameborder='0' src="https://docs.google.com/spreadsheets/d/1hue3cBocKY3Kom2QZy7oHrzm4zKjMIOShy4dIgOMY4A/pubhtml?widget=true&amp;headers=false"></iframe>
 
-### Sanity checking prices
+## Sanity checking prices
 
 If we solely used PPP rates, the range in prices would be too large. Per $100
 we'd typically charge we'd receive less than $15 in Egypt and over 150 in
@@ -69,7 +69,7 @@ alternatives or competitor pricing in a market.
 
 ![SaaS international prices](/img/posts/saas-intl-prices.png)
 
-### Integrating PPP rates into Rails
+## Integrating PPP rates into Rails
 
 Next we use our own formula to adjust PPP rates in column J of the spreadsheet
 (for you to fill in). Then we paste the results into a YAML file for our Rails
@@ -89,7 +89,7 @@ zar: 7611
 zmw: 4796
 ```
 
-### Rake task for updating a Currency model
+## Rake task for updating a Currency model
 
 Then with a rake task `bundle exec rails currencies:update_ppp_rates` we grab
 the data from the .yml file and save it to `Currency.ppp_rate`.
@@ -113,7 +113,7 @@ namespace :currencies do
 end
 ```
 
-### More coming soon...
+## More coming soon...
 
 Next, I'll write more about:
 

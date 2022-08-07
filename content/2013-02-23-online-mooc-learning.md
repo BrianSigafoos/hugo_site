@@ -10,14 +10,14 @@ Massive open online courses (MOOCs) bring more and more of the world’s best te
 
 > _"For anyone, anywhere, anytime" - edX._
 
-#### Growing competition among MOOC platforms
+## Growing competition among MOOC platforms
 
 - [edX][] - Harvard, MIT, Berkeley, Georgetown…
 - [Coursera][] - Princeton, Columbia, Brown, Duke…
 - [Udacity][] - founded by Sebastian Thrun (Google Fellow, inventor of autonomous cars, project lead on Google Glass)
 - [Khan Academy][] - since 2006, originator in 8-12 min videos, backed by Bill & Melinda Gates Foundation
 
-#### Courses I'm taking or completed
+## Courses I'm taking or completed
 
 - [The Challenge of Global Poverty][] (MIT) by Esther Duflo
 - [Startup Engineering][] (Stanford) by Balaji S. Srinivasan & V.S. Pande
@@ -28,7 +28,7 @@ Massive open online courses (MOOCs) bring more and more of the world’s best te
 {{< youtube gM95HHI4gLk >}}
 <br />
 
-#### More interesting courses...
+## More interesting courses...
 
 - [Electricity & Magnetism][] Physics II (MIT) by Walter Lewin
 - [Justice][] (Harvard) by Michael Sandel

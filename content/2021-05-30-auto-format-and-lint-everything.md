@@ -11,7 +11,7 @@ Automated code formatting, linting, and vulnerability scanning helps teams I wor
 
 Critically, these automations make it easier to write, read, and maintain code.
 
-### Overview
+## Overview
 
 1. Add essential linters and auto-formatters for your code
 1. Use keybindings in your IDE to auto-format code with a few key strokes
@@ -19,7 +19,7 @@ Critically, these automations make it easier to write, read, and maintain code.
 1. Have CI, Circle CI or Github Actions, run full linters and vulnerability scanners in parallel with your test suite
 1. Require all Pull Requests have your lint jobs pass before merging
 
-### Add essential linters and auto-formatters
+## Add essential linters and auto-formatters
 
 Good linters and auto-formatters have sane defaults, allow some customization, and integrate with your automated test suite / CI setup.
 
@@ -36,7 +36,7 @@ Good linters and auto-formatters have sane defaults, allow some customization, a
 - [bundler-audit](https://github.com/rubysec/bundler-audit) - Ruby: checks vulnerable versions of gems in Gemfile.lock
 - [ruby_audit](https://github.com/civisanalytics/ruby_audit) - Ruby: checks your current version of Ruby and RubyGems against known
 
-#### Rubocop config
+### Rubocop config
 
 In your `.rubocop.yml` setup, enable `NewCops` by default:
 
@@ -65,7 +65,7 @@ Rails:
   Enabled: true
 ```
 
-#### Prettier, ESLint, and Stylelint configs
+### Prettier, ESLint, and Stylelint configs
 
 In your `package.json`
 
@@ -95,7 +95,7 @@ In your `package.json`
 }
 ```
 
-### Use keybindings in your IDE to auto-format code with a few key strokes
+## Use keybindings in your IDE to auto-format code with a few key strokes
 
 For VS Code `.vscode/tasks.json`:
 
@@ -188,7 +188,7 @@ And in your `package.json` add these `"scripts"`:
 }
 ```
 
-### Add lint-staged to automatically format and lint code before every commit
+## Add lint-staged to automatically format and lint code before every commit
 
 Install with `yarn add -D lint-staged` and add a `lint-staged.config.js` file:
 
@@ -205,7 +205,7 @@ module.exports = {
 }
 ```
 
-### Have CI, Circle CI or Github Actions, run full linters and vulnerability scanners in parallel with your test suite
+## Have CI, Circle CI or Github Actions, run full linters and vulnerability scanners in parallel with your test suite
 
 ```yaml
 # .circleci/config.yml
@@ -267,7 +267,7 @@ workflows:
             - setup
 ```
 
-### Require all Pull Requests have your lint jobs pass before merging
+## Require all Pull Requests have your lint jobs pass before merging
 
 Update your GitHub repository Settings for Branches to "Require status checks to pass before merging". Select the check that only passes in the lint job in your CI passes.
 

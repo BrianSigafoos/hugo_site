@@ -6,7 +6,7 @@ title: >
 summary: A guiding philosophy for tech that is ambitious, positive-sum, and collective.
 ---
 
-### The best tech folks are “win and help win”
+## The best tech folks are “win and help win”
 
 [Balaji Srinivasan on the Tim Ferriss podcast](https://tim.blog/2021/03/25/balaji-srinivasan-transcript/)
 

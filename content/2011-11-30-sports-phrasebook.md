@@ -6,7 +6,7 @@ summary: Sports phrases in 6 languages - English, Arabic, French, Spanish,
   Italian and Tagalog.
 ---
 
-### بحب إلعب رياضة
+## بحب إلعب رياضة
 
 **_I love to play sports_** (in Arabic)
 

@@ -5,7 +5,7 @@ title: Prevent pushing to main branch
 summary: Use a .git hooks script to prevent accidentally pushing to main branch
 ---
 
-### Oops, I just pushed to main!
+## Oops, I just pushed to main!
 
 Pushing to `main` branch when you meant to push to a new feature branch is embarrassing and annoying.
 
@@ -13,7 +13,7 @@ Github has a great per repo setting called "Branch protection rules" that can pr
 
 If you don't have this set. Or if you're an admin that's allowed to override failed checks, nothing prevents you from pushing to main.
 
-### Git hooks to the rescue
+## Git hooks to the rescue
 
 - Copy and paste this into your shell in your local repo directory:
 

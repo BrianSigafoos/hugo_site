@@ -7,7 +7,7 @@ summary: Follow clear guidelines for code review to help improve code quality an
 
 This is a condensed and lightly remixed version of Google's must-read [Code Review Developer Guide](https://google.github.io/eng-practices/review/).
 
-### Why review
+## Why review
 
 The purpose of code review is to make sure code quality increases over time and to keep delivering value to customers/stakeholders.
 
@@ -17,7 +17,7 @@ Why do we review each other's code?
 - Knowledge sharing
 - Consistency
 
-### What to look for
+## What to look for
 
 Code reviews should look at:
 
@@ -41,7 +41,7 @@ Code reviews should look at:
 - **Documentation**
   - Did the developer also update relevant documentation?
 
-### Principles
+## Principles
 
 Follow these key principles, in order:
 
@@ -52,7 +52,7 @@ Follow these key principles, in order:
 - If the author can demonstrate that several approaches are equally valid, then the reviewer should accept the preference of the author. Otherwise, the choice is dictated by standard principles of software design.
 - If no other rule applies, then the reviewer may ask the author to be consistent with what is in the current codebase
 
-### How to write code review comments
+## How to write code review comments
 
 When reviewing someone else's code, always assume competence and goodwill.
 
@@ -75,7 +75,7 @@ If you see something clearly wrong, it most likely comes from a lack of informat
 
 If you see something you like, you can comment on that as well. Learn something new? Let them know. Encourage more great code/change by praising it.
 
-### How to write a good changelist / pull request (for code authors)
+## How to write a good changelist / pull request (for code authors)
 
 The first sentence of a changelist (pull request) describes **what’s** actually being done.
 
@@ -94,7 +94,7 @@ Some examples:
 
 Remember that the changelist description is a public record of what change is being made and why it was made. It will become a permanent part of our version control history, and will possibly be read by hundreds of people other than your reviewers over the years.
 
-### How to handle reviewer comments (for code authors)
+## How to handle reviewer comments (for code authors)
 
 Remember:
 
@@ -108,7 +108,7 @@ Remember:
   - Try to come to a consensus based on technical facts
   - Ask for in-person, or video, discussion and document the result as a code review comment
 
-### References
+## References
 
 - [Code Review Developer Guide by Google](https://google.github.io/eng-practices/review/)
 - [Respectful Code Reviews](https://chromium.googlesource.com/chromium/src/+/master/docs/cr_respect.md)

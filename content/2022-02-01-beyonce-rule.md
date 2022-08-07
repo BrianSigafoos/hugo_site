@@ -8,7 +8,7 @@ summary: >
 
 ![The Beyoncé Rule](/img/posts/if-you-like-it-then-you-shoulda-put-a-ci-test-on-it.jpg)
 
-### Automated tests allow software to change
+## Automated tests allow software to change
 
 A key message from the [Software Engineering at Google](https://www.oreilly.com/library/view/software-engineering-at/9781492082781/) book's section on Testing is that: **automated tests allow software to change**.
 

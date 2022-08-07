@@ -6,7 +6,7 @@ summary: 250+ colloquial Palestinian Arabic verbs with English and French
   translations.
 ---
 
-### Learning spoken Arabic
+## Learning spoken Arabic
 
 I started this spreadsheet in 2006 while living in Jerusalem and studying
 Arabic at Birzeit University in the West Bank.
