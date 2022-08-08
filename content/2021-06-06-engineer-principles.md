@@ -21,7 +21,7 @@ summary: Focus on delivering value to customers, communicate proactively, encour
 
 ### Encourage critique
 
-- Learn to give thoughtful critiques of technical plans. Focus criticism on the plan, not the person.
+- Learn to give thoughtful critiques of technical plans (see [Design Docs](/design-docs)). Focus criticism on the plan, not the person.
 - Ask others for critiques of your technical plans, as early as possible.
 - Thoughtful critiques, early in the planning process, help make technical plans stronger and ultimately save you time, because there will be less rework.
 

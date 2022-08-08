@@ -2,12 +2,12 @@
 date: 2021-06-13T12:06:27-04:00
 slug: app-tech-stack-2021
 title: A modern app tech stack, built for speed
-summary: Iterate more quickly using Rails with ViewComponent + Tailwind CSS + Hotwire. Build faster with no custom CSS and limited JS.
+summary: Small teams can iterate more quickly using Rails with ViewComponent + Tailwind CSS + Hotwire. Build faster with no custom CSS and limited JS.
 ---
 
 ## A simpler stack, for 2021
 
-The choice of technology stack has a big impact on your team's ability to build a product quickly.
+The choice of technology stack has a big impact on your team's ability to build a product quickly. This is especially true for small teams.
 
 By choosing a stack with a strong principle of "convention over configuration", like Ruby on Rails, you can eliminate unimportant choices. This lets you focus as much energy as possible on building what's core to your business.
 
