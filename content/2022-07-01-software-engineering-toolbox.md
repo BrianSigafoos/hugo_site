@@ -26,7 +26,7 @@ summary: A collection of posts and resources for software engineers and engineer
 - [Embeddable Javascript widgets](/javascript-widgets)
 - [Rails on Kubernetes](/rails-on-kubernetes)
 - [A modern app tech stack, built for speed](/app-tech-stack-2021) -- why small teams can go faster with Rails + ViewComponent + Tailwind CSS + Hotwire
-- [API Design](/api-design)
+- [API design patterns](/api-design)
 
 ## Misc technical posts
 
