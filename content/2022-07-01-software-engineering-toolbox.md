@@ -17,7 +17,7 @@ summary: A collection of posts and resources for software engineers and engineer
 - [Principles for engineers](/principles-for-engineers) -- Focus on delivering value to customers. Communicate proactively. Encourage critique. Take initiative. Debug scientifically. Practice habits.
 - [Code Review best practices](/code-review)
 - [Design Docs](/design-docs) to help solve new problems
-- [Auto-format and lint everything](/linting)
+- [Auto-format and lint everything](/linters)
 - [Automate dependency updates](/dependencies)
 
 ## Technical guides
