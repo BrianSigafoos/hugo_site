@@ -4,6 +4,7 @@ slug: problems
 title: >
   “Problems are good. We solve problems”
 summary: An optimistic, action-oriented attitude for software engineering
+collection_swe_toolbox: true
 ---
 
 ## We solve problems

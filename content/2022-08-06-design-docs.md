@@ -1,15 +1,16 @@
 ---
 date: 2022-08-06T20:33:08-04:00
 slug: design-docs
-title: Design Docs
-summary: Why encouraging Design Docs helps teams build better software and a template borrowed from Google
+title: Design Docs for software architecture review
+summary: An intro to using Design Docs aka RFC's to help teams build better software and share knowledge
+collection_swe_toolbox: true
 ---
 
 > As software engineers our job is not to produce code per se, but rather to solve problems.
 
 From [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/)
 
-I love to say that "[problems are good, we solve problems](/problems)". Part of solving big problems is to write them down clearly and then to outline a solution. This is called a "Design Doc".
+I love to say that "[problems are good, we solve problems](/problems)". Part of solving a big problem is to write clearly define it and then to outline a solution. This process can be formalized into a "Design Doc".
 
 ## Benefits of a Design Doc
 
@@ -25,13 +26,37 @@ Writing a Design Doc and having it reviewed does several things:
 ## When to create a Design Doc, and when not to
 
 - Is there a new problem with an ambiguous solution? Then: YES
-- Is there significant problem complexity or solution complexity that would benefit from review? Then: YES
-- Would the doc be an implementation manual without discussing trade-offs or alternatives? Then: NO
+- Is there significant complexity in the problem or solution that would benefit from review? Then: YES
+- Is the doc an implementation manual without discussing trade-offs or alternatives? Then: NO
 
-## Template
+## Design Doc sections as bullets
+
+- Metadata / Header: Date, Status, Authors
+- Context and scope
+  - Problem Statement
+  - Details
+  - Goals
+  - Non-goals
+- Design
+  - Overview
+  - System context diagram
+  - APIs
+  - Data storage
+  - Degree of constraint
+  - Alternatives considered
+- Cross-cutting concerns
+  - Security
+  - Privacy
+- Appendix
+  - References
+  - Notes
+
+## Templates
 
 - Google Doc: [Design Doc - TEMPLATE](https://docs.google.com/document/d/1B7Hwe93GasGd0pODJZ2kT6UkmJO6uUD-qGzLTVPY3aI/edit?usp=sharing)
 - Inline below:
+
+*Start of Design Doc template*
 
 -----
 
@@ -47,7 +72,7 @@ Authors: [Your name, co-authors] <br />
 
 ## Details
 
-[1-2 paragraphs, givig more context than the problem statement]
+[1-2 paragraphs, giving more context than the problem statement]
 
 ## Goals
 
@@ -106,9 +131,9 @@ Authors: [Your name, co-authors] <br />
 
 ----
 
-*<-- End of template -->*
+*End of Design Doc template*
 
-## References for this blog post
+## More references for Design Docs
 
 - [Architecture Review Process - Mozilla](https://mozilla.github.io/firefox-browser-architecture/text/0006-architecture-review-process.html)
 - [Engineering Planning with RFCs, Design Documents and ADRs - The Pragmatic Engineer](https://newsletter.pragmaticengineer.com/p/rfcs-and-design-docs)

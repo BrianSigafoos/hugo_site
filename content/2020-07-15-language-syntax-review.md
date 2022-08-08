@@ -3,6 +3,7 @@ title: Language syntax review
 slug: syntax
 date: 2020-07-16T20:21:41-04:00
 summary: Quick review of basic syntax for Go, Javascript, Ruby, Rails, and SQL
+collection_swe_toolbox: true
 ---
 
 Jump to [Go](#go) · [Javascript](#javascript) · [Rails](#rails) · [Ruby](#ruby) · [SQL](#sql)

@@ -3,6 +3,7 @@ date: 2022-03-12T07:45:59-05:00
 slug: dependencies
 title: Automate dependency updates
 summary: Use automated tools like Github's Dependabot and Actions to automate dependency updates
+collection_swe_toolbox: true
 ---
 
 Once code is well tested and [CI/CD is set up](/rails-on-kubernetes), we can be confident in continuously merging and deploying dependency upgrades.
