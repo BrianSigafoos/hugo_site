@@ -10,7 +10,7 @@ collection_swe_toolbox: true
 
 From [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/)
 
-I love to say that "[problems are good, we solve problems](/problems)". Part of solving a big problem is to write clearly define it and then to outline a solution. This process can be formalized into a "Design Doc".
+I love to say that "[problems are good, we solve problems](/problems)". Part of solving a big problem is to clearly define it and then to outline a solution. This process can be formalized into a "Design Doc".
 
 ## Benefits of a Design Doc
 
