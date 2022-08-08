@@ -3,6 +3,7 @@ date: 2022-07-22T13:28:51-04:00
 slug: dark-mode-css-variables
 title: Dark mode with CSS variables and Stimulus
 summary: How to add Dark Mode using CSS variables and Stimulus, plus a color palette picker
+collection_swe_toolbox: true
 ---
 
 ## Live Demo

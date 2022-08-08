@@ -24,6 +24,13 @@
 
     <div class="border-t border-gray my-8 pt-4">
       {{ .Content }}
+
+      {{ if .Params.collection_swe_toolbox }}
+        <div class="border-t border-b border-gray text-muted my-8 py-4 ">
+          Read more posts like this in the
+          <a href="/software-engineering-toolbox">Software Engineering Toolbox</a> collection.
+        </div>
+      {{ end }}
     </div>
 
     {{ if .Params.show_gravatar }}

@@ -3,6 +3,7 @@ date: 2021-09-01T21:03:13-05:00
 slug: rails-on-kubernetes
 title: Rails on Kubernetes
 summary: Build a CI/CD pipeline with Github Actions to Kubernetes for a Ruby on Rails app
+collection_swe_toolbox: true
 ---
 
 ## TL;DR

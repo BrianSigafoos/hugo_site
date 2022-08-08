@@ -3,6 +3,7 @@ date: 2022-05-22T11:23:59-05:00
 slug: javascript-widgets
 title: Embeddable Javascript widgets
 summary: How to create a Github gist-like embeddable widget using Rails
+collection_swe_toolbox: true
 ---
 
 ## Github gists example

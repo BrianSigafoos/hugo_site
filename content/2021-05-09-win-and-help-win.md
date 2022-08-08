@@ -4,6 +4,7 @@ slug: win
 title: >
   “Win and help win”
 summary: A guiding philosophy for tech that is ambitious, positive-sum, and collective.
+collection_swe_toolbox: true
 ---
 
 ## The best tech folks are “win and help win”

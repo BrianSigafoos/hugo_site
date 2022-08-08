@@ -3,6 +3,7 @@ date: 2021-05-30T09:28:12-04:00
 slug: linters
 title: Auto-format and lint everything
 summary: Build faster with automated formatting, linting, and vulnerability scanning
+collection_swe_toolbox: true
 ---
 
 When building software I want to automate everything possible.

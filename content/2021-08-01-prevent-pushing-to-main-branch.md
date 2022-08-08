@@ -3,6 +3,7 @@ date: 2021-08-15T12:03:13-05:00
 slug: prevent-pushing-to-main-branch
 title: Prevent pushing to main branch
 summary: Use a .git hooks script to prevent accidentally pushing to main branch
+collection_swe_toolbox: true
 ---
 
 ## Oops, I just pushed to main!

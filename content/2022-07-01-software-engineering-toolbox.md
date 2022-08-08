@@ -2,13 +2,16 @@
 date: 2022-07-01T20:16:18-04:00
 slug: software-engineering-toolbox
 title: Software Engineering Toolbox
-summary: A collection of posts and resources for software engineers and engineering leaders.
+summary: A collection of posts for software engineers and engineering leaders
+hide_comments: true
+hide_date: true
+hide_read_time: true
 ---
 
 ## Sayings and mantras
 
-- [“Problems are good. We solve problems”](/problems) -- adopt an optimistic, action-oriented attitude
-- [The Beyoncé Rule](beyonce-rule): "If you like it, then you shoulda put a CI test on it."
+- [“Problems are good. We solve problems.”](/problems) -- adopt an optimistic, action-oriented attitude
+- [“If you like it, then you shoulda put a CI test on it.”](beyonce-rule) -- aka The Beyoncé Rule:
 - [“Win and help win”](/win) -- a guiding philosophy for tech that is ambitious, positive-sum, and collective
 
 ## Best practices
@@ -16,7 +19,7 @@ summary: A collection of posts and resources for software engineers and engineer
 
 - [Principles for engineers](/principles-for-engineers) -- Focus on delivering value to customers. Communicate proactively. Encourage critique. Take initiative. Debug scientifically. Practice habits.
 - [Code Review best practices](/code-review)
-- [Design Docs](/design-docs) to help solve new problems
+- [Design Docs for software architecture review](/design-docs)
 - [Auto-format and lint everything](/linters)
 - [Automate dependency updates](/dependencies)
 
@@ -33,12 +36,10 @@ summary: A collection of posts and resources for software engineers and engineer
 - [Postgres tips](/postgres)
 - [Language syntax review](/syntax) for Go, Javascript, Ruby, Rails, and SQL
 - [Prevent pushing to main branch](/prevent-pushing-to-main-branch)
+- [Practicing Scrum](/scrum)
+- [Learning Go](/learn-go)
 
-## More resources
-
-- [The Pragmatic Engineer Newsletter](https://www.pragmaticengineer.com/)
-
-## Essential Reading
+## Reading list
 
 Selections from my [Reading list](/reading)
 
@@ -81,3 +82,7 @@ Selections from my [Reading list](/reading)
 
 - The Beginning of Infinity: Explanations That Transform the World (Deutsch)
 - Sapiens: A Brief History of Humankind (Harari)
+
+## More resources
+
+- [The Pragmatic Engineer Newsletter](https://www.pragmaticengineer.com/)

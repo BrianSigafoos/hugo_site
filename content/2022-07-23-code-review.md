@@ -3,6 +3,7 @@ date: 2022-07-23T14:01:48-04:00
 slug: code-review
 title: Code Review best practices
 summary: Follow clear guidelines for code review to help improve code quality and products
+collection_swe_toolbox: true
 ---
 
 This is a condensed and lightly remixed version of Google's must-read [Code Review Developer Guide](https://google.github.io/eng-practices/review/).

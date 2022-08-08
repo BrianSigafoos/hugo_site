@@ -4,6 +4,7 @@ slug: beyonce-rule
 title: The Beyoncé Rule
 summary: >
   "If you like it, then you shoulda put a CI test on it."
+collection_swe_toolbox: true
 ---
 
 ![The Beyoncé Rule](/img/posts/if-you-like-it-then-you-shoulda-put-a-ci-test-on-it.jpg)

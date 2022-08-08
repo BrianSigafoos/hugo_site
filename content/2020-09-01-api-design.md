@@ -3,6 +3,7 @@ date: 2020-09-01T14:00:00-07:00
 slug: api-design
 title: API design patterns
 summary: Key principles and learnings for API design
+collection_swe_toolbox: true
 ---
 
 Update 2022: I'm glad I captured these notes in 2020 for reference in future API design work. But, from 2021-2022, I saw 2-5x faster product development without an API. See this post:
