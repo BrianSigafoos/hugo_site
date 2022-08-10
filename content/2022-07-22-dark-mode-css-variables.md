@@ -195,7 +195,7 @@ Stimulus.register('color-scheme', ColorSchemeController)
 Then add to the HTML `body` tag in your app some code to tell Stimulus to interact with this `color-scheme` controller:
 
 ```html
-<body data-controller="color-scheme" class="...">
+<body data-controller="color-scheme" class="..."></body>
 ```
 
 Then add a Stimulus controller similar to this one:
@@ -302,4 +302,4 @@ Finally add some HTML buttons to allow toggling:
 </div>
 ```
 
-That's it!  Try it out here: [Live Demo](#live-demo)
+That's it! Try it out here: [Live Demo](#live-demo)

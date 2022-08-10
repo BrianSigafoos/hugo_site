@@ -56,9 +56,9 @@ Writing a Design Doc and having it reviewed does several things:
 - Google Doc: [Design Doc - TEMPLATE](https://docs.google.com/document/d/1B7Hwe93GasGd0pODJZ2kT6UkmJO6uUD-qGzLTVPY3aI/edit?usp=sharing)
 - Inline below:
 
-*Start of Design Doc template*
+_Start of Design Doc template_
 
------
+---
 
 Date: [YYYY-MM-DD] <br />
 Status: [Draft | In Review | Approved | Rejected] <br />
@@ -128,10 +128,9 @@ Authors: [Your name, co-authors] <br />
 
 [If useful to record notes, keep this free form section for notes as the document above takes shape]
 
+---
 
-----
-
-*End of Design Doc template*
+_End of Design Doc template_
 
 ## More references for Design Docs
 
