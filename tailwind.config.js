@@ -11,6 +11,7 @@ module.exports = {
       colors: {
         primary: 'var(--color-primary)'
       },
+      //Add .prose-custom class to use CSS variables
       typography: ({ theme }) => ({
         custom: {
           css: {
