@@ -12,7 +12,7 @@ module.exports = {
         primary: 'var(--color-primary)'
       },
       //Add .prose-custom class to use CSS variables
-      typography: ({ theme }) => ({
+      typography: {
         custom: {
           css: {
             '--tw-prose-body': 'var(--text-color)',
@@ -31,9 +31,10 @@ module.exports = {
             '--tw-prose-pre-bg': 'var(--bg-bright)'
           }
         }
-      })
+      }
     }
   },
   // variants: {},
   plugins: [require('@tailwindcss/typography')]
 }
+
