@@ -81,14 +81,17 @@ Here's an example of what this might look in the Slack thread where someone post
 >
 > My new hypothesis is B2.
 >
-> To test B2 (hypothesis #2), I'll now do C2 (test #2) to disprove it. I'll report  my findings here.
+> To test B2 (hypothesis #2), I'll now do C2 (test #2) to disprove it. I'll report my findings here.
 >
 > Ok, that was it. Now that I've done C2, the bug is fixed. I feel confident this is the root cause because of A3 (any new info)
 >
 > I'll mark this as closed in XYZ (error reporting tool)
 
-
 ## References
 
-- Before getting a lot of practice with this myself, I first heard about a "Scientific method for dealing with bugs" at a Ruby Meetup talk in San Francisco, June 2018. I wish I knew the speaker's name to give them credit
-- While writing this up I also came across: [How to Fix the Hardest Bug You've Ever Seen: The Scientific Method](http://yellerapp.com/posts/2014-08-11-scientific-debugging.html)
+Before getting a lot of practice with this myself, I first heard about a "Scientific method for dealing with bugs" at a Ruby Meetup talk in San Francisco, June 2018. I wish I knew the speaker's name to give them credit.
+
+While writing this up I also came across these similar articles:
+
+- [How to Fix the Hardest Bug You've Ever Seen: The Scientific Method](http://yellerapp.com/posts/2014-08-11-scientific-debugging.html)
+- [Debugging Like a Scientist](https://www.rithmschool.com/blog/debugging-like-a-scientist)
