@@ -32,7 +32,7 @@ collection_swe_toolbox: true
 - Don't wait to be told what to do.
 - Think of ways to improve the product and your team's processes.
 
-### Debug scientifically
+### [Debug scientifically](/debug-scientifically)
 
 - Write down your hypothesis.
 - Ask, how do I disprove this hypothesis?
