@@ -1,5 +1,5 @@
 ---
-date: 2022-08-27T10:35:57-04:00
+date: 2022-08-27T07:35:57-04:00
 slug: debug-scientifically
 title: Debug scientifically
 summary: Try a more "scientific" process to solving bugs and reducing Mean Time to Recovery (MTTR)
