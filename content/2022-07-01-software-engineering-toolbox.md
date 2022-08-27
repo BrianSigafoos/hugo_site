@@ -19,6 +19,7 @@ hide_read_time: true
 - [Principles for engineers](/principles-for-engineers) -- Focus on delivering value to customers. Communicate proactively. Encourage critique. Take initiative. Debug scientifically. Practice habits.
 - [Code Review best practices](/code-review)
 - [Design Docs for software architecture review](/design-docs)
+- [Debug scientifically](/debug-scientifically)
 - [Auto-format and lint everything](/linters)
 - [Automate dependency updates](/dependencies)
 
