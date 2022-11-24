@@ -1,14 +1,14 @@
 ---
 date: 2022-11-23T12:42:54-05:00
-slug: karpathy-ml-lectures
-title: Learning ML with Andrej Karpathy
-summary: "Notes from following Karpathy's videos: Neural Networks: Zero to Hero"
+slug: ml-neural-nets-karpathy
+title: Learning ML neural nets with Andrej Karpathy
+summary: "Notes from following Karpathy's machine learning videos: Neural Networks: Zero to Hero"
 collection_swe_toolbox: true
 ---
 
 ## Intro
 
-These are my notes while learning foundational Machine Learning (ML) from Andrej Karpathy. Andrej is the former Director of AI at Tesla, and an excellent teacher. He  demystifies complex ML topics like gradient descent through simple examples that you can easily recreate locally.
+These are my ongoing notes from learning foundational Machine Learning (ML) concepts, as taught by Andrej Karpathy. Andrej is the former Director of AI at Tesla, and an excellent teacher. He demystifies complex ML topics like through simple examples that you can (and should) easily recreate locally.
 
 YouTube playlist: [Neural Networks: Zero to Hero](https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
 
