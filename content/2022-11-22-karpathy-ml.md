@@ -1,5 +1,5 @@
 ---
-date: 2022-11-23T12:42:54-05:00
+date: 2022-11-22T12:42:54-05:00
 slug: ml-neural-nets-karpathy
 title: Learning ML neural nets with Andrej Karpathy
 summary: "Notes from following Karpathy's machine learning videos: Neural Networks: Zero to Hero"
@@ -77,6 +77,8 @@ Now you're all set to dive into the videos.
 
 Watch the YouTube video: [The spelled-out intro to neural networks and backpropagation: building micrograd](https://www.youtube.com/watch?v=VMj-3S1tku0&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ).
 
+Code source: [micrograd](https://github.com/karpathy/micrograd)
+
 And follow along locally in your own `.ipynb` file. I strongly recommend doing this yourself, typing out everything that Andrej does, and running it all locally. This "practice" helps me learn the content better and builds confidence that it can all be recreated locally.
 
 Just for reference (create your own!), here are examples of local notebooks:
@@ -112,6 +114,72 @@ Most common neural net mistakes from [@karpathy's tweet](https://twitter.com/kar
 6. thinking view() and permute() are the same thing (& incorrectly using view)
 
 {{< tweet user="karpathy" id="1013244313327681536" >}}
+
+## 2. Makemore - bigram character-level language model
+
+Watch the YouTube video: [The spelled-out intro to language modeling: building makemore](https://www.youtube.com/watch?v=PaCmpygFfXo&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ).
+
+Code source: [makemore](https://github.com/karpathy/makemore)
+
+Every line in names.txt is an example. Each example is a sequence of characters.
+We're building a character level language model. It knows how to predict the next character in the sequence.
+
+It's important to learn more about [Broadcasting semantics](https://pytorch.org/docs/stable/notes/broadcasting.html?highlight=broadcasting)
+
+This lecture let's us train a bigram language model. We start by training it by counting how frequently any pairing of letters occurs in ~32k names, and then normalizing so we get a nice probability distribution.
+
+```python
+import torch
+
+# data set: 32k first names
+words = open('names.txt', 'r').read().splitlines()
+chars = sorted(list(set(''.join(words))))
+
+# s to i lookup, setting `.` as 0 index in array and all others + 1
+stoi = {s:i+1 for i, s in enumerate(chars)}
+stoi['.'] = 0
+
+# i to s lookip
+itos = {i:s for s, i in stoi.items() }
+
+# Set 28x28 matrix values to 0
+N = torch.zeros((27, 27), dtype=torch.int32)
+
+# Get the counts
+for w in words:
+  chs = ['.'] + list(w) + ['.']
+  for ch1, ch2 in zip(chs, chs[1:]):
+    # integer index of this character in stoi 0-27
+    ix1 = stoi[ch1]
+    ix2 = stoi[ch2]
+    N[ix1, ix2] += 1
+
+# prepare probabilities, parameters of our bigram language model
+P = N.float()
+# 27, 27
+# 27, 1  # This is "broadcastable" and it stretches the 1 into all 27 rows
+# https://pytorch.org/docs/stable/notes/broadcasting.html?highlight=broadcasting
+
+# Below uses `/=` to avoid creating new tensor, ie more efficient
+P /= P.sum(1, keepdim=True)
+
+g = torch.Generator().manual_seed(2147483647)
+
+for i in range(5):
+  out = []
+  ix = 0
+  while True:
+    p = P[ix]
+    ix = torch.multinomial(p, num_samples=1, replacement=True, generator=g).item()
+    out.append(itos[ix])
+    if ix == 0:
+      break
+
+  print(''.join(out))
+```
+
+## 3. ...
+
 
 ## References
 
