@@ -66,7 +66,8 @@ Watch the YouTube video: [The spelled-out intro to neural networks and backpropa
 And follow along locally in your own `.ipynb` file. I strongly recommend doing this yourself, typing out everything that Andrej does, and running it all locally. This "practice" helps me learn the content better and builds confidence that it can all be recreated locally.
 
 Just for reference (create your own!), here are examples of local notebooks:
-  - My notebook from the [1st part of the micrograd video](https://github.com/BrianSigafoos/micrograd/blob/master/micrograd_youtube1.ipynb).
+
+- My notebook from the [1st part of the micrograd video](https://github.com/BrianSigafoos/micrograd/blob/master/micrograd_youtube1.ipynb).
 - Two more complete [notebooks for both parts of the micrograd video](https://github.com/Anri-Lombard/micrograd/tree/main/Lectures) by Github user @Anri-Lombard.
 
 Everything needed to understand a neural network is in [micrograd](https://github.com/karpathy/micrograd). Everything else is just efficiency.
