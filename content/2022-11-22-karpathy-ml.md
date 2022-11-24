@@ -8,7 +8,9 @@ collection_swe_toolbox: true
 
 ## Intro
 
-These are my ongoing notes from learning foundational Machine Learning (ML) concepts, as taught by Andrej Karpathy. Andrej is the former Director of AI at Tesla, and an excellent teacher. He demystifies complex ML topics like through simple examples that you can (and should) easily recreate locally.
+These are my ongoing notes from learning foundational Machine Learning (ML) concepts, as taught by Andrej Karpathy.
+Andrej is the former Director of AI at Tesla, and an excellent teacher.
+He demystifies complex ML topics like gradient descent through simple examples. When following these video you can (and should) easily recreate everything he does on your local machine.
 
 YouTube playlist: [Neural Networks: Zero to Hero](https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
 
@@ -22,6 +24,18 @@ Github repos:
 
 - [micrograd](https://github.com/karpathy/micrograd) - A tiny scalar-valued autograd engine and a neural net library on top of it with PyTorch-like API
 - [makemore](https://github.com/karpathy/makemore) - An autoregressive character-level language model for making more things
+
+### What's a neural network?
+
+Here's how Wikipedia defines a [neural network](https://en.wikipedia.org/wiki/Neural_network):
+
+> A neural network is a network or circuit of biological neurons, or, in a modern sense, an artificial neural network, composed of artificial neurons or nodes.
+
+> Thus, a neural network is either a biological neural network, made up of biological neurons, or an artificial neural network, used for solving artificial intelligence (AI) problems.
+
+> The connections of the biological neuron are modeled in artificial neural networks as weights between nodes. A positive weight reflects an excitatory connection, while negative values mean inhibitory connections. All inputs are modified by a weight and summed. This activity is referred to as a linear combination.
+
+> Finally, an activation function controls the amplitude of the output. For example, an acceptable range of output is usually between 0 and 1, or it could be −1 and 1.
 
 ## Setup
 
