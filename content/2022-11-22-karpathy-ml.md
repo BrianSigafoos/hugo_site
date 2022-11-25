@@ -1,16 +1,14 @@
 ---
 date: 2022-11-22T12:42:54-05:00
 slug: ml-neural-nets-karpathy
-title: Learning ML neural nets with Andrej Karpathy
-summary: "Notes from following Karpathy's machine learning videos: Neural Networks: Zero to Hero"
+title: Learn ML Neural Networks with Andrej Karpathy
+summary: "Notes from Karpathy's machine learning videos: Neural Networks: Zero to Hero"
 collection_swe_toolbox: true
 ---
 
 ## Intro
 
-These are my ongoing notes from learning foundational Machine Learning (ML) concepts, as taught by Andrej Karpathy.
-Andrej is the former Director of AI at Tesla, and an excellent teacher.
-He demystifies complex ML topics like gradient descent through simple examples. When following these video you can (and should) easily recreate everything he does on your local machine.
+These are my notes from the [Andrej Karpathy](https://twitter.com/Karpathy) lecture series: [Neural Networks: Zero to Hero](https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ). Andrej is the former Director of AI at Tesla and an excellent teacher. He demystifies complex ML topics like gradient descent through simple examples. When following these videos, I recommend recreating everything Andrej covers on your local machine. It help me practice and build confidence that from simple building blocks we can build up powerful models.
 
 YouTube playlist: [Neural Networks: Zero to Hero](https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
 
@@ -121,10 +119,10 @@ Watch the YouTube video: [The spelled-out intro to language modeling: building m
 
 Code source: [makemore](https://github.com/karpathy/makemore)
 
-Every line in names.txt is an example. Each example is a sequence of characters.
+Every line in `makemore/names.txt` is an example. Each example is a sequence of characters.
 We're building a character level language model. It knows how to predict the next character in the sequence.
 
-It's important to learn more about [Broadcasting semantics](https://pytorch.org/docs/stable/notes/broadcasting.html?highlight=broadcasting)
+As noted in the video, it's important to learn more about [Broadcasting semantics](https://pytorch.org/docs/stable/notes/broadcasting.html?highlight=broadcasting).
 
 This lecture let's us train a bigram language model. We start by training it by counting how frequently any pairing of letters occurs in ~32k names, and then normalizing so we get a nice probability distribution.
 
@@ -136,17 +134,19 @@ words = open('names.txt', 'r').read().splitlines()
 chars = sorted(list(set(''.join(words))))
 
 # s to i lookup, setting `.` as 0 index in array and all others + 1
+# we'll use `.` to mark the start and end of all words
 stoi = {s:i+1 for i, s in enumerate(chars)}
 stoi['.'] = 0
 
-# i to s lookip
+# i to s lookup
 itos = {i:s for s, i in stoi.items() }
 
-# Set 28x28 matrix values to 0
+# Create a 27x27 matrix with values all set to 0
 N = torch.zeros((27, 27), dtype=torch.int32)
 
 # Get the counts
 for w in words:
+  # use `.` to mark the start and end of all words
   chs = ['.'] + list(w) + ['.']
   for ch1, ch2 in zip(chs, chs[1:]):
     # integer index of this character in stoi 0-27
@@ -154,7 +154,7 @@ for w in words:
     ix2 = stoi[ch2]
     N[ix1, ix2] += 1
 
-# prepare probabilities, parameters of our bigram language model
+# prepare probabilities, parameters of our bigram language model -
 P = N.float()
 # 27, 27
 # 27, 1  # This is "broadcastable" and it stretches the 1 into all 27 rows
@@ -172,11 +172,57 @@ for i in range(5):
     p = P[ix]
     ix = torch.multinomial(p, num_samples=1, replacement=True, generator=g).item()
     out.append(itos[ix])
+    # Break with `.` is found, marking the end of the word
     if ix == 0:
       break
 
   print(''.join(out))
+
+# Output:
+#
+# mor.
+# axx.
+# minaymoryles.
+# kondlaisah.
+# anchshizarie.
 ```
+
+Then we can evaluate the quality of this model.
+
+Goal: summarize probabilities into a single number that measure the quality of this model.
+
+```python
+# Goal: summarize probabilities into a single number that measure the quality of this model
+log_likelihood = 0.0
+n = 0
+
+for w in words[:3]:
+  # for w in ["andrejq"]:
+  chs = ['.'] + list(w) + ['.']
+  for ch1, ch2 in zip(chs, chs[1:]):
+    ix1 = stoi[ch1]
+    ix2 = stoi[ch2]
+    prob = P[ix1, ix2]
+    logprob = torch.log(prob)
+    # This is because: log(a*b*c) = log(a) + log(b) + log(c)
+    log_likelihood += logprob
+    n += 1
+    print(f'{ch1}{ch2}: {prob:.4f} {logprob:.4f}')
+
+print(f'{log_likelihood=}')
+# negative log likelihood is a nice loss function.
+# The lowest it can get is 0. The higher it is, the worse off the predictions
+# you are making are.
+nll = -log_likelihood
+print(f'{nll=}')
+# Above was the sum negative log likelihood. Better is the average negative log likelihood.
+# So divide that sum by `n` to get the average.
+# So the loss function for the training set assigned by this model is 2.4. That's the "quality" of this model.
+# The lower it is the better off we are. The higher it is the worse off we are.
+print(f'{nll/n}')
+```
+
+
 
 ## 3. ...
 
