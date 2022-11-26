@@ -187,7 +187,7 @@ for i in range(5):
   ix = 0
   while True:
     p = P[ix]
-    
+
     ix = torch.multinomial(p, num_samples=1, replacement=True, generator=g).item()
     out.append(itos[ix])
     # Break with `.` is found, marking the end of the word
@@ -325,7 +325,7 @@ for i in range(5):
       break
   print(''.join(out))
 
-  # Output:  almost identical to above approach where we manually added weights
+  # Output:  almost identical to approach 1 non-neural network with count frequencies
   #   mor.
   #   axx.
   #   minaymoryles.
