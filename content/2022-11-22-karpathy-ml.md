@@ -1,29 +1,29 @@
 ---
-date: 2022-11-23T12:42:54-05:00
-slug: ml-neural-nets-karpathy
-title: Learning ML neural nets with Andrej Karpathy
-summary: "Notes from following Karpathy's machine learning videos: Neural Networks: Zero to Hero"
+date: 2022-11-22T12:42:54-05:00
+slug: neural-networks-karpathy
+title: Learn Neural Networks with Andrej Karpathy
+summary: "Notes from Karpathy's machine learning lectures - Neural Networks: Zero to Hero"
 collection_swe_toolbox: true
 ---
 
 ## Intro
 
-These are my ongoing notes from learning foundational Machine Learning (ML) concepts, as taught by Andrej Karpathy.
-Andrej is the former Director of AI at Tesla, and an excellent teacher.
-He demystifies complex ML topics like gradient descent through simple examples. When following these video you can (and should) easily recreate everything he does on your local machine.
+These are my notes from the [Andrej Karpathy](https://twitter.com/Karpathy) lecture series: [Neural Networks: Zero to Hero](https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ). Andrej is the former Director of AI at Tesla and an excellent teacher. He demystifies complex ML topics like gradient descent through simple examples. When following these videos, I recommend recreating everything Andrej covers on your local machine. It help me practice and build confidence that from simple building blocks we can build up powerful models.
 
 YouTube playlist: [Neural Networks: Zero to Hero](https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
 
-YouTub videos:
+YouTube videos:
 
 - 1. [The spelled-out intro to neural networks and backpropagation: building micrograd](https://www.youtube.com/watch?v=VMj-3S1tku0&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
 - 2. [The spelled-out intro to language modeling: building makemore](https://www.youtube.com/watch?v=PaCmpygFfXo&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
+- 3. Coming soon
 - ...
 
 Github repos:
 
 - [micrograd](https://github.com/karpathy/micrograd) - A tiny scalar-valued autograd engine and a neural net library on top of it with PyTorch-like API
 - [makemore](https://github.com/karpathy/makemore) - An autoregressive character-level language model for making more things
+- [notebooks: nn-zero-to-hero](https://github.com/karpathy/nn-zero-to-hero) - Lecture notebooks to run locally
 
 ### What's a neural network?
 
@@ -77,6 +77,8 @@ Now you're all set to dive into the videos.
 
 Watch the YouTube video: [The spelled-out intro to neural networks and backpropagation: building micrograd](https://www.youtube.com/watch?v=VMj-3S1tku0&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ).
 
+Code source: [micrograd](https://github.com/karpathy/micrograd)
+
 And follow along locally in your own `.ipynb` file. I strongly recommend doing this yourself, typing out everything that Andrej does, and running it all locally. This "practice" helps me learn the content better and builds confidence that it can all be recreated locally.
 
 Just for reference (create your own!), here are examples of local notebooks:
@@ -113,11 +115,232 @@ Most common neural net mistakes from [@karpathy's tweet](https://twitter.com/kar
 
 {{< tweet user="karpathy" id="1013244313327681536" >}}
 
+## 2. Makemore - bigram character-level language model
+
+Watch the YouTube video: [The spelled-out intro to language modeling: building makemore](https://www.youtube.com/watch?v=PaCmpygFfXo&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ).
+
+Code source: [makemore](https://github.com/karpathy/makemore)
+
+Every line in `makemore/names.txt` is an example. Each example is a sequence of characters.
+We're building a character level language model. It knows how to predict the next character in the sequence.
+
+As noted in the video, it's important to learn more about [Broadcasting semantics](https://pytorch.org/docs/stable/notes/broadcasting.html?highlight=broadcasting).
+
+This lecture let's us train a bigram language model.
+
+### Setup code
+
+```python
+# Setup - common to both approaches
+import torch
+
+# data set: 32k first names
+words = open('names.txt', 'r').read().splitlines()
+chars = sorted(list(set(''.join(words))))
+
+# s to i lookup, setting `.` as 0 index in array and all others + 1
+# we'll use `.` to mark the start and end of all words
+stoi = {s: i+1 for i, s in enumerate(chars)}
+stoi['.'] = 0
+
+# i to s lookup
+itos = {i: s for s, i in stoi.items()}
+```
+
+### Non-neural network approach
+
+We start training it by counting how frequently any pairing of letters occurs in ~32k names, and then normalizing so we get a nice probability distribution.
+
+```python
+# Approach 1: non-neural network approach: count frequency of bigrams and store in `N`
+#
+# Create a 27x27 matrix with values all set to 0
+N = torch.zeros((27, 27), dtype=torch.int32)
+
+# Get the counts
+for w in words:
+  # use `.` to mark the start and end of all words
+  chs = ['.'] + list(w) + ['.']
+  for ch1, ch2 in zip(chs, chs[1:]):
+    # integer index of this character in stoi 0-27
+    ix1 = stoi[ch1]
+    ix2 = stoi[ch2]
+    N[ix1, ix2] += 1
+
+# prepare probabilities, parameters of our bigram language model
+# Apply "model smoothing" using `N + 1` instead of `N`. This prevents 0's in probability matrix P, which could lead to `infinity` for loss measurement.
+P = (N + 1).float()
+# 27, 27
+# 27, 1  # This is "broadcastable" and it stretches the 1 into all 27 rows
+# https://pytorch.org/docs/stable/notes/broadcasting.html?highlight=broadcasting
+
+# Below uses `/=` to avoid creating new tensor, ie more efficient
+P /= P.sum(1, keepdim=True)
+
+g = torch.Generator().manual_seed(2147483647)
+```
+
+```python
+# Sample
+for i in range(5):
+  out = []
+  ix = 0
+  while True:
+    p = P[ix]
+
+    ix = torch.multinomial(p, num_samples=1, replacement=True, generator=g).item()
+    out.append(itos[ix])
+    # Break with `.` is found, marking the end of the word
+    if ix == 0:
+      break
+
+  print(''.join(out))
+
+# Output:
+#   mor.
+#   axx.
+#   minaymoryles.
+#   kondlaisah.
+#   anchshizarie.
+```
+
+### Loss function
+
+Then we can evaluate the quality of this model.
+
+Goal: summarize probabilities into a single number that measure the quality of this model.
+
+```python
+# Goal: summarize probabilities into a single number that measure the quality of this model
+log_likelihood = 0.0
+n = 0
+
+for w in words:
+  # for w in ["andrejq"]:
+  chs = ['.'] + list(w) + ['.']
+  for ch1, ch2 in zip(chs, chs[1:]):
+    ix1 = stoi[ch1]
+    ix2 = stoi[ch2]
+    prob = P[ix1, ix2]
+    logprob = torch.log(prob)
+    # This is because: log(a*b*c) = log(a) + log(b) + log(c)
+    log_likelihood += logprob
+    n += 1
+    print(f'{ch1}{ch2}: {prob:.4f} {logprob:.4f}')
+
+print(f'{log_likelihood=}')
+# negative log likelihood is a nice loss function.
+# The lowest it can get is 0. The higher it is, the worse off the predictions
+# you are making are.
+nll = -log_likelihood
+print(f'{nll=}')
+# Above was the sum negative log likelihood. Better is the average negative log likelihood.
+# So divide that sum by `n` to get the average.
+# So the loss function for the training set assigned by this model is 2.4. That's the "quality" of this model.
+# The lower it is the better off we are. The higher it is the worse off we are.
+print(f'{nll/n}')
+
+# Output:
+#   log_likelihood=tensor(-559951.5625)
+#   nll=tensor(559951.5625)
+#   2.4543561935424805
+```
+
+### Neural network approach
+
+```python
+# Approach 2: neural network approach trained on bigrams
+
+# for one hot encoding: `F.one_hot` below
+import torch.nn.functional as F
+
+#
+# Dataset: 228K bigrams from the 32K example names
+#
+xs, ys = [], []
+for w in words:
+  chs = ['.'] + list(w) + ['.']
+  for ch1, ch2 in zip(chs, chs[1:]):
+    ix1 = stoi[ch1]
+    ix2 = stoi[ch2]
+    xs.append(ix1)
+    ys.append(ix2)
+xs = torch.tensor(xs)
+ys = torch.tensor(ys)
+num = xs.nelement()
+print('number of examples: ', num)
+
+# initialize the 'network'
+g = torch.Generator().manual_seed(2147483647)
+W = torch.randn((27, 27), generator=g, requires_grad=True)
+```
+
+Gradient descent
+
+```python
+# Gradient descent
+for k in range(100):
+
+  # forward pass
+  # input to the network: one-hot encoding
+  xenc = F.one_hot(xs, num_classes=27).float()
+  logits = xenc @ W  # predict log-counts
+  counts = logits.exp()  # counts, equivalent to N
+  # probabilities for next character
+  probs = counts / counts.sum(1, keepdims=True)
+  # regularization loss: `0.01*(W**2).mean()` tries to make all W's 0
+  # if `0.01` is higher it will be more uniform and not
+  loss = -probs[torch.arange(num), ys].log().mean() + 0.01 * (W**2).mean()
+  print(loss.item())
+
+  # backward pass
+  W.grad = None  # set to zero the gradient
+  loss.backward()
+
+  # update
+  W.data += -50 * W.grad
+
+# Earlier we had 2.47 loss when we manually did the counts.
+# So we'd like this neural network approach to become as "good", when measuring the loss.
+```
+
+```python
+# Sample from neural net model
+g = torch.Generator().manual_seed(2147483647)
+
+for i in range(5):
+
+  out = []
+  ix = 0
+  while True:
+
+    xenc = F.one_hot(torch.tensor([ix]), num_classes=27).float()
+    logits = xenc @ W  # predict log-counts
+    counts = logits.exp()  # counts, equivalent to N
+    p = counts / counts.sum(1, keepdims=True) # probabilities for next character
+
+    ix = torch.multinomial(p, num_samples=1, replacement=True, generator=g).item()
+    out.append(itos[ix])
+    if ix == 0:
+      break
+  print(''.join(out))
+
+  # Output:  almost identical to approach 1 non-neural network with count frequencies
+  #   mor.
+  #   axx.
+  #   minaymoryles.
+  #   kondlaisah.
+  #   anchshizarie.
+```
+
+## 3. ...
+
+
 ## References
 
 YouTube playlist: [Neural Networks: Zero to Hero](https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
 
-YouTub videos:
+YouTube videos:
 
 - 1. [The spelled-out intro to neural networks and backpropagation: building micrograd](https://www.youtube.com/watch?v=VMj-3S1tku0&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
 - 2. [The spelled-out intro to language modeling: building makemore](https://www.youtube.com/watch?v=PaCmpygFfXo&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
@@ -128,7 +351,8 @@ Github repos:
 - [micrograd](https://github.com/karpathy/micrograd) - A tiny scalar-valued autograd engine and a neural net library on top of it with PyTorch-like API
 - [makemore](https://github.com/karpathy/makemore) - An autoregressive character-level language model for making more things
 
-### Lecture notes by others
+### More lecture notes
 
+- <https://github.com/karpathy/nn-zero-to-hero>
 - <https://github.com/Anri-Lombard/micrograd>
 - <https://github.com/Anri-Lombard/makemore>
