@@ -345,7 +345,7 @@ We can embed all of the integers in `X` as `C[X]` thanks to PyTorch multi dimens
 
 We want to randomly select some portion of the dataset, the minibatch. Then only forward, backward, and update on that minibatch.
 
-What's the right learning rate?  [Video](https://youtu.be/TCH_1BHY58I?t=2798)
+What's the right learning rate? [Video](https://youtu.be/TCH_1BHY58I?t=2798)
 
 ```python
 lre = torch.linspace(-3, 0, 1000)
@@ -519,11 +519,6 @@ Github repos:
 
 - [micrograd](https://github.com/karpathy/micrograd) - A tiny scalar-valued autograd engine and a neural net library on top of it with PyTorch-like API
 - [makemore](https://github.com/karpathy/makemore) - An autoregressive character-level language model for making more things
-
-### PyTorch
-
-- <>
-
 
 ### More lecture notes
 
