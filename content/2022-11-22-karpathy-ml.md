@@ -115,7 +115,7 @@ Most common neural net mistakes from [@karpathy's tweet](https://twitter.com/kar
 
 {{< tweet user="karpathy" id="1013244313327681536" >}}
 
-## 2. Makemore - bigram character-level language model
+## 2. Makemore part 1: bigram character-level language model
 
 Watch the YouTube video: [The spelled-out intro to language modeling: building makemore](https://www.youtube.com/watch?v=PaCmpygFfXo&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ).
 
@@ -333,8 +333,177 @@ for i in range(5):
   #   anchshizarie.
 ```
 
-## 3. ...
+## 3. Makemore part 2: MLP
 
+Watch the YouTube video: [Building makemore Part 2: MLP](https://www.youtube.com/watch?v=TCH_1BHY58I&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ).
+
+A multilayer perceptron (MLP) character-level language model.
+
+Original paper: ["A Neural Probabilistic Language Model, Bengio et al. 2003"](https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf)
+
+We can embed all of the integers in `X` as `C[X]` thanks to PyTorch multi dimensional indexing.
+
+We want to randomly select some portion of the dataset, the minibatch. Then only forward, backward, and update on that minibatch.
+
+What's the right learning rate? [Video](https://youtu.be/TCH_1BHY58I?t=2798)
+
+```python
+lre = torch.linspace(-3, 0, 1000)
+lrs = 10**lre
+
+lri = []
+# ...
+
+  # Inside gradient descent
+  lr = lrs[i]
+
+  # track stats
+  #lri.append(lre[i])
+  stepi.append(i)
+  lossi.append(loss.log10().item())
+
+# To get visualization
+plt.plot(stepi, lossi)
+```
+
+Split up data into 3 splits:
+
+- 1. training split - 80%
+- 2. dev/validation split - 10%
+- 3. test split - 10%
+
+We use the training split to optimize the parameters of the model, like we're doing using gradient descent.
+
+Use the dev/validation split to train the hyperparameters.
+
+Use the test split to evaluate the performance of the model at the end. We should rarely use the test split to avoid overfitting to it and learning from it.
+
+```python
+# Build dataset
+block_size = 3 # context length: how many characters do we take to predict the next one?
+
+def build_dataset(words):
+  X, Y = [], []
+  for w in words:
+
+    # print(w)
+    context = [0] * block_size
+    for ch in w + '.':
+      ix = stoi[ch]
+      X.append(context)
+      Y.append(ix)
+      # print(''.join(itos[i] for i in context), '--->', itos[ix])
+      context = context[1:] + [ix] # crop and append
+
+  X = torch.tensor(X)
+  Y = torch.tensor(Y)
+  print(X.shape, Y.shape)
+  return X, Y
+
+
+import random
+random.seed(42)
+random.shuffle(words)
+# Get n1 and n2 to help us split up the words into 3 splits.
+n1 = int(0.8*len(words))
+n2 = int(0.9*len(words))
+
+# Split up data into 3 splits:
+# - 1. training split - 80%
+# - 2. dev/validation split - 10%
+# - 3. test split - 10%
+Xtr, Ytr = build_dataset(words[:n1])     # 0   -  80% of randomized words
+Xdev, Ydev = build_dataset(words[n1:n2]) # 80% -  90% of randomized words
+Xte, Yte = build_dataset(words[n2:])     # 90% - 100% of randomized words
+```
+
+```python
+# Training
+for i in range(200000):
+
+  # minibatch construct
+  ix = torch.randint(0, Xtr.shape[0], (32,))
+
+  # forward pass
+  emb = C[Xtr[ix]] # (32, 3, 10)
+  h = torch.tanh(emb.view(-1, 30) @ W1 + b1) # (32, 200)
+  logits = h @ W2 + b2 # (32, 27)
+  loss = F.cross_entropy(logits, Ytr[ix])
+  # print(loss.item())
+
+  # backward pass
+  for p in parameters:
+    p.grad = None
+  loss.backward()
+
+  # update
+  # lr = lrs[i]
+  lr = 0.1 if i < 100000 else 0.01
+  for p in parameters:
+    p.data += -lr * p.grad
+
+  # track stats
+  # lri.append(lre[i])
+  stepi.append(i)
+  lossi.append(loss.log10().item())
+
+# print(loss.item())
+```
+
+```python
+# Evaluate
+def calc_loss(x_dataset, y_dataset):
+  emb = C[x_dataset]  # (32, 3, 2)
+  h = torch.tanh(emb.view(-1, 30) @ W1 + b1) # (32, 100)
+  logits = h @ W2 + b2 # (32, 27)
+  loss = F.cross_entropy(logits, y_dataset)
+  return loss
+
+# Calculate loss of training set
+calc_loss(Xtr, Ytr)
+
+# Calculate loss of dev/evaluation set
+calc_loss(Xdev, Ydev)
+```
+
+Underfitting - the loss function for the training split is similar to the dev/validation split. Likely too few parameters and the model isn't powerful enough to
+
+Iterating the model:
+
+- Runs lots of experiments changing hyperparameters (learning rate, minibatch size, etc) on dev set and slowly scrutinize which ones give the best dev performance
+- Then run 1x on the test set and that's the loss rate number that matters when publishing, sharing results of the model.
+
+## PyTorch Tips
+
+PyTorch [docs](https://pytorch.org/docs/stable/torch.html)
+
+### Tensor Views - [docs](https://pytorch.org/docs/stable/tensor_view.html)
+
+PyTorch allows a tensor to be a View of an existing tensor. View tensor shares the same underlying data with its base tensor. Supporting View avoids explicit data copy, thus allows us to do fast and memory efficient reshaping, slicing and element-wise operations.
+
+```python
+t = torch.arange(8)
+print(t)
+print(t.view(2, 4))
+
+# Output:
+#   tensor([0, 1, 2, 3, 4, 5, 6, 7])
+#   tensor([[0, 1, 2, 3],
+#           [4, 5, 6, 7]])
+```
+
+### `F.cross_entropy` - [docs](https://pytorch.org/docs/stable/generated/torch.nn.functional.cross_entropy.html?highlight=cross_entropy#torch.nn.functional.cross_entropy)
+
+Instead of hand rolling the commented out code below, calling `F.cross_entropy` makes the forward and backward passes much more efficient.
+
+```python
+# counts = logits.exp()
+# prob = counts / counts.sum(1, keepdimes=True)
+# loss = -prob[torch.arange(32), Y].log().mean()
+
+# Replaced efficiently with:
+F.cross_entropy(logits, Y)
+```
 
 ## References
 
