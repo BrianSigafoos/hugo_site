@@ -8,16 +8,17 @@ collection_swe_toolbox: true
 
 ## Intro
 
-These are my notes from the [Andrej Karpathy](https://twitter.com/Karpathy) lecture series: [Neural Networks: Zero to Hero](https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ). Andrej is the former Director of AI at Tesla and an excellent teacher. He demystifies complex ML topics like gradient descent through simple examples. When following these videos, I recommend recreating everything Andrej covers on your local machine. It help me practice and build confidence that from simple building blocks we can build up powerful models.
+These are my notes from the [Andrej Karpathy](https://twitter.com/Karpathy) lecture series: [Neural Networks: Zero to Hero](https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ). Andrej is the former Director of AI at Tesla and an excellent teacher. He demystifies complex ML topics like gradient descent through simple examples. When following these videos, I recommend recreating everything Andrej covers on your local machine. Typing out the example code and running it locally helps practice and build confidence that from simple building blocks we can build up powerful models.
 
 YouTube playlist: [Neural Networks: Zero to Hero](https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
 
 YouTube videos:
 
-- 1. [The spelled-out intro to neural networks and backpropagation: building micrograd](https://www.youtube.com/watch?v=VMj-3S1tku0&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
-- 2. [The spelled-out intro to language modeling: building makemore](https://www.youtube.com/watch?v=PaCmpygFfXo&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
-- 3. Coming soon
-- ...
+1. [The spelled-out intro to neural networks and backpropagation: building micrograd](https://www.youtube.com/watch?v=VMj-3S1tku0&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
+2. [The spelled-out intro to language modeling: building makemore](https://www.youtube.com/watch?v=PaCmpygFfXo&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
+3. [Building makemore Part 2: MLP](<https://www.youtube.com/watch?v=TCH_1BHY58I&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ>)
+4. [Building makemore Part 3: Activations & Gradients, BatchNorm](https://www.youtube.com/watch?v=P6sfmUTpUmc&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
+5. Coming soon...
 
 Github repos:
 
@@ -72,6 +73,7 @@ Open a Jupyter Notebook `.ipynb` file in `micrograd` and select the `pyenv` vers
 Create a new file called `youtube1.ipynb` or something similar so you can run same commands that Andrej does during his videos.
 
 Now you're all set to dive into the videos.
+
 
 ## 1. Micrograd
 
@@ -412,24 +414,53 @@ n2 = int(0.9*len(words))
 # - 1. training split - 80%
 # - 2. dev/validation split - 10%
 # - 3. test split - 10%
-Xtr, Ytr = build_dataset(words[:n1])     # 0   -  80% of randomized words
-Xdev, Ydev = build_dataset(words[n1:n2]) # 80% -  90% of randomized words
-Xte, Yte = build_dataset(words[n2:])     # 90% - 100% of randomized words
+Xtr, Ytr = build_dataset(words[:n1])     # 80%
+Xdev, Ydev = build_dataset(words[n1:n2]) # 10%
+Xte, Yte = build_dataset(words[n2:])     # 10%
 ```
 
 ```python
-# Training
-for i in range(200000):
+# MLP revisited (from start of "building makemore part 3")
+n_embd = 10 # the dimensionality of the character embedding vectors
+n_hidden = 200 # the number of neurons in the hidden layer of the MLP
+
+g = torch.Generator().manual_seed(2147483647) # for reproducibility
+C  = torch.randn((vocab_size, n_embd),            generator=g)
+W1 = torch.randn((n_embd * block_size, n_hidden), generator=g)
+b1 = torch.randn(n_hidden,                        generator=g)
+W2 = torch.randn((n_hidden, vocab_size),          generator=g)
+b2 = torch.randn(vocab_size,                      generator=g)
+
+# BatchNorm parameters
+bngain = torch.ones((1, n_hidden))
+bnbias = torch.zeros((1, n_hidden))
+bnmean_running = torch.zeros((1, n_hidden))
+bnstd_running = torch.ones((1, n_hidden))
+
+parameters = [C, W1, b1, W2, b2]
+print(sum(p.nelement() for p in parameters)) # number of parameters in total
+for p in parameters:
+  p.requires_grad = True
+```
+
+```python
+max_steps = 200000
+batch_size = 32
+lossi = []
+
+for i in range(max_steps):
 
   # minibatch construct
-  ix = torch.randint(0, Xtr.shape[0], (32,))
+  ix = torch.randint(0, Xtr.shape[0], (batch_size,), generator=g)
+  Xb, Yb = Xtr[ix], Ytr[ix] # batch X,Y
 
   # forward pass
-  emb = C[Xtr[ix]] # (32, 3, 10)
-  h = torch.tanh(emb.view(-1, 30) @ W1 + b1) # (32, 200)
-  logits = h @ W2 + b2 # (32, 27)
-  loss = F.cross_entropy(logits, Ytr[ix])
-  # print(loss.item())
+  emb = C[Xb] # embed the characters into vectors
+  embcat = emb.view(emb.shape[0], -1) # concatenate the vectors
+  hpreact = embcat @ W1 + b1 # hidden layer pre-activation
+  h = torch.tanh(hpreact) # hidden layer
+  logits = h @ W2 + b2 # output layer
+  loss = F.cross_entropy(logits, Yb) # loss function
 
   # backward pass
   for p in parameters:
@@ -437,33 +468,61 @@ for i in range(200000):
   loss.backward()
 
   # update
-  # lr = lrs[i]
-  lr = 0.1 if i < 100000 else 0.01
+  lr = 0.1 if i < 100000 else 0.01 # step learning rate decay
   for p in parameters:
     p.data += -lr * p.grad
 
   # track stats
-  # lri.append(lre[i])
-  stepi.append(i)
-  lossi.append(loss.log10().item())
+  if i % 10000 == 0: # print every once in a while
+    print(f'{i:7d}/{max_steps:7d}: {loss.item():.4f}')
 
-# print(loss.item())
+  lossi.append(loss.log10().item())
 ```
 
 ```python
 # Evaluate
-def calc_loss(x_dataset, y_dataset):
-  emb = C[x_dataset]  # (32, 3, 2)
-  h = torch.tanh(emb.view(-1, 30) @ W1 + b1) # (32, 100)
-  logits = h @ W2 + b2 # (32, 27)
-  loss = F.cross_entropy(logits, y_dataset)
-  return loss
+@torch.no_grad() # this decorator disables gradient tracking
+def split_loss(split):
+  x,y = {
+    'train': (Xtr, Ytr),
+    'val': (Xdev, Ydev),
+    'test': (Xte, Yte),
+  }[split]
+  emb = C[x] # (N, block_size, n_embd)
+  embcat = emb.view(emb.shape[0], -1) # concat into (N, block_size * n_embd)
+  h = torch.tanh(embcat @ W1 + b1) # (N, n_hidden)
+  logits = h @ W2 + b2 # (N, vocab_size)
+  loss = F.cross_entropy(logits, y)
+  print(split, loss.item())
 
-# Calculate loss of training set
-calc_loss(Xtr, Ytr)
+split_loss('train')
+split_loss('val')
+```
 
-# Calculate loss of dev/evaluation set
-calc_loss(Xdev, Ydev)
+```python
+# Sample from the model
+g = torch.Generator().manual_seed(2147483647 + 10)
+
+for _ in range(20):
+
+    out = []
+    context = [0] * block_size # initialize with all ...
+    while True:
+      # forward pass the neural net
+      emb = C[torch.tensor([context])] # (1,block_size,n_embd)
+      h = torch.tanh(emb.view(1, -1) @ W1 + b1)
+      logits = h @ W2 + b2
+      probs = F.softmax(logits, dim=1)
+      # sample from the distribution
+      ix = torch.multinomial(probs, num_samples=1, generator=g).item()
+      # shift the context window and track the samples
+      context = context[1:] + [ix]
+      out.append(ix)
+      # if we sample the special '.' token, break
+      if ix == 0:
+        break
+
+    print(''.join(itos[i] for i in out)) # decode and print the generated word
 ```
 
 Underfitting - the loss function for the training split is similar to the dev/validation split. Likely too few parameters and the model isn't powerful enough to
@@ -472,6 +531,225 @@ Iterating the model:
 
 - Runs lots of experiments changing hyperparameters (learning rate, minibatch size, etc) on dev set and slowly scrutinize which ones give the best dev performance
 - Then run 1x on the test set and that's the loss rate number that matters when publishing, sharing results of the model.
+
+
+## 4. Makemore part 3: Activations & Gradients, BatchNorm
+
+Watch the Youtube video: <https://www.youtube.com/watch?v=P6sfmUTpUmc&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ&index=4>
+
+Fixing problems from the previous MLP model.
+
+### Problem 1: initial loss is off aka softmax confidently wrong
+
+Symptom: there is a hockey stick of loss from very high to a tighter range.
+
+We'd expect the loss for the newly initialized model with 27 characters to be `-torch.tensor(1/27.0).log() == 3.2958`. Instead we're seeing ~27. Something is wrong with the initialization.
+
+When the network is initialized we want the logits to be roughly 0 or 1 when it is initialized. To debug, insert `break` after the first pass of gradient descent and inspect `logits[0]`. We see there extreme values.
+
+Solution: multiple the weights and bias by 0.01 and 0 to get logits closer to 0 to start.
+
+```python
+W2 = torch.randn((n_hidden, vocab_size), generator=g) * 0.01 # Fix to get initial logits closer to 0
+b2 = torch.randn(vocab_size,             generator=g) * 0    # Fix to get initial logits closer to 0
+```
+
+### Problem 2: tanh layer too saturated at init
+
+Sympton: there are too many -1's and 1's in the `.tanh`. It's too saturated
+
+Help diagnose by using a histogram of the values:
+
+```python
+# h = torch.tanh(hpreact) # hidden layer
+# flattened with h.view(-1); split into 50 buckets/bins
+# Figure 1.
+plt.hist(h.view(-1).tolist(), 50);
+
+# Figure 2
+plt.figure(figsize=(20,10))
+# will appear white if boolean (h.abs() > 0.99)) is true, ie when it's in the long tail
+plt.imshow(h.abs() > 0.99, cmap='gray', interpolation='nearest')
+```
+
+If an entire column is white, then that's a "dead neuron". All the examples land in the tail, then it will never learn as a neuron.
+
+The neuron will "stop" backpropogation.
+
+Solution: similar to above, tighten the range of values this time in W1 and b1 by multiplying by 0.1 or 0.01 or some other decimal value.
+
+```python
+W1 = torch.randn((n_embd * block_size, n_hidden), generator=g) * 0.2
+b1 = torch.randn(n_hidden,                        generator=g) * 0.01
+```
+
+Instead of just guessing at these values `0.2` we can use the [kaiming initialization](https://pytorch.org/docs/stable/nn.init.html#torch.nn.init.kaiming_normal_)
+
+```python
+W1 = torch.randn((n_embd * block_size, n_hidden), generator=g) * (5/3)/((n_embd * block_size)**0.5) # kaiming init
+b1 = torch.randn(n_hidden,                        generator=g) * 0.01
+```
+
+### Problem 3: batch normalization
+
+We can make the hidden states Gaussian by standardizing them to make them exactly Gaussian, at initialization only.
+
+It happens to have a regularizing effect and stabilizes training. People are trying to remove batch normalization, but it works quite well -- it is quite effective at controlling activations and their distributions.
+
+The batch normalization layer has its own bias. And there's no need to have a bias (eg. `+ b1`) in the layer before it.
+
+Summary:
+
+- We use batch normalization to control the statistics of activations in the neural net
+- It is common to sprinkle batch normalization layer across the neural net
+- Usually we will place it after layers that have multiplications (a linear layer or convolutional layer)
+- Bactch normalization internally has parameters for the gain and the bias and these are trained using backpropagation
+- Batch normalization has two buffers: the running mean and the running standing deviation, and these buffers are not trained using backpropagation, trained using the "janky" _running updates
+- In BatchNorm layer:
+  - Calculating the mean and standard deviation of the activations over that batch
+  - Then centering that batch to be unit gaussian
+  - Then offsetting and scaling it be the learned bias and gain
+  - And additionally keeping a running mean and standard deviation so we don't have to re-estimate it all the time, and this let's us forward individual examples (not a batch) at test time.
+
+```python
+for i in range(max_steps):
+
+  # minibatch construct
+  # ...
+
+  # forward pass
+  emb = C[Xb] # embed the characters into vectors
+  embcat = emb.view(emb.shape[0], -1) # concatenate the vectors
+  # Linear layer
+  hpreact = embcat @ W1 #+ b1 # hidden layer pre-activation
+  # BatchNorm layer
+  # -------------------------------------------------------------
+  bnmeani = hpreact.mean(0, keepdim=True)
+  bnstdi = hpreact.std(0, keepdim=True)
+  hpreact = bngain * (hpreact - bnmeani) / bnstdi + bnbias
+  with torch.no_grad():
+    bnmean_running = 0.999 * bnmean_running + 0.001 * bnmeani
+    bnstd_running = 0.999 * bnstd_running + 0.001 * bnstdi
+  # -------------------------------------------------------------
+  # Non-linearity
+  h = torch.tanh(hpreact) # hidden layer
+  logits = h @ W2 + b2 # output layer
+  loss = F.cross_entropy(logits, Yb) # loss function
+
+  # backward pass ...
+  # update ...
+  # track stats ...
+```
+
+### PyTorch-ify the code so far
+
+In our code, we'll mimic the PyTorch code for:
+
+- [torch.nn.linear](https://pytorch.org/docs/stable/generated/torch.nn.Linear.html)
+- [torch.nn.BatchNorm1d](https://pytorch.org/docs/stable/generated/torch.nn.BatchNorm1d.html)
+- [torch.nn.Tanh](https://pytorch.org/docs/stable/generated/torch.nn.Tanh.html)
+
+See `class Linear:`, `class BatchNorm1d:`, etc here: <https://github.com/BrianSigafoos/makemore/blob/4d51f23df80f6757809884a9d2e2888c835507f4/makemore_part3_bn.ipynb#L4>
+
+### Diagnostic tools
+
+To understand if neural network is in a good state.
+
+Activation distribution from forward pass
+
+```python
+plt.figure(figsize=(20, 4)) # width and height of the plot
+legends = []
+for i, layer in enumerate(layers[:-1]): # note: exclude the output layer
+  if isinstance(layer, Tanh):
+    t = layer.out
+    print('layer %d (%10s): mean %+.2f, std %.2f, saturated: %.2f%%' % (i, layer.__class__.__name__, t.mean(), t.std(), (t.abs() > 0.97).float().mean()*100))
+    hy, hx = torch.histogram(t, density=True)
+    plt.plot(hx[:-1].detach(), hy.detach())
+    legends.append(f'layer {i} ({layer.__class__.__name__}')
+plt.legend(legends);
+plt.title('activation distribution')
+```
+
+Gradient distribution from backward pass
+
+```python
+plt.figure(figsize=(20, 4)) # width and height of the plot
+legends = []
+for i, layer in enumerate(layers[:-1]): # note: exclude the output layer
+  if isinstance(layer, Tanh):
+    t = layer.out.grad
+    print('layer %d (%10s): mean %+f, std %e' % (i, layer.__class__.__name__, t.mean(), t.std()))
+    hy, hx = torch.histogram(t, density=True)
+    plt.plot(hx[:-1].detach(), hy.detach())
+    legends.append(f'layer {i} ({layer.__class__.__name__}')
+plt.legend(legends);
+plt.title('gradient distribution')
+```
+
+Weights gradient distribution from stochastic gradient descent
+
+```python
+# visualize histograms
+plt.figure(figsize=(20, 4)) # width and height of the plot
+legends = []
+for i,p in enumerate(parameters):
+  t = p.grad
+  if p.ndim == 2:
+    print('weight %10s | mean %+f | std %e | grad:data ratio %e' % (tuple(p.shape), t.mean(), t.std(), t.std() / p.std()))
+    hy, hx = torch.histogram(t, density=True)
+    plt.plot(hx[:-1].detach(), hy.detach())
+    legends.append(f'{i} {tuple(p.shape)}')
+plt.legend(legends)
+plt.title('weights gradient distribution');
+```
+
+Updates  distribution from stochastic gradient descent
+
+```python
+plt.figure(figsize=(20, 4))
+legends = []
+for i,p in enumerate(parameters):
+  if p.ndim == 2:
+    plt.plot([ud[j][i] for j in range(len(ud))])
+    legends.append('param %d' % i)
+plt.plot([0, len(ud)], [-3, -3], 'k') # these ratios should be ~1e-3, indicate on plot
+plt.legend(legends);
+```
+
+Updates
+
+```python
+# Inside gradient descent
+ud = []
+for i in range(max_steps):
+  # ...
+
+  # track stats ...
+  # if i % 10000 == 0: # print every once in a while
+  #   print(f'{i:7d}/{max_steps:7d}: {loss.item():.4f}')
+  # lossi.append(loss.log10().item())
+  with torch.no_grad():
+    ud.append([((lr*p.grad).std() / p.data.std()).log10().item() for p in parameters])
+# ---
+
+# Histogram
+plt.figure(figsize=(20, 4))
+legends = []
+for i,p in enumerate(parameters):
+  if p.ndim == 2:
+    plt.plot([ud[j][i] for j in range(len(ud))])
+    legends.append('param %d' % i)
+plt.plot([0, len(ud)], [-3, -3], 'k') # these ratios should be ~1e-3, indicate on plot
+plt.legend(legends);
+```
+
+When creating a deep neural network the "motif" to stack up for the "forward" pass is:
+
+- convolution / linear layer (weight layer)
+- normalization layer (batch normalization, group normalization, layer normalization)
+- non-linearity (relu, tanh, etc)
+
 
 ## PyTorch Tips
 
