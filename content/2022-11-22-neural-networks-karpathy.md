@@ -16,9 +16,10 @@ YouTube videos:
 
 1. [The spelled-out intro to neural networks and backpropagation: building micrograd](https://www.youtube.com/watch?v=VMj-3S1tku0&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
 2. [The spelled-out intro to language modeling: building makemore](https://www.youtube.com/watch?v=PaCmpygFfXo&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
-3. [Building makemore Part 2: MLP](<https://www.youtube.com/watch?v=TCH_1BHY58I&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ>)
+3. [Building makemore Part 2: MLP](https://www.youtube.com/watch?v=TCH_1BHY58I&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
 4. [Building makemore Part 3: Activations & Gradients, BatchNorm](https://www.youtube.com/watch?v=P6sfmUTpUmc&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
-5. Coming soon...
+5. [Building makemore Part 4: Becoming a Backprop Ninja](<https://www.youtube.com/watch?v=q8SA3rM6ckI&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ>)
+6. [Building makemore Part 5: Building a WaveNet](https://www.youtube.com/watch?v=t3YJ5hKiMQ0&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
 
 Github repos:
 
@@ -532,10 +533,9 @@ Iterating the model:
 - Runs lots of experiments changing hyperparameters (learning rate, minibatch size, etc) on dev set and slowly scrutinize which ones give the best dev performance
 - Then run 1x on the test set and that's the loss rate number that matters when publishing, sharing results of the model.
 
-
 ## 4. Makemore part 3: Activations & Gradients, BatchNorm
 
-Watch the Youtube video: <https://www.youtube.com/watch?v=P6sfmUTpUmc&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ&index=4>
+Watch the Youtube video: [Building makemore Part 3: Activations & Gradients, BatchNorm](https://www.youtube.com/watch?v=P6sfmUTpUmc&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
 
 Fixing problems from the previous MLP model.
 
@@ -604,7 +604,7 @@ Summary:
 - It is common to sprinkle batch normalization layer across the neural net
 - Usually we will place it after layers that have multiplications (a linear layer or convolutional layer)
 - Bactch normalization internally has parameters for the gain and the bias and these are trained using backpropagation
-- Batch normalization has two buffers: the running mean and the running standing deviation, and these buffers are not trained using backpropagation, trained using the "janky" _running updates
+- Batch normalization has two buffers: the running mean and the running standing deviation, and these buffers are not trained using backpropagation, trained using the "janky" \_running updates
 - In BatchNorm layer:
   - Calculating the mean and standard deviation of the activations over that batch
   - Then centering that batch to be unit gaussian
@@ -704,7 +704,7 @@ plt.legend(legends)
 plt.title('weights gradient distribution');
 ```
 
-Updates  distribution from stochastic gradient descent
+Updates distribution from stochastic gradient descent
 
 ```python
 plt.figure(figsize=(20, 4))
@@ -750,6 +750,18 @@ When creating a deep neural network the "motif" to stack up for the "forward" pa
 - normalization layer (batch normalization, group normalization, layer normalization)
 - non-linearity (relu, tanh, etc)
 
+## 5. Building makemore Part 4: Becoming a Backprop Ninja
+
+Watch the video on YouTube [Building makemore Part 4: Becoming a Backprop Ninja](<https://www.youtube.com/watch?v=q8SA3rM6ckI&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ>) and follow along in the [Google Collab](https://colab.research.google.com/drive/1WV2oi2fh9XXyldh02wupFQX0wh5ZC-z-?usp=sharing)
+
+It's worth doing as much as possible yourself to help understand what goes on under the hood when calling `.backward` in PyTorch.
+
+## 6. Building makemore Part 5: Building a WaveNet
+
+Watch the video on YouTube: [Building makemore Part 5: Building a WaveNet](https://www.youtube.com/watch?v=t3YJ5hKiMQ0&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
+
+Implements a convolutional neural network architecture similar to [WaveNet (2016 paper, DeepMind)](https://arxiv.org/abs/1609.03499).
+
 
 ## PyTorch Tips
 
@@ -785,18 +797,18 @@ F.cross_entropy(logits, Y)
 
 ## References
 
-YouTube playlist: [Neural Networks: Zero to Hero](https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
-
-YouTube videos:
-
-- 1. [The spelled-out intro to neural networks and backpropagation: building micrograd](https://www.youtube.com/watch?v=VMj-3S1tku0&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
-- 2. [The spelled-out intro to language modeling: building makemore](https://www.youtube.com/watch?v=PaCmpygFfXo&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
-- ...
-
 Github repos:
 
 - [micrograd](https://github.com/karpathy/micrograd) - A tiny scalar-valued autograd engine and a neural net library on top of it with PyTorch-like API
 - [makemore](https://github.com/karpathy/makemore) - An autoregressive character-level language model for making more things
+
+Articles:
+
+- [Karpathy: Yes you should understand backprop](https://karpathy.medium.com/yes-you-should-understand-backprop-e2f06eab496b)
+
+More:
+
+- [CS231n Winter 2016 - Karpathy lectures](https://www.youtube.com/playlist?list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC)
 
 ### More lecture notes
 
