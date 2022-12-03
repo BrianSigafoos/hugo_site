@@ -18,7 +18,7 @@ YouTube videos:
 2. [The spelled-out intro to language modeling: building makemore](https://www.youtube.com/watch?v=PaCmpygFfXo&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
 3. [Building makemore Part 2: MLP](https://www.youtube.com/watch?v=TCH_1BHY58I&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
 4. [Building makemore Part 3: Activations & Gradients, BatchNorm](https://www.youtube.com/watch?v=P6sfmUTpUmc&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
-5. [Building makemore Part 4: Becoming a Backprop Ninja](<https://www.youtube.com/watch?v=q8SA3rM6ckI&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ>)
+5. [Building makemore Part 4: Becoming a Backprop Ninja](https://www.youtube.com/watch?v=q8SA3rM6ckI&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
 6. [Building makemore Part 5: Building a WaveNet](https://www.youtube.com/watch?v=t3YJ5hKiMQ0&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
 
 Github repos:
@@ -74,7 +74,6 @@ Open a Jupyter Notebook `.ipynb` file in `micrograd` and select the `pyenv` vers
 Create a new file called `youtube1.ipynb` or something similar so you can run same commands that Andrej does during his videos.
 
 Now you're all set to dive into the videos.
-
 
 ## 1. Micrograd
 
@@ -604,7 +603,7 @@ Summary:
 - It is common to sprinkle batch normalization layer across the neural net
 - Usually we will place it after layers that have multiplications (a linear layer or convolutional layer)
 - Bactch normalization internally has parameters for the gain and the bias and these are trained using backpropagation
-- Batch normalization has two buffers: the running mean and the running standing deviation, and these buffers are not trained using backpropagation, trained using the "janky" \_running updates
+- Batch normalization has two buffers: the running mean and the running standing deviation, and these buffers are not trained using backpropagation, trained using the "janky" running updates
 - In BatchNorm layer:
   - Calculating the mean and standard deviation of the activations over that batch
   - Then centering that batch to be unit gaussian
@@ -752,7 +751,7 @@ When creating a deep neural network the "motif" to stack up for the "forward" pa
 
 ## 5. Building makemore Part 4: Becoming a Backprop Ninja
 
-Watch the video on YouTube [Building makemore Part 4: Becoming a Backprop Ninja](<https://www.youtube.com/watch?v=q8SA3rM6ckI&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ>) and follow along in the [Google Collab](https://colab.research.google.com/drive/1WV2oi2fh9XXyldh02wupFQX0wh5ZC-z-?usp=sharing)
+Watch the video on YouTube [Building makemore Part 4: Becoming a Backprop Ninja](https://www.youtube.com/watch?v=q8SA3rM6ckI&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ) and follow along in the [Google Collab](https://colab.research.google.com/drive/1WV2oi2fh9XXyldh02wupFQX0wh5ZC-z-?usp=sharing)
 
 It's worth doing as much as possible yourself to help understand what goes on under the hood when calling `.backward` in PyTorch.
 
@@ -761,7 +760,6 @@ It's worth doing as much as possible yourself to help understand what goes on un
 Watch the video on YouTube: [Building makemore Part 5: Building a WaveNet](https://www.youtube.com/watch?v=t3YJ5hKiMQ0&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
 
 Implements a convolutional neural network architecture similar to [WaveNet (2016 paper, DeepMind)](https://arxiv.org/abs/1609.03499).
-
 
 ## PyTorch Tips
 
