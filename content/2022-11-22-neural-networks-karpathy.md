@@ -761,6 +761,37 @@ Watch the video on YouTube: [Building makemore Part 5: Building a WaveNet](https
 
 Implements a convolutional neural network architecture similar to [WaveNet (2016 paper, DeepMind)](https://arxiv.org/abs/1609.03499).
 
+We want to make the network deeper. And at each level we want to fuse two consequetive elements.
+
+Debug code to view the name and shape of each layer:
+
+```python
+# Layer inspector - code snippet to help debug
+for layer in model.layers:
+  print(layer.__class__.__name__, ':', tuple(layer.out.shape))
+
+# For example:
+#   Embedding : (32, 8, 10)
+#   FlattenConsecutive : (32, 80)
+#   Linear : (32, 200)
+#   BatchNorm1d : (32, 200)
+#   Tanh : (32, 200)
+#   Linear : (32, 27)
+```
+
+We can switch to using `torch.nn` moving forward now that in this video we got a better understanding of how the stack layers and mimic the PyTorch API.
+
+What's the development process like for building a deep neural network
+
+1. Spending a lot of time in the PyTorch documentation. Looking at the layers, the shapes of the inputs, what the layer does, etc.
+2. Trying to make the shapes work, and "gymnastics" around multi-dimensional arrays.
+3. Prototype shapes and layers in Jupyter notebooks to make sure it works out, then copy and paste code into actual code repository
+
+Future:
+
+- We need to set up an experimental/evaluation harness to kick off lots of experiments, hyperparameter searches.
+
+
 ## PyTorch Tips
 
 PyTorch [docs](https://pytorch.org/docs/stable/torch.html)
