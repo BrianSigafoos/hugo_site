@@ -188,7 +188,7 @@ The entirety of the demo above is powered by this frontend Javascript (and 2 lin
 </script>
 ```
 
-Based on this code in the demo [`fastai/tinypets`](https://github.com/fastai/tinypets/blob/638528a157fef9d7a1951dcd31592f19ddbe28d6/3parallel.html)
+The snippet above is based on this code in [`fastai/tinypets`](https://github.com/fastai/tinypets/blob/638528a157fef9d7a1951dcd31592f19ddbe28d6/3parallel.html) for parallel predictions.
 
 ## References
 
