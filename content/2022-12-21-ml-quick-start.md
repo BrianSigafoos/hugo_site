@@ -108,7 +108,7 @@ ash, chestnut, ginkgo biloba, silver maple, or willow oak.
 <div id="predict_results"></div>
 
 <script>
-  // Replace with your Predict endpoint
+  // Replace with your own HF Space's /predict endpoint
   HF_PREDICT_ENDPOINT =
     'https://briansigafoos-fastai-trees.hf.space/run/predict/'
 
@@ -163,7 +163,7 @@ Below is the Javascript (and HTML) that fully powers the demo above, using the H
 <div id="predict_results"></div>
 
 <script>
-  // Replace with your Predict endpoint
+  // Replace with your own HF Space's /predict endpoint
   HF_PREDICT_ENDPOINT =
     'https://briansigafoos-fastai-trees.hf.space/run/predict/'
 
