@@ -25,6 +25,7 @@ hide_read_time: true
 
 ## Technical guides
 
+- [Machine Learning quick start](/ml-quick-start)
 - [Learn Neural Networks with Andrej Karpathy](/neural-networks-karpathy)
 - [Dark mode with CSS variables and Stimulus](/dark-mode-css-variables)
 - [Embeddable Javascript widgets](/javascript-widgets)
