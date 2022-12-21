@@ -2,26 +2,28 @@
 date: 2022-12-21T06:33:18-05:00
 slug: ml-quick-start
 title: Machine Learning quick start
-summary: How to set up your Python development environment for ML and go from newbie to published ML model using fastai, Hugging Face, and Gradio
+summary: Learn how to quickly get started using fastai, Hugging Face, and Gradio to deploy a demo ML app
 collection_swe_toolbox: true
 ---
 
 ## Intro
 
-This "quick start" is based on the outstanding course by fast.ai [Practical Deep Learning for Coders](https://course.fast.ai).
+This "quick start" is based on the outstanding course by fast.ai: [Practical Deep Learning for Coders](https://course.fast.ai).
 
-Follow these steps go from a machine without Python and no prior knowledge of Machine Learning to a working demo app.
+Follow these steps to properly install Python and deploy a demo ML app on Hugging Face, using Gradio.
 
-Here's mine:
-
-- Published classifier app: <https://briansigafoos-fastai-trees.hf.space/>
-- Source code: <https://huggingface.co/spaces/BrianSigafoos/fastai_trees/tree/main>
+Here's my example demo app: [tree leaf classifier app](https://briansigafoos-fastai-trees.hf.space) ([source code](https://huggingface.co/spaces/BrianSigafoos/fastai_trees/tree/main))
 
 ## Development setup
 
-Install python using `mamba`. Anywhere you instructions for `condo`, you can use `mamba` instead. It's a faster C++ implementation. Why not `pip`? It's recommended to use `mamba` instead to correctly download ML packages optimized to use your machine's GPU.
+Install Python using [mamba](https://mamba.readthedocs.io). Anywhere you see instructions for `conda`, you can use `mamba` instead (it's faster). Why not `pip`? If you're doing ML, `mamba`/`conda` makes it easier to have everything you need (including Python), and to optimize packages for your GPU.
 
 ```shell
+# First:
+# Install mamba for your machine: https://github.com/conda-forge/miniforge#mambaforge
+# Or use this script: https://github.com/fastai/fastsetup/blob/master/setup-conda.sh
+
+# Then:
 # https://github.com/fastai/fastai/
 mamba install -c fastchan fastai
 
@@ -52,11 +54,11 @@ mamba install -c fastchan huggingface_hub
 huggingface-cli login
 ```
 
-## Watch the fast.ai lessons
+## Watch the fast.ai course lessons
 
-- Watch lessons 1 and lesson 2 especially: <https://course.fast.ai/Lessons/lesson2.html>
+From [Practical Deep Learning for Coders](https://course.fast.ai), watch lesson 1 and [lesson 2](https://course.fast.ai/Lessons/lesson2.html) especially.
 
-## Build a simple classifier model
+## Launch a simple classifier model
 
 See `model.ipynb` in my demo classifier for reference: <https://huggingface.co/spaces/BrianSigafoos/fastai_trees/tree/main>
 
@@ -91,19 +93,24 @@ Everything with `#|export` will be dumped into your `app.py` file.
 
 Once you `git push` these changes, including the generated `app.py` (from the `nb_export` cell), you should have your app now published and running on Hugging Face Spaces.
 
-## Use the Hugging Face API backend with your own frontend
+## Use the Hugging Face API backend
 
-One of the best Hugging Face features, that I've seen so far, is the ability to use it's API backend with your own frontend.
+A great Hugging Face feature is the ability to use it's API backend with your own frontend.
 
 From the bottom of your running app, click "Use the API" to bring up the API instructions. For example, from my demo app: <https://briansigafoos-fastai-trees.hf.space/?view=api>
 
-### Live Demo of JS Frontend for Hugging Face API backend
+### Live demo
+
+Select one or many images of a tree leaves. Ideally, pick of these 5 types of tree leaves that this demo model has been trained on:
+ash, chestnut, ginkgo biloba, silver maple, or willow oak.
 
 <input id="predict_photos" type="file" multiple="" />
 <div id="predict_results"></div>
 
 <script>
-  HF_PREDICT_ENDPOINT = 'https://briansigafoos-fastai-trees.hf.space/run/predict/'
+  // Replace with your Predict endpoint
+  HF_PREDICT_ENDPOINT =
+    'https://briansigafoos-fastai-trees.hf.space/run/predict/'
 
   async function get_pred(file) {
     return new Promise(async (resolve) => {
@@ -117,16 +124,23 @@ From the bottom of your running app, click "Use the API" to bring up the API ins
         }
         const response = await fetch(HF_PREDICT_ENDPOINT, post)
         const json = await response.json()
-        const prediction = json['data'][0]['confidences'][0]
-        const alternatePrediction = json['data'][0]['confidences'][1]
+        const results = json['data'][0]
+        const prediction = results['confidences'][0]
+        const predictionConfidence = parseFloat(
+          prediction['confidence'] * 100
+        ).toFixed(2)
+        const altPrediction = results['confidences'][1]
+        const altPredictionConfidence = parseFloat(
+          altPrediction['confidence'] * 100
+        ).toFixed(2)
         const div = document.createElement('div')
         div.innerHTML = `
-              <img class="prediction" src="${reader.result}" width="300">
-              <p>
-                ${prediction['label']} - ${parseFloat(prediction['confidence'] *100).toFixed(2)}%
-(${alternatePrediction['label']} - ${parseFloat(alternatePrediction['confidence']* 100).toFixed(2)}%)
-              </p>
-            `
+          <img class="prediction" src="${reader.result}" width="300">
+          <p>
+            ${prediction['label']} - ${predictionConfidence}%
+            (${altPrediction['label']} - ${altPredictionConfidence}%)
+          </p>
+        `
         predict_results.append(div)
         return resolve(prediction)
       }
@@ -140,9 +154,9 @@ From the bottom of your running app, click "Use the API" to bring up the API ins
   })
 </script>
 
-### Code for JS frontend demo above
+### Code for demo above
 
-The entirety of the demo above is powered by this frontend Javascript (and 2 lines of HTML):
+Below is the Javascript (and HTML) that fully powers the demo above, using the Hugging Face backend API to return the results.
 
 ```html
 <input id="predict_photos" type="file" multiple="" />
@@ -150,7 +164,8 @@ The entirety of the demo above is powered by this frontend Javascript (and 2 lin
 
 <script>
   // Replace with your Predict endpoint
-  HF_PREDICT_ENDPOINT = 'https://briansigafoos-fastai-trees.hf.space/run/predict/'
+  HF_PREDICT_ENDPOINT =
+    'https://briansigafoos-fastai-trees.hf.space/run/predict/'
 
   async function get_pred(file) {
     return new Promise(async (resolve) => {
@@ -164,16 +179,23 @@ The entirety of the demo above is powered by this frontend Javascript (and 2 lin
         }
         const response = await fetch(HF_PREDICT_ENDPOINT, post)
         const json = await response.json()
-        const prediction = json['data'][0]['confidences'][0]
-        const alternatePrediction = json['data'][0]['confidences'][1]
+        const results = json['data'][0]
+        const prediction = results['confidences'][0]
+        const predictionConfidence = parseFloat(
+          prediction['confidence'] * 100
+        ).toFixed(2)
+        const altPrediction = results['confidences'][1]
+        const altPredictionConfidence = parseFloat(
+          altPrediction['confidence'] * 100
+        ).toFixed(2)
         const div = document.createElement('div')
         div.innerHTML = `
-              <img class="prediction" src="${reader.result}" width="300">
-              <p>
-                ${prediction['label']} - ${parseFloat(prediction['confidence'] * 100).toFixed(2)}%
-                (${alternatePrediction['label']} - ${parseFloat(alternatePrediction['confidence'] * 100).toFixed(2)}%)
-              </p>
-            `
+          <img class="prediction" src="${reader.result}" width="300">
+          <p>
+            ${prediction['label']} - ${predictionConfidence}%
+            (${altPrediction['label']} - ${altPredictionConfidence}%)
+          </p>
+        `
         predict_results.append(div)
         return resolve(prediction)
       }
