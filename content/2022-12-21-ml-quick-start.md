@@ -58,9 +58,9 @@ huggingface-cli login
 
 From [Practical Deep Learning for Coders](https://course.fast.ai), watch lesson 1 and [lesson 2](https://course.fast.ai/Lessons/lesson2.html) especially.
 
-## Launch a simple classifier model
+## Train a simple classifier model
 
-See `model.ipynb` in my demo classifier for reference: <https://huggingface.co/spaces/BrianSigafoos/fastai_trees/tree/main>
+See `train.ipynb` in my demo classifier for reference: <https://huggingface.co/spaces/BrianSigafoos/fastai_trees/tree/main>
 
 Once you run the model in your code locally, and output the `model.pkl` file you'll be ready to run `app.ipynb`, and use that outputted model.
 
@@ -76,7 +76,7 @@ git add .gitattributes
 git commit -m "update .gitattributes so git lfs will track .pkl files"
 ```
 
-## Build a Gradio app
+## Launch a Gradio app
 
 See `app.ipynb` to go from your output `model.pkl` to a published classifier app.
 
