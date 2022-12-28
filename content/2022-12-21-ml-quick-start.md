@@ -40,6 +40,7 @@ Personally, I prefer using [VSCode](https://code.visualstudio.com/) for viewing,
 ## Use Apple's Mac M1/M2 GPU's
 
 ```python
+# https://pytorch.org/docs/stable/notes/mps.html
 if not torch.backends.mps.is_available():
   if not torch.backends.mps.is_built():
     print("MPS not available because the current PyTorch install was not "
