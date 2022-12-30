@@ -37,30 +37,6 @@ jupyter notebook
 
 Personally, I prefer using [VSCode](https://code.visualstudio.com/) for viewing, editing, and running Jupyter Notebooks. So, you can skip that last `jupyter notebook` step above.
 
-## Use Apple's Mac M1/M2 GPU's
-
-```python
-# https://pytorch.org/docs/stable/notes/mps.html
-if not torch.backends.mps.is_available():
-  if not torch.backends.mps.is_built():
-    print("MPS not available because the current PyTorch install was not "
-          "built with MPS enabled.")
-  else:
-    print("MPS not available because the current MacOS version is not 12.3+ "
-          "and/or you do not have an MPS-enabled device on this machine.")
-
-else:
-  print("MPS is available. Setting as default device.")
-  mps_device = torch.device("mps")
-
-  # Set fastai's `default_device()` to MPS
-  # https://github.com/fastai/fastai/blob/0d952d3c234629ec6d6a909186e79af3c5a9a1b8/fastai/torch_core.py#L271
-  try:
-    default_device(mps_device)
-  except:
-    print("default_device() is not defined. Did you import `fastai`?")
-```
-
 ## Create a Hugging Face account
 
 Go to [Hugging Face](https://huggingface.co/) and create an account.
