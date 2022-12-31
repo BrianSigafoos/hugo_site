@@ -44,7 +44,7 @@ Use this snippet at the top of Kaggle notebooks and non-Kaggle hosted notebooks.
 import os
 from pathlib import Path
 
-competition = "titanic"
+competition = "titanic"  # Change this to any Kaggle competition name
 iskaggle = os.environ.get("KAGGLE_KERNEL_RUN_TYPE", "")
 
 if iskaggle:
@@ -52,8 +52,8 @@ if iskaggle:
 else:
     import kaggle
 
-    # Use .data folder that will be .gitignore
-    path = Path(".data")
+    # Use .kaggle_data folders that will be gitignored
+    path = Path(".kaggle_data")
 
     if not path.exists():
         import zipfile
@@ -63,3 +63,7 @@ else:
 
 print(f"Ready for competition: {competition}")
 ```
+
+## Resources
+
+- [Pandas iloc and loc – quickly select rows and columns in DataFrames](https://www.shanelynn.ie/pandas-iloc-loc-select-rows-and-columns-dataframe/)
