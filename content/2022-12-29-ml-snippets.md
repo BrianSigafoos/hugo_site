@@ -6,7 +6,7 @@ summary: Snippets of code for getting started with machine learning, using PyTor
 collection_swe_toolbox: true
 ---
 
-## Fill NaN with modes
+## Fill NaN with modes using pandas
 
 Before and after filling with the modes, run this in a cell:
 
@@ -17,7 +17,11 @@ df.isna().sum()
 Fill with the modes:
 
 ```python
+# Get the modes for the data frame
 modes = df.mode().iloc[0]
+
+# Fill NaN values
+# https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.fillna.html
 df.fillna(modes, inplace=True)
 ```
 
