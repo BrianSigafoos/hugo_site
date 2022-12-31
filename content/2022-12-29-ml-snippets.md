@@ -2,7 +2,7 @@
 date: 2022-12-29T13:10:34-05:00
 slug: ml-snippets
 title: ML snippets
-summary: Snippets of code for getting started with Machine Learning
+summary: Snippets of code for getting started with machine learning, using PyTorch, Pandas, Numpy, and Kaggle
 collection_swe_toolbox: true
 ---
 
