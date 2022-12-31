@@ -6,6 +6,21 @@ summary: Snippets of code for getting started with machine learning, using PyTor
 collection_swe_toolbox: true
 ---
 
+## Fill NaN with modes
+
+Before and after filling with the modes, run this in a cell:
+
+```python
+df.isna().sum()
+```
+
+Fill with the modes:
+
+```python
+modes = df.mode().iloc[0]
+df.fillna(modes, inplace=True)
+```
+
 ## Use Apple's Mac M1/M2 GPU's
 
 ```python
@@ -34,7 +49,6 @@ else:
         print("default_device() is not defined. Did you import `fastai`?")
 
 ```
-
 
 ## Kaggle competition snippet
 
