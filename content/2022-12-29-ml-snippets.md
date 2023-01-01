@@ -2,9 +2,28 @@
 date: 2022-12-29T13:10:34-05:00
 slug: ml-snippets
 title: ML snippets
-summary: Snippets of code for getting started with Machine Learning
+summary: Snippets of code for getting started with machine learning, using PyTorch, Pandas, Numpy, and Kaggle
 collection_swe_toolbox: true
 ---
+
+## Fill NaN with modes using pandas
+
+Before and after filling with the modes, run this in a cell:
+
+```python
+df.isna().sum()
+```
+
+Fill with the modes:
+
+```python
+# Get the modes for the data frame
+modes = df.mode().iloc[0]
+
+# Fill NaN values
+# https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.fillna.html
+df.fillna(modes, inplace=True)
+```
 
 ## Use Apple's Mac M1/M2 GPU's
 
@@ -35,7 +54,6 @@ else:
 
 ```
 
-
 ## Kaggle competition snippet
 
 Use this snippet at the top of Kaggle notebooks and non-Kaggle hosted notebooks.
@@ -44,7 +62,7 @@ Use this snippet at the top of Kaggle notebooks and non-Kaggle hosted notebooks.
 import os
 from pathlib import Path
 
-competition = "titanic"
+competition = "titanic"  # Change this to any Kaggle competition name
 iskaggle = os.environ.get("KAGGLE_KERNEL_RUN_TYPE", "")
 
 if iskaggle:
@@ -52,8 +70,8 @@ if iskaggle:
 else:
     import kaggle
 
-    # Use .data folder that will be .gitignore
-    path = Path(".data")
+    # Use .kaggle_data folders that will be gitignored
+    path = Path(".kaggle_data")
 
     if not path.exists():
         import zipfile
@@ -63,3 +81,7 @@ else:
 
 print(f"Ready for competition: {competition}")
 ```
+
+## Resources
+
+- [Pandas iloc and loc – quickly select rows and columns in DataFrames](https://www.shanelynn.ie/pandas-iloc-loc-select-rows-and-columns-dataframe/)
