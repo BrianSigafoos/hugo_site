@@ -6,6 +6,14 @@ summary: Snippets of code for getting started with machine learning, using PyTor
 collection_swe_toolbox: true
 ---
 
+## Tips and approaches
+
+- Start with a Random Forest when using tabular data to get insight into the data and establish a base case, before moving on to deep learning approaches. Also they are nearly impossible to screw up, according to J. Howard from fastai.
+- Split up data into 3 splits:
+  1. training split - 80% - used by model to tune itself in backpropagation
+  2. dev/validation split - 10% - used to tune hyperparameters
+  3. test split - 10% - never used to tune model, only used at end
+
 ## Fill NaN with modes using pandas
 
 Before and after filling with the modes, run this in a cell:
