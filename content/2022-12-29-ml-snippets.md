@@ -8,7 +8,7 @@ collection_swe_toolbox: true
 
 ## Tips and approaches
 
-- Start with a Random Forest when using tabular data to get insight into the data and establish a base case, before moving on to deep learning approaches. Also they are nearly impossible to screw up, according to J. Howard from fastai.
+- For tabular data, start with a [random forest](https://en.wikipedia.org/wiki/Random_forest). This helps get quick insight into the data and establish a base case, before moving on to deep learning approaches. Also they are nearly impossible to screw up, according to J. Howard from fastai.
 - Split up data into 3 splits:
   1. training split - 80% - used by model to tune itself in backpropagation
   2. dev/validation split - 10% - used to tune hyperparameters
