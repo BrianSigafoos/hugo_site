@@ -25,6 +25,7 @@ hide_read_time: true
 
 ## Technical guides
 
+- [ML on a Mac](/ml-on-mac)
 - [ML snippets](/ml-snippets)
 - [Machine Learning quick start](/ml-quick-start)
 - [Learn Neural Networks with Andrej Karpathy](/neural-networks-karpathy)
