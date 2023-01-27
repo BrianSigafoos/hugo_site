@@ -11,7 +11,7 @@ hide_read_time: true
 ## Sayings and mantras
 
 - [“Problems are good. We solve problems.”](/problems) -- adopt an optimistic, action-oriented attitude
-- [“If you like it, then you shoulda put a CI test on it.”](/beyonce-rule) -- aka The Beyoncé Rule:
+- [“If you like it, then you shoulda put a CI test on it.”](/beyonce-rule) -- aka The Beyoncé Rule.
 - [“Win and help win”](/win) -- a guiding philosophy for tech that is ambitious, positive-sum, and collective
 
 ## Best practices
