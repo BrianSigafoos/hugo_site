@@ -33,7 +33,16 @@ modes = df.mode().iloc[0]
 df.fillna(modes, inplace=True)
 ```
 
-## Use Apple's Mac M1/M2 GPU's
+## Use Apple's Mac M1/M2 GPU's aka Apple Silicon with Core ML
+
+For notebooks that might be run on Mac vs GPU vs CPU:
+
+```python
+torch_device = "cuda" if torch.cuda.is_available() else "mps" if torch.has_mps else "cpu"
+print(f"Using device: {torch_device}")
+```
+
+For notebooks on a Mac with Apple Silicon (see also ["ML on a Mac"](/ml-on-mac))
 
 ```python
 # https://pytorch.org/docs/stable/notes/mps.html
