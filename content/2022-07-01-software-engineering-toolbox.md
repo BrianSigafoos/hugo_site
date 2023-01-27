@@ -36,6 +36,7 @@ hide_read_time: true
 
 ## Misc technical posts
 
+- [ML papers](/ml-papers)
 - [ML snippets](/ml-snippets)
 - [Postgres tips](/postgres)
 - [Language syntax review](/syntax) for Go, Javascript, Ruby, Rails, and SQL
