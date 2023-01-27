@@ -26,7 +26,6 @@ hide_read_time: true
 ## Technical guides
 
 - [ML on a Mac](/ml-on-mac)
-- [ML snippets](/ml-snippets)
 - [Machine Learning quick start](/ml-quick-start)
 - [Learn Neural Networks with Andrej Karpathy](/neural-networks-karpathy)
 - [Dark mode with CSS variables and Stimulus](/dark-mode-css-variables)
@@ -37,6 +36,7 @@ hide_read_time: true
 
 ## Misc technical posts
 
+- [ML snippets](/ml-snippets)
 - [Postgres tips](/postgres)
 - [Language syntax review](/syntax) for Go, Javascript, Ruby, Rails, and SQL
 - [Prevent pushing to main branch](/prevent-pushing-to-main-branch)
