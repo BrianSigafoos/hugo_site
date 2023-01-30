@@ -24,12 +24,17 @@ Install Python using [mamba](https://mamba.readthedocs.io). Anywhere you see ins
 # Or use this script: https://github.com/fastai/fastsetup/blob/master/setup-conda.sh
 
 # Then:
+# Install dependencies
 # https://github.com/fastai/fastai/
-mamba install -y -c fastchan fastai
-
-# Jupyter notebooks
-# https://github.com/jupyter/notebook
-mamba install -y -c fastchan notebook jupyter ipywidgets
+mamba install -y -c fastchan \
+  jupyter \
+  ipywidgets \
+  notebook \
+  numpy \
+  pandas \
+  pytorch \
+  fastai \
+  graphviz
 
 # Start notebook, will auto-open in web browser
 jupyter notebook
