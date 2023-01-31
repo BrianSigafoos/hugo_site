@@ -20,12 +20,14 @@ YouTube videos:
 4. [Building makemore Part 3: Activations & Gradients, BatchNorm](https://www.youtube.com/watch?v=P6sfmUTpUmc&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
 5. [Building makemore Part 4: Becoming a Backprop Ninja](https://www.youtube.com/watch?v=q8SA3rM6ckI&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
 6. [Building makemore Part 5: Building a WaveNet](https://www.youtube.com/watch?v=t3YJ5hKiMQ0&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
+7. [Let's build GPT: from scratch, in code, spelled out](https://www.youtube.com/watch?v=kCc8FmEb1nY)
 
 Github repos:
 
 - [micrograd](https://github.com/karpathy/micrograd) - A tiny scalar-valued autograd engine and a neural net library on top of it with PyTorch-like API
 - [makemore](https://github.com/karpathy/makemore) - An autoregressive character-level language model for making more things
 - [notebooks: nn-zero-to-hero](https://github.com/karpathy/nn-zero-to-hero) - Lecture notebooks to run locally
+- [nanoGPT](https://github.com/karpathy/nanoGPT) - Lecture 7 and [lecture 7 repo](https://github.com/karpathy/ng-video-lecture)
 
 ### What's a neural network?
 
@@ -790,6 +792,15 @@ What's the development process like for building a deep neural network
 Future:
 
 - We need to set up an experimental/evaluation harness to kick off lots of experiments, hyperparameter searches.
+
+## 7. GPT from scratch
+
+Watch the video on YouTube: [Let's build GPT: from scratch, in code, spelled out](https://www.youtube.com/watch?v=kCc8FmEb1nY)
+
+We're building a character tokenizer but typically in production there are sub-word tokenizer's like:
+
+- [google/sentencepiece](https://github.com/google/sentencepiece)
+- [openai/tiktoken](https://github.com/openai/tiktoken)
 
 ## PyTorch Tips
 
