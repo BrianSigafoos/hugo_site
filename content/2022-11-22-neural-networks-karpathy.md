@@ -797,10 +797,18 @@ Future:
 
 Watch the video on YouTube: [Let's build GPT: from scratch, in code, spelled out](https://www.youtube.com/watch?v=kCc8FmEb1nY)
 
-We're building a character tokenizer but typically in production there are sub-word tokenizer's like:
+Typically sub-word tokenizers have large dictionaries (~50k tokens), like:
 
 - [google/sentencepiece](https://github.com/google/sentencepiece)
 - [openai/tiktoken](https://github.com/openai/tiktoken)
+
+Instead, we'll have 65 characters simply encoded at the character level to keep this example simple.
+
+In this example, the later nodes get information from the earlier nodes but never from the future nodes.
+
+"Attention can be applied to any arbitrary directed graph. Attention is just a communication mechanism between the nodes. ... An attention is just a set of vectors out there in space. They communicate. And if you want them to have a notion of space, you need to specifically add it." "This is why we need to positionally encode tokens." (see notes in [collab notebook](https://colab.research.google.com/drive/1JMLa53HDuA-i7ZBmqV7ZnA3c_fvtXnx-?usp=sharing#scrollTo=M5CvobiQ0pLr))
+
+"Attention supports arbitrary connectivity between nodes." An "encoder" attention block would allow nodes to communicate with each other. A "decoder" attention block has triangular masking (as in this example) and is used in an autoregressive setting typically, like language modeling.
 
 ## PyTorch Tips
 
