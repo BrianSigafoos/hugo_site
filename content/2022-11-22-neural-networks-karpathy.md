@@ -20,12 +20,14 @@ YouTube videos:
 4. [Building makemore Part 3: Activations & Gradients, BatchNorm](https://www.youtube.com/watch?v=P6sfmUTpUmc&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
 5. [Building makemore Part 4: Becoming a Backprop Ninja](https://www.youtube.com/watch?v=q8SA3rM6ckI&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
 6. [Building makemore Part 5: Building a WaveNet](https://www.youtube.com/watch?v=t3YJ5hKiMQ0&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
+7. [Let's build GPT: from scratch, in code, spelled out](https://www.youtube.com/watch?v=kCc8FmEb1nY)
 
 Github repos:
 
 - [micrograd](https://github.com/karpathy/micrograd) - A tiny scalar-valued autograd engine and a neural net library on top of it with PyTorch-like API
 - [makemore](https://github.com/karpathy/makemore) - An autoregressive character-level language model for making more things
 - [notebooks: nn-zero-to-hero](https://github.com/karpathy/nn-zero-to-hero) - Lecture notebooks to run locally
+- [nanoGPT](https://github.com/karpathy/nanoGPT) - Lecture 7 and [lecture 7 repo](https://github.com/karpathy/ng-video-lecture)
 
 ### What's a neural network?
 
@@ -790,6 +792,26 @@ What's the development process like for building a deep neural network
 Future:
 
 - We need to set up an experimental/evaluation harness to kick off lots of experiments, hyperparameter searches.
+
+## 7. GPT from scratch
+
+Watch the video on YouTube: [Let's build GPT: from scratch, in code, spelled out](https://www.youtube.com/watch?v=kCc8FmEb1nY)
+
+Typically sub-word tokenizers have large dictionaries (~50k tokens), like:
+
+- [google/sentencepiece](https://github.com/google/sentencepiece)
+- [openai/tiktoken](https://github.com/openai/tiktoken)
+
+Instead, we'll have 65 characters simply encoded at the character level to keep this example simple.
+
+In this example, the later nodes get information from the earlier nodes but never from the future nodes.
+
+"Attention can be applied to any arbitrary directed graph. Attention is just a communication mechanism between the nodes. ... An attention is just a set of vectors out there in space. They communicate. And if you want them to have a notion of space, you need to specifically add it." "This is why we need to positionally encode tokens." (see notes in [collab notebook](https://colab.research.google.com/drive/1JMLa53HDuA-i7ZBmqV7ZnA3c_fvtXnx-?usp=sharing#scrollTo=M5CvobiQ0pLr))
+
+"Attention supports arbitrary connectivity between nodes."
+
+- An "encoder" attention block would allow nodes to communicate with each other.
+- A "decoder" attention block has triangular masking (as in this example) and is used in an autoregressive setting typically, like language modeling.
 
 ## PyTorch Tips
 
