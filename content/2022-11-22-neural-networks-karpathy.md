@@ -808,7 +808,10 @@ In this example, the later nodes get information from the earlier nodes but neve
 
 "Attention can be applied to any arbitrary directed graph. Attention is just a communication mechanism between the nodes. ... An attention is just a set of vectors out there in space. They communicate. And if you want them to have a notion of space, you need to specifically add it." "This is why we need to positionally encode tokens." (see notes in [collab notebook](https://colab.research.google.com/drive/1JMLa53HDuA-i7ZBmqV7ZnA3c_fvtXnx-?usp=sharing#scrollTo=M5CvobiQ0pLr))
 
-"Attention supports arbitrary connectivity between nodes." An "encoder" attention block would allow nodes to communicate with each other. A "decoder" attention block has triangular masking (as in this example) and is used in an autoregressive setting typically, like language modeling.
+"Attention supports arbitrary connectivity between nodes."
+
+- An "encoder" attention block would allow nodes to communicate with each other.
+- A "decoder" attention block has triangular masking (as in this example) and is used in an autoregressive setting typically, like language modeling.
 
 ## PyTorch Tips
 
