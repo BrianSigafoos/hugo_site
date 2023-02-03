@@ -813,6 +813,12 @@ In this example, the later nodes get information from the earlier nodes but neve
 - An "encoder" attention block would allow nodes to communicate with each other.
 - A "decoder" attention block has triangular masking (as in this example) and is used in an autoregressive setting typically, like language modeling.
 
+### Dropout
+
+Using "dropout" is like training an ensemble of subnetworks because during training connections are randomly dropped. More from the paper [Dropout: a simple way to prevent neural networks from overfitting](https://dl.acm.org/doi/abs/10.5555/2627435.2670313):
+
+> Deep neural nets with a large number of parameters are very powerful machine learning systems. However, overfitting is a serious problem in such networks. Large networks are also slow to use, making it difficult to deal with overfitting by combining the predictions of many different large neural nets at test time. Dropout is a technique for addressing this problem. The key idea is to randomly drop units (along with their connections) from the neural network during training. This prevents units from co-adapting too much. During training, dropout samples from an exponential number of different "thinned" networks.
+
 ## PyTorch Tips
 
 PyTorch [docs](https://pytorch.org/docs/stable/torch.html)
