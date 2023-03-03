@@ -25,6 +25,7 @@ hide_read_time: true
 
 ## Technical guides
 
+- [FastAPI for ML inference](/ml-fast-api)
 - [ML on a Mac](/ml-on-mac)
 - [Machine Learning quick start](/ml-quick-start)
 - [Learn Neural Networks with Andrej Karpathy](/neural-networks-karpathy)
