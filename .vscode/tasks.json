@@ -2,9 +2,9 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "yarn update - update dependencies",
+      "label": "npm run update - update dependencies",
       "type": "shell",
-      "command": "yarn update",
+      "command": "npm run update",
       "problemMatcher": [],
       "presentation": {
         "reveal": "always",
@@ -12,9 +12,9 @@
       }
     },
     {
-      "label": "yarn latest - latest submodules",
+      "label": "npm run latest - latest submodules",
       "type": "shell",
-      "command": "yarn latest",
+      "command": "npm run latest",
       "problemMatcher": [],
       "presentation": {
         "reveal": "always",
@@ -22,9 +22,9 @@
       }
     },
     {
-      "label": "yarn build - dev server",
+      "label": "npm run build - dev server",
       "type": "shell",
-      "command": "yarn build",
+      "command": "npm run build",
       "problemMatcher": [],
       "presentation": {
         "reveal": "always"
@@ -35,9 +35,9 @@
       }
     },
     {
-      "label": "yarn fix - autocorrect",
+      "label": "npm run fix - autocorrect",
       "type": "shell",
-      "command": "yarn fix",
+      "command": "npm run fix",
       "problemMatcher": [],
       "presentation": {
         "reveal": "always"
@@ -46,7 +46,7 @@
     {
       "label": "prettier auto-correct file",
       "type": "shell",
-      "command": "yarn prettier --write ${relativeFile}",
+      "command": "prettier --write ${relativeFile}",
       "problemMatcher": [],
       "presentation": {
         "reveal": "always",
