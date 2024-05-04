@@ -2,18 +2,18 @@
 
 ## Workflow
 
-- Run `yarn update` to ensure everything is up to date, see script/update_dependencies.sh
+- Run `npm run update` to ensure everything is up to date, see script/update_dependencies.sh
 
   - `brew bundle`
   - `yarn upgrade --latest`
-  - `yarn latest`
+  - `npm run latest`
     - `git submodule foreach --recursive git checkout main`
     - `git submodule foreach --recursive git pull origin main`
 
 - Merge opened PR for dependencies
 - Run `hugo new content/<NAME>.md` to add new posts to `content/...`
-- Run `yarn build` to view site locally at http://localhost:1313
-- Run `yarn fix` to run linters with autocorrect
+- Run `npm run build` to view site locally at <http://localhost:1313>
+- Run `npm run fix` to run linters with autocorrect
 - Create a PR with changes
 - Deploy will happen via a Github Action automatically once merged
 
