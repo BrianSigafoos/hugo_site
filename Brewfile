@@ -4,3 +4,5 @@ brew 'hugo'
 
 # Github CLI
 brew 'gh'
+
+brew "node"
