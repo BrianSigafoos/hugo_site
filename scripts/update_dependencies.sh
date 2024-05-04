@@ -16,9 +16,19 @@ git checkout -b $NEW_BRANCH
 
 echo "Updating dependencies"
 brew bundle
-yarn upgrade --latest
-# yarn latest
-# yarn latest is a wrapper for:
+
+# Install npm-check-updates to update package.json versions
+npm install -g npm-check-updates
+# Update package.json with latest versions
+ncu -u
+# Delete lockfile
+rm package-lock.json
+rm -rf node_modules
+# Install updates from updated lockfile
+npm install
+
+# npm run latest
+# npm run latest is a wrapper for:
 git submodule foreach --recursive git checkout main
 git submodule foreach --recursive git pull origin main
 

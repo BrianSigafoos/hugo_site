@@ -5,7 +5,7 @@
 - Run `npm run update` to ensure everything is up to date, see script/update_dependencies.sh
 
   - `brew bundle`
-  - `yarn upgrade --latest`
+  - `npm upgrade --latest`
   - `npm run latest`
     - `git submodule foreach --recursive git checkout main`
     - `git submodule foreach --recursive git pull origin main`
