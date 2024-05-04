@@ -17,6 +17,17 @@
 - Create a PR with changes
 - Deploy will happen via a Github Action automatically once merged
 
+## Recreate Github token to publish
+
+In order to commit changes in `BrianSigafoos/briansigafoos.github.io` via the Github Action
+that uses [peaceiris/actions-gh-pages@v4](https://github.com/peaceiris/actions-gh-pages),
+follow these steps 1x yearly:
+
+- Create a new "fine-grained" token from https://github.com/settings/tokens
+  - Add permissions for "Contents" and only `briansigafoos.github.io` repo
+  - Set expiration for max, currently 1 year
+- Paste token into `PERSONAL_TOKEN` in this repo's Secrets > Actions: https://github.com/BrianSigafoos/hugo_site/settings/secrets/actions
+
 ## Debugging
 
 ```bash
