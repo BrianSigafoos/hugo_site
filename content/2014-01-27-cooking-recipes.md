@@ -5,7 +5,7 @@ title: Cooking recipes
 summary: Delicious cooking recipes that I come back to again and again
 ---
 
-Jump to [Baking](#baking) · [Dinner](#dinner) · [Drinks](#drinks)
+Jump to [Baking](#baking) · [Dinner](#dinner) · [Drinks](#drinks) · [Weekly](#weekly)
 
 ## Baking
 
@@ -64,7 +64,7 @@ Oven: 400F for 20-25min. Test center with toothpick to come out clean.
 
 Let cool on counter. Then slice into bars and store in fridge.
 
-Jump to [Baking](#baking) · [Dinner](#dinner) · [Drinks](#drinks)
+Jump to [Baking](#baking) · [Dinner](#dinner) · [Drinks](#drinks) · [Weekly](#weekly)
 
 ## Dinner
 
@@ -130,7 +130,7 @@ Then:
 - Add 1 tbsp coconut butter per medium potato while mashing with fork and spoon
 - Season with salt and pepper and garlic powder
 
-Jump to [Baking](#baking) · [Dinner](#dinner) · [Drinks](#drinks)
+Jump to [Baking](#baking) · [Dinner](#dinner) · [Drinks](#drinks) · [Weekly](#weekly)
 
 ## Drinks
 
@@ -153,4 +153,18 @@ Choose your own berries. I prefer frozen blackberries for a tarter drink, but
 its great to mix it up with raspberries for something sweeter or strawberries
 or blueberries.
 
-Jump to [Baking](#baking) · [Dinner](#dinner) · [Drinks](#drinks)
+Jump to [Baking](#baking) · [Dinner](#dinner) · [Drinks](#drinks) · [Weekly](#weekly)
+
+## Weekly
+
+### Family meal plan
+
+From ~2022-2024, to quickly prepare dinner in 30 minutes after work, I've been baking with all 3 oven racks, usually at 425F in convection mode.
+
+- Sun: Lamb night: rack of lamb w/ sliced mushrooms, carrot fries, asparagus
+- Mon: Ravioli night: Salmon filets w/ sliced mushrooms, sweet potato fries (sliced, olive oil and cumin), broccoli, TJ's cheese ravioli in Instant pot
+- Tue: Rice night: A different fish or chicken thighs cut into strips, sliced zucchini, rice in Instant pot
+- Wed: Burger night: Simple Mills almond flour baking mix for buns, chicken thighs cut into strips, shiitake mushrooms
+- Thu: Pasta night: rib-eye steak, asparagus, cauliflower sliced, GF pasta in instant pot
+- Fri: Take out (often Greek, previously Pizza)
+- Sat: 2nd pasta night or take out (often Southern BBQ)
