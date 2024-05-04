@@ -14,7 +14,7 @@
 :root {
   --color-primary: #17bf63; // rgb(23, 191, 99, 1)
   --text-on-color-primary: #fff; // Color for text on primary btn and bg
-  
+
   // Light is default
   --bg-bright: #fff; // bg-white
   --bg-gray: #f7fafc; // gray-100
@@ -45,7 +45,6 @@ body[data-color-scheme='light'] {
   // --text-muted: #718096; // gray-600
   --text-faint: #a0aec0; // gray-500
 }
-
 
 body[data-color-scheme='dark'] {
   --bg-bright: #1a202c; // gray-900
