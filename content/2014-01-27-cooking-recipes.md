@@ -159,12 +159,12 @@ Jump to [Baking](#baking) · [Dinner](#dinner) · [Drinks](#drinks) · [Weekly](
 
 ### Family meal plan
 
-From ~2022-2024, to quickly prepare dinner in 30 minutes after work, I've been baking with all 3 oven racks, usually at 425F in convection mode.
+From ~2022-2025, I quickly prepare dinner in 30 minutes after work. Typically, I bake with all 3 oven racks, at 425F in convection mode using rapid preheat (rotating trays to not burn whatever is closes to the heat source).
 
-- Sun: Lamb night: rack of lamb w/ sliced mushrooms, carrot fries, asparagus
-- Mon: Ravioli night: Salmon filets w/ sliced mushrooms, sweet potato fries (sliced, olive oil and cumin), broccoli, TJ's cheese ravioli in Instant pot
-- Tue: Rice night: A different fish or chicken thighs cut into strips, sliced zucchini, rice in Instant pot
-- Wed: Burger night: Simple Mills almond flour baking mix for buns, chicken thighs cut into strips, shiitake mushrooms
-- Thu: Pasta night: rib-eye steak, asparagus, cauliflower sliced, GF pasta in instant pot
-- Fri: Take out (often Greek, previously Pizza)
-- Sat: 2nd pasta night or take out (often Southern BBQ)
+- Sun: Roast chicken night: Roast chicken (spatchcocked) with whole sweet potato and carrots in roasting pan, veggie tray frozen broccoli/cauliflower and chopped mushrooms
+- Mon: Salmon + ravioli night: Salmon filets w/ chopped mushrooms (rack A), sweet potato fries (rack B), broccoli + veggies (rack C), and cheese ravioli on stovetop
+- Tue: White fish + rice night: Cod w/ chopped mushrooms (rack A), sliced zucchini (rack B), cauliflower (rack C), rice on stovetop
+- Wed: Burger night: Simple Mills almond flour baking mix for buns w/ chopped mushrooms (rack A), chicken thighs cut into strips (rack B), frozen mixed veggies/broccoli (rack C)
+- Thu: Steak + pasta night: rib-eye steak in a pan, chopped cauliflower (rack A), 2x racks of veggies, rigatoni pasta on stovetop
+- Fri: Mexican night: cheese quesadilla on stovetop, chicken thighs or beef meatballs (rack A), 2x racks of veggies in the oven
+- Sat: Pasta night 2: cheese tortellini on stovetop, 3x racks of veggies in the oven
