@@ -17,6 +17,6 @@ This is not progressive, conservative, or libertarian:
 - It is **positive-sum** in a way that progressives are not
 - It is **collective** in a way that libertarians are not
 
-{{< tweet user="tferriss" id="1375471177733451782" >}}
+{{< x user="tferriss" id="1375471177733451782" >}}
 
-{{< tweet user="balajis" id="1178417524091674624" >}}
+{{< x user="balajis" id="1178417524091674624" >}}

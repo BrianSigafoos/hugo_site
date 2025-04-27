@@ -35,7 +35,7 @@
 
     {{ if .Params.show_gravatar }}
       <!-- Photo -->
-      <img src="https://www.gravatar.com/avatar/{{ md5 .Site.Author.email }}?s=400&d=identicon"
+      <img src="https://www.gravatar.com/avatar/{{ md5 .Site.Params.Author.email }}?s=400&d=identicon"
         width="200" height="200" alt="Photo of Brian">
     {{ end }}
 
@@ -49,7 +49,7 @@
     {{ end }}
 
     {{ if not (.Params.hide_comments) }}
-      {{ if .Site.DisqusShortname }}
+      {{ if .Site.Params.DisqusShortname }}
         <!-- Comments -->
         <div class="my-8">
           {{ template "_internal/disqus.html" . }}
