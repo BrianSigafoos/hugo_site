@@ -5,8 +5,8 @@
 <title>{{ if .IsPage }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
 
 <!-- CSS -->
-{{ $css := resources.Get "css/main.scss" | resources.ToCSS | postCSS }}
-{{ if .Site.IsServer }}
+{{ $css := resources.Get "css/main.scss" | css.Sass | postCSS }}
+{{ if hugo.IsServer }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}"/>
 {{ else }}
   {{ $css := $css | minify | fingerprint | resources.PostProcess }}

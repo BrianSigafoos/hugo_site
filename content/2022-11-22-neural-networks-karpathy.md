@@ -108,7 +108,7 @@ Gradient descent is the iteration of:
 
 The neural net improved its predictions with each iteration.
 
-Most common neural net mistakes from [@karpathy's tweet](https://twitter.com/karpathy/status/1013244313327681536):
+Most common neural net mistakes from {{< x user="karpathy" id="1013244313327681536" >}}:
 
 1. you didn't try to overfit a single batch first.
 2. you forgot to toggle train/eval mode for the net.
@@ -116,8 +116,6 @@ Most common neural net mistakes from [@karpathy's tweet](https://twitter.com/kar
 4. you passed softmaxed outputs to a loss that expects raw logits.
 5. you didn't use bias=False for your Linear/Conv2d layer when using BatchNorm, or conversely forget to include it for the output layer. This one won't make you silently fail, but they are spurious parameters
 6. thinking view() and permute() are the same thing (& incorrectly using view)
-
-{{< tweet user="karpathy" id="1013244313327681536" >}}
 
 ## 2. Makemore part 1: bigram character-level language model
 
