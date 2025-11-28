@@ -1,5 +1,5 @@
 /* Tailwind v4 configuration */
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
 /* Source paths for content detection */
@@ -60,19 +60,39 @@ body[data-color-scheme='dark'] {
 }
 
 /* Primary color variants */
-body[data-color-primary='teal'] { --color-primary: #00bcd4; }
-body[data-color-primary='pink'] { --color-primary: #ec407a; }
+body[data-color-primary='teal'] {
+  --color-primary: #00bcd4;
+}
+body[data-color-primary='pink'] {
+  --color-primary: #ec407a;
+}
 
 /* Utility classes using CSS variables */
 @layer components {
-  .text-bright { color: var(--text-bright); }
-  .text-color { color: var(--text-color); }
-  .text-muted { color: var(--text-muted); }
-  .text-faint { color: var(--text-faint); }
-  .bg-bright { background-color: var(--bg-bright); }
-  .bg-gray { background-color: var(--bg-gray); }
-  .border-gray { border-color: var(--border-gray); }
-  .text-on-color-primary { color: var(--text-on-color-primary); }
+  .text-bright {
+    color: var(--text-bright);
+  }
+  .text-color {
+    color: var(--text-color);
+  }
+  .text-muted {
+    color: var(--text-muted);
+  }
+  .text-faint {
+    color: var(--text-faint);
+  }
+  .bg-bright {
+    background-color: var(--bg-bright);
+  }
+  .bg-gray {
+    background-color: var(--bg-gray);
+  }
+  .border-gray {
+    border-color: var(--border-gray);
+  }
+  .text-on-color-primary {
+    color: var(--text-on-color-primary);
+  }
 }
 
 /* Typography prose theme - maps CSS variables to Tailwind prose */
@@ -100,9 +120,17 @@ body[data-color-primary='pink'] { --color-primary: #ec407a; }
     @apply text-right text-lg p-1;
   }
 
-  .gist h1, .gist h2, .gist h3, .gist h4, .gist p {
+  .gist h1,
+  .gist h2,
+  .gist h3,
+  .gist h4,
+  .gist p {
     color: var(--color-primary);
   }
-  .gist .gist-file { border: none !important; }
-  .gist .gist-data { background-color: inherit !important; }
+  .gist .gist-file {
+    border: none !important;
+  }
+  .gist .gist-data {
+    background-color: inherit !important;
+  }
 }

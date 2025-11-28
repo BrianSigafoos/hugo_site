@@ -64,6 +64,67 @@ Oven: 400F for 20-25min. Test center with toothpick to come out clean.
 
 Let cool on counter. Then slice into bars and store in fridge.
 
+### Pumpkin pie
+
+Preheat oven to 350F
+
+Ingredients
+
+- 1 can (15 oz) pumpkin puree
+- 3 eggs
+- 1 cup full-fat coconut milk (warmed / well shaken)
+- 1/3 cup maple syrup or honey
+- 1 tsp vanilla extract
+- 1 1/2 tsp cinnamon
+- 1/2 tsp nutmeg
+- 1/2 tsp ginger
+- 1/4 tsp cloves
+- 1/4 tsp salt
+
+Steps
+
+1. Heat oven to 350F.
+2. Whisk pumpkin, eggs, coconut milk, maple syrup, and vanilla until smooth.
+3. Add spices and salt. Mix again.
+4. Pour into pre-made paleo crust.
+5. Bake 50–60 min until the center is set but slightly jiggly.
+6. Cool fully. Chill overnight to be firmer.
+
+### Apple pie
+
+Preheat oven to 350F.
+
+Filling
+
+- 6 cups peeled sliced apples
+- 2 tbsp lemon juice
+- 1/2 cup raisins
+- 2–3 tbsp arrowroot powder
+- 1 tsp cinnamon
+- 1/4 tsp nutmeg
+- 1/8 tsp salt
+- 2 tbsp coconut oil (or ghee)
+- 1 tsp vanilla
+
+Crumble topping
+
+- 1 cup nuts (almonds, pecans, or walnuts)
+- 2 tbsp coconut flour
+- 1 tsp cinnamon
+- Pinch salt
+- 2 tbsp melted coconut oil or ghee
+
+Process
+
+1. Toss apples with lemon juice, vanilla, and spices
+2. Warm coconut oil in a pan. Add apples. Cook 6–8 minutes until they soften but still hold shape.
+3. Add raisins.
+4. Transfer filling to pre-made paleo crust.
+5. Moisten blended up crumble topping with melted coconut oil in empty pan
+6. Scatter crumble topping over the filling.
+7. Bake for 30–40 minutes until the topping browns and the filling bubbles.
+8. Cool at least 1 hour to let the filling set.
+
 Jump to [Baking](#baking) · [Dinner](#dinner) · [Drinks](#drinks) · [Weekly](#weekly)
 
 ## Dinner
@@ -159,7 +220,7 @@ Jump to [Baking](#baking) · [Dinner](#dinner) · [Drinks](#drinks) · [Weekly](
 
 ### Family meal plan
 
-From ~2022-2025, I quickly prepare dinner in 30 minutes after work. Typically, I bake with all 3 oven racks, at 425F in convection mode using rapid preheat (rotating trays to not burn whatever is closes to the heat source).
+From ~2022-2025, I quickly prepare dinner in 30 minutes after work. Typically, I bake with all 3 oven racks, at 425F in convection mode using rapid preheat (rotating trays to not burn whatever is closest to the heat source).
 
 - Sun: Roast chicken night: Roast chicken (spatchcocked) with whole sweet potato and carrots in roasting pan, veggie tray frozen broccoli/cauliflower and chopped mushrooms
 - Mon: Salmon + ravioli night: Salmon filets w/ chopped mushrooms (rack A), sweet potato fries (rack B), broccoli + veggies (rack C), and cheese ravioli on stovetop
