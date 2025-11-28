@@ -1,0 +1,216 @@
+/* Tailwind v4 configuration */
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Source paths for content detection */
+@source "../../layouts/**/*.html";
+@source "../../content/*.md";
+
+/* Theme customization */
+@theme {
+  --color-primary: var(--color-primary);
+}
+
+/* Container configuration (was in tailwind.config.js) */
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* CSS Variables for color */
+
+/* Colors via Material Design: https://material.io/design/color/#tools-for-picking-colors
+   https://material.io/resources/color/#!/?view.left=0&view.right=1&primary.color=17bf63
+
+   To create more shades of gray for dark theme we take gray-900 and adjust
+   the Lightness in HSL (use Chrome) up and down percentage points as seen below.
+   gray-800 #2d3748; hsl(218, 23%, 23%) -- via Tailwind
+   gray-830 #262f40; hsl(220, 26%, 20%)
+   gray-870 #202837; hsl(220, 26%, 17%)
+   gray-900 #1a202c; hsl(220, 26%, 14%) -- via Tailwind
+   gray-930 #131720; hsl(220, 26%, 10%)
+   gray-970 #0b0e13; hsl(220, 26%, 6%) */
+
+/* Default colors */
+:root {
+  --color-primary: #17bf63; /* rgb(23, 191, 99, 1) */
+  --text-on-color-primary: #fff; /* Color for text on primary btn and bg */
+
+  /* Light is default */
+  --bg-bright: #fff; /* bg-white */
+  --bg-gray: #f7fafc; /* gray-100 */
+  --border-gray: #edf2f7; /* gray-200 */
+  --text-bright: #1a202c; /* gray-900 */
+  --text-color: #4a5568; /* gray-700 */
+  --text-muted: #718096; /* gray-600 -- Same for light/dark */
+  --text-faint: #a0aec0; /* gray-500 */
+
+  /* Code blocks - dark bg with light text in both modes for consistency */
+  --code-bg: #1a202c; /* gray-900 */
+  --code-text: #e2e8f0; /* gray-200 */
+}
+
+/* Dark if preferred at OS level by user */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-bright: #1a202c; /* gray-900 */
+    --bg-gray: #131720; /* bg-gray-930 */
+    --border-gray: #202837; /* gray-870 */
+    --text-bright: #edf2f7; /* gray-200 */
+    --text-color: #a0aec0; /* gray-500 */
+    /* --text-muted: #718096; gray-600 */
+    --text-faint: #4a5568; /* gray-700 */
+  }
+}
+
+body[data-color-scheme='light'] {
+  --bg-bright: #fff; /* bg-white */
+  --bg-gray: #f7fafc; /* gray-100 */
+  --border-gray: #edf2f7; /* gray-200 */
+  --text-bright: #1a202c; /* gray-900 */
+  --text-color: #4a5568; /* gray-700 */
+  /* --text-muted: #718096; gray-600 */
+  --text-faint: #a0aec0; /* gray-500 */
+}
+
+body[data-color-scheme='dark'] {
+  --bg-bright: #1a202c; /* gray-900 */
+  --bg-gray: #131720; /* bg-gray-930 */
+  --border-gray: #202837; /* gray-870 */
+  --text-bright: #edf2f7; /* gray-200 */
+  --text-color: #a0aec0; /* gray-500 */
+  /* --text-muted: #718096; gray-600 */
+  --text-faint: #4a5568; /* gray-700 */
+}
+
+body[data-color-primary='teal'] {
+  --color-primary: #00bcd4; /* rgb(0, 187, 211) */
+}
+
+body[data-color-primary='pink'] {
+  --color-primary: #ec407a; /* rgb(236, 64, 122) */
+}
+
+/* Base color classes */
+@layer components {
+  .text-bright {
+    color: var(--text-bright);
+  }
+
+  .text-color {
+    color: var(--text-color);
+  }
+
+  .text-muted {
+    color: var(--text-muted);
+  }
+
+  .text-faint {
+    color: var(--text-faint);
+  }
+
+  .bg-bright {
+    background-color: var(--bg-bright);
+  }
+
+  .bg-gray {
+    background-color: var(--bg-gray);
+  }
+
+  .border-gray {
+    border-color: var(--border-gray);
+  }
+
+  .text-on-color-primary {
+    color: var(--text-on-color-primary);
+  }
+
+}
+
+/* Custom prose theme using CSS variables - applies to both light and dark */
+.prose-custom {
+  --tw-prose-body: var(--text-color);
+  --tw-prose-headings: var(--text-bright);
+  --tw-prose-lead: var(--text-muted);
+  --tw-prose-links: var(--color-primary);
+  --tw-prose-bold: var(--text-bright);
+  --tw-prose-counters: var(--text-muted);
+  --tw-prose-bullets: var(--text-muted);
+  --tw-prose-hr: var(--text-faint);
+  --tw-prose-quotes: var(--text-bright);
+  --tw-prose-quote-borders: var(--text-faint);
+  --tw-prose-captions: var(--text-color);
+  --tw-prose-code: var(--text-bright);
+  --tw-prose-pre-code: var(--text-faint);
+  --tw-prose-pre-bg: var(--bg-gray);
+  color: var(--text-color);
+}
+
+.prose-custom h1,
+.prose-custom h2,
+.prose-custom h3,
+.prose-custom h4,
+.prose-custom h5,
+.prose-custom h6 {
+  color: var(--text-bright);
+}
+
+.prose-custom a {
+  color: var(--color-primary);
+}
+
+.prose-custom strong {
+  color: var(--text-bright);
+}
+
+.prose-custom blockquote {
+  color: var(--text-bright);
+  border-color: var(--text-faint);
+}
+
+.prose-custom code {
+  color: var(--text-bright);
+}
+
+.prose-custom pre {
+  background-color: var(--code-bg);
+  color: var(--code-text);
+}
+
+.prose-custom pre code {
+  color: var(--code-text);
+}
+
+.prose-custom ol > li::marker,
+.prose-custom ul > li::marker {
+  color: var(--text-muted);
+}
+
+.prose-custom hr {
+  border-color: var(--text-faint);
+}
+
+/* Custom CSS */
+@layer components {
+  .table-arabic-last-col td:last-child {
+    @apply text-right text-lg p-1;
+  }
+
+  .gist h1,
+  .gist h2,
+  .gist h3,
+  .gist h4,
+  .gist p {
+    color: var(--color-primary);
+  }
+
+  /* Overrides */
+  .gist .gist-file {
+    border: none !important;
+  }
+
+  .gist .gist-data {
+    background-color: inherit !important;
+  }
+}
+

@@ -5,7 +5,7 @@
 <title>{{ if .IsPage }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
 
 <!-- CSS -->
-{{ $css := resources.Get "css/main.scss" | css.Sass | postCSS }}
+{{ $css := resources.Get "css/main.css" | postCSS }}
 {{ if hugo.IsServer }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}"/>
 {{ else }}

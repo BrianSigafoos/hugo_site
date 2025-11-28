@@ -1,40 +1,7 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['layouts/**/*.html', 'content/*.md'],
-  safelist: ['gist', 'gist-data', 'gist-file'],
-  theme: {
-    container: {
-      // .container applies these to center and add padding
-      center: true, // mx-auto
-      padding: '1.5rem' // px-6
-    },
-    extend: {
-      colors: {
-        primary: 'var(--color-primary)'
-      },
-      //Add .prose-custom class to use CSS variables
-      typography: {
-        custom: {
-          css: {
-            '--tw-prose-body': 'var(--text-color)',
-            '--tw-prose-headings': 'var(--text-bright)',
-            '--tw-prose-lead': 'var(--text-muted)',
-            '--tw-prose-links': 'var(--color-primary)',
-            '--tw-prose-bold': 'var(--text-bright)',
-            '--tw-prose-counters': 'var(--text-muted)',
-            '--tw-prose-bullets': 'var(--text-muted)',
-            '--tw-prose-hr': 'var(--text-faint)',
-            '--tw-prose-quotes': 'var(--text-bright)',
-            '--tw-prose-quote-borders': 'var(--text-faint)',
-            '--tw-prose-captions': 'var(--text-color)',
-            '--tw-prose-code': 'var(--text-bright)',
-            '--tw-prose-pre-code': 'var(--text-faint)',
-            '--tw-prose-pre-bg': 'var(--bg-bright)'
-          }
-        }
-      }
-    }
-  },
-  // variants: {},
-  plugins: [require('@tailwindcss/typography')]
+  // Tailwind v4: content is auto-detected via @source in CSS
+  // Tailwind v4: plugins are loaded via @plugin in CSS
+  // Tailwind v4: theme customization is done via @theme in CSS
+  // This file is kept for compatibility but most config is now in assets/css/main.css
 }
-
