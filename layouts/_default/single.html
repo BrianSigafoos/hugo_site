@@ -35,7 +35,7 @@
 
     {{ if .Params.show_gravatar }}
       <!-- Photo -->
-      <img src="https://www.gravatar.com/avatar/{{ md5 .Site.Params.Author.email }}?s=400&d=identicon"
+      <img src="https://www.gravatar.com/avatar/{{ md5 .Site.Params.author_email }}?s=400&d=identicon"
         width="200" height="200" alt="Photo of Brian">
     {{ end }}
 
