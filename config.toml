@@ -7,11 +7,9 @@ pygmentsStyle = "native"
 
 googleAnalytics = "UA-42740116-1"
 
-[author]
-  name = "Brian Sigafoos"
-  email = "brian.sigafoos@gmail.com"
-
 [params]
+  author_name = "Brian Sigafoos"
+  author_email = "brian.sigafoos@gmail.com"
   about_path = "/about"
   source_code_url = "https://github.com/BrianSigafoos/hugo_site"
   disqusShortname = "briansigafoos"
