@@ -17,6 +17,7 @@ hide_read_time: true
 ## Best practices
 
 - [How to AI: Stop throwing away prompts. Start managing context.](/how-to-ai)
+- [Auto-format all changed files with one command, for your AI agent](/autoformat) -- Stop telling your AI agents how to auto-format your code. Give them one command that auto-formats all files correctly.
 - [Principles for engineers](/principles-for-engineers) -- Focus on delivering value to customers. Communicate proactively. Encourage critique. Take initiative. Debug scientifically. Practice habits.
 - [Code Review best practices](/code-review)
 - [Design Docs for software architecture review](/design-docs)
