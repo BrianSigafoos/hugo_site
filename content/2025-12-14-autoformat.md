@@ -2,7 +2,7 @@
 date: 2025-12-14T10:00:00-05:00
 slug: autoformat
 title: Auto-format all changed files with one command, for your AI agent
-summary: Stop telling your AI agents how to auto-format your code. Give them one command that auto-formats all files correctly.
+summary: Stop telling your AI agents how to auto-format your code. Give them one command that auto-formats all files correctly. Introducing fast-format-x (`ffx`).
 collection_swe_toolbox: true
 ---
 
@@ -28,7 +28,7 @@ And I want all my linters to run in parallel.
 
 ## The solution: ffx
 
-[fast-format-x](https://github.com/BrianSigafoos/fast-format-x) (`ffx`) is a single command that auto-formats every changed file using the correct formatter for that file type. Written in Rust for speed. All formatters run in parallel.
+[fast-format-x](https://ffx.bfoos.net/) (`ffx`) is a single command that auto-formats every changed file using the correct formatter for that file type. Written in Rust for speed. All formatters run in parallel.
 
 Replace all those formatting instructions in your `AGENTS.md` with one line:
 
@@ -45,19 +45,19 @@ version: 1
 
 tools:
   - name: prettier
-    include: ["**/*.md", "**/*.yml", "**/*.yaml", "**/*.js", "**/*.ts"]
+    include: ['**/*.md', '**/*.yml', '**/*.yaml', '**/*.js', '**/*.ts']
     cmd: npx
     args: [prettier, --write]
     check_args: [prettier, --check]
 
   - name: rubocop
-    include: ["**/*.rb", "**/*.rake"]
+    include: ['**/*.rb', '**/*.rake']
     cmd: bundle
     args: [exec, rubocop, -A]
     check_args: [exec, rubocop]
 
   - name: gofmt
-    include: ["**/*.go"]
+    include: ['**/*.go']
     cmd: gofmt
     args: [-w]
     check_args: [-l]
@@ -70,7 +70,7 @@ Then run `ffx`. It finds changed files, matches them to tools, and runs the righ
 From [fast-format-x](https://github.com/BrianSigafoos/fast-format-x):
 
 ```bash
-curl -LsSf https://raw.githubusercontent.com/BrianSigafoos/fast-format-x/main/install.sh | bash
+curl -LsSf https://ffx.bfoos.net/install.sh | bash
 ffx init  # Install pre-commit hook and create starter config
 ```
 
@@ -88,4 +88,3 @@ ffx --all --check  # CI mode: check without modifying
 AI agents are great at writing code. They shouldn't need to think about which formatter to call for which file type. That's a solved problem.
 
 One command. One line in your `AGENTS.md`. No wasted time or tokens.
-
