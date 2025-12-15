@@ -4,36 +4,18 @@
 version: 1
 
 tools:
+  # Web files: CSS, SCSS, Markdown, JSON, YAML, HTML
+  # Prettier: the standard for web file formatting
   - name: prettier
-    include: ['**/*.md', '**/*.yml', '**/*.yaml', '**/*.js', '**/*.ts']
+    include:
+      - '**/*.css'
+      - '**/*.scss'
+      - '**/*.md'
+      - '**/*.json'
+      - '**/*.yaml'
+      - '**/*.yml'
+      # - '**/*.html'
+    exclude: ['public/**']
     cmd: npx
     args: [prettier, --write]
     check_args: [prettier, --check]
-
-  - name: rubocop
-    include:
-      - '**/*.rb'
-      - '**/*.rake'
-    exclude:
-      - 'vendor/**'
-    cmd: bundle
-    args: [exec, rubocop, -A]
-    check_args: [exec, rubocop]
-
-  - name: ktlint
-    include: ['**/*.kt', '**/*.kts']
-    cmd: ktlint
-    args: [-F]
-    check_args: []
-
-  - name: gofmt
-    include: ['**/*.go']
-    cmd: gofmt
-    args: [-w]
-    check_args: [-l]
-
-  - name: rustfmt
-    include: ['**/*.rs']
-    cmd: cargo
-    args: [fmt, --]
-    check_args: [fmt, --, --check]
