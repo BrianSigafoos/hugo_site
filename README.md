@@ -3,7 +3,6 @@
 ## Workflow
 
 - Run `npm run update` to ensure everything is up to date, see script/update_dependencies.sh
-
   - `brew bundle`
   - `npm upgrade --latest`
   - `npm run latest`

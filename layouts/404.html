@@ -1,23 +1,25 @@
 {{ define "main" }}
-  <div class="container my-12 md:my-16 max-w-4xl prose md:prose-lg lg:prose-xl prose-custom">
-    <div class="my-32">
-      <div class="mb-12">
-        <h1>
-          Page not found
-        </h1>
+<div
+  class="container my-12 md:my-16 max-w-4xl prose md:prose-lg lg:prose-xl prose-custom"
+>
+  <div class="my-32">
+    <div class="mb-12">
+      <h1>Page not found</h1>
 
-        <h4 class="text-muted">
-          If you see this repeatedly, please
-          <a href="{{ .Site.Params.about_path }}">contact me</a>
-          to report it.
-        </h4>
-      </div>
-
-      <!-- Buttons -->
-      <a href="{{ .Site.Home.Permalink }}"
-        class="text-base inline-block mb-1 py-4 px-6 cursor-pointer font-mono font-bold text-primary border border-solid border-primary bg-bright no-underline">
-        Visit homepage
-      </a>
+      <h4 class="text-muted">
+        If you see this repeatedly, please
+        <a href="{{ .Site.Params.about_path }}">contact me</a>
+        to report it.
+      </h4>
     </div>
+
+    <!-- Buttons -->
+    <a
+      href="{{ .Site.Home.Permalink }}"
+      class="text-base inline-block mb-1 py-4 px-6 cursor-pointer font-mono font-bold text-primary border border-solid border-primary bg-bright no-underline"
+    >
+      Visit homepage
+    </a>
   </div>
+</div>
 {{ end }}

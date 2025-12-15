@@ -1,16 +1,18 @@
-<meta charset="utf-8">
+<meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <title>{{ if .IsPage }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
 
 <!-- CSS -->
-{{ $css := resources.Get "css/main.css" | postCSS }}
-{{ if hugo.IsServer }}
-  <link rel="stylesheet" href="{{ $css.RelPermalink }}"/>
-{{ else }}
-  {{ $css := $css | minify | fingerprint | resources.PostProcess }}
-  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}"/>
+{{ $css := resources.Get "css/main.css" | postCSS }} {{ if hugo.IsServer }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" />
+{{ else }} {{ $css := $css | minify | fingerprint | resources.PostProcess }}
+<link
+  rel="stylesheet"
+  href="{{ $css.RelPermalink }}"
+  integrity="{{ $css.Data.Integrity }}"
+/>
 {{ end }}
 
 <!-- Javascript -->

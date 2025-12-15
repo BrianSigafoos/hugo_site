@@ -1,60 +1,51 @@
 {{ define "main" }}
-  <div class="container my-12 md:my-16 !max-w-4xl prose md:prose-lg lg:prose-xl prose-custom">
-    <h1>
-      {{ .Title }}
-    </h1>
+<div
+  class="container my-12 md:my-16 !max-w-4xl prose md:prose-lg lg:prose-xl prose-custom"
+>
+  <h1>{{ .Title }}</h1>
 
-    <p class="mt-4 text-lg md:text-xl lg:text-2xl text-muted">
-      {{ .Summary }}
-    </p>
+  <p class="mt-4 text-lg md:text-xl lg:text-2xl text-muted">{{ .Summary }}</p>
 
-    <div class="font-mono text-sm mt-3 space-x-4">
-      {{ if not (.Params.hide_date) }}
-        <span class="text-muted">
-          {{- .Date.Format "Jan 2, 2006" -}}
-        </span>
-      {{ end }}
-
-      {{ if not (.Params.hide_read_time) }}
-        <span class="text-muted">
-          {{ .ReadingTime }} min read
-        </span>
-      {{ end }}
-    </div>
-
-    <div class="border-t border-gray my-8 pt-4">
-      {{ .Content }}
-
-      {{ if .Params.collection_swe_toolbox }}
-        <div class="border-t border-b border-gray text-muted my-8 py-4 ">
-          Read more posts like this in the
-          <a href="/software-engineering-toolbox">Software Engineering Toolbox</a> collection.
-        </div>
-      {{ end }}
-    </div>
-
-    {{ if .Params.show_gravatar }}
-      <!-- Photo -->
-      <img src="https://www.gravatar.com/avatar/{{ md5 .Site.Params.author_email }}?s=400&d=identicon"
-        width="200" height="200" alt="Photo of Brian">
-    {{ end }}
-
-    {{ if not (.Params.hide_home_link )}}
-      <!-- Home button  -->
-      <div class="my-8">
-        <a href="{{ .Site.Home.Permalink }}" class="text-base inline-block mb-1 py-2 px-6 cursor-pointer font-mono font-bold text-primary border border-solid border-primary bg-bright no-underline">
-          Visit homepage
-        </a>
-      </div>
-    {{ end }}
-
-    {{ if not (.Params.hide_comments) }}
-      {{ if .Site.Params.DisqusShortname }}
-        <!-- Comments -->
-        <div class="my-8">
-          {{ template "_internal/disqus.html" . }}
-        </div>
-      {{ end }}
+  <div class="font-mono text-sm mt-3 space-x-4">
+    {{ if not (.Params.hide_date) }}
+    <span class="text-muted"> {{- .Date.Format "Jan 2, 2006" -}} </span>
+    {{ end }} {{ if not (.Params.hide_read_time) }}
+    <span class="text-muted"> {{ .ReadingTime }} min read </span>
     {{ end }}
   </div>
+
+  <div class="border-t border-gray my-8 pt-4">
+    {{ .Content }} {{ if .Params.collection_swe_toolbox }}
+    <div class="border-t border-b border-gray text-muted my-8 py-4">
+      Read more posts like this in the
+      <a href="/software-engineering-toolbox">Software Engineering Toolbox</a>
+      collection.
+    </div>
+    {{ end }}
+  </div>
+
+  {{ if .Params.show_gravatar }}
+  <!-- Photo -->
+  <img
+    src="https://www.gravatar.com/avatar/{{ md5 .Site.Params.author_email }}?s=400&d=identicon"
+    width="200"
+    height="200"
+    alt="Photo of Brian"
+  />
+  {{ end }} {{ if not (.Params.hide_home_link )}}
+  <!-- Home button  -->
+  <div class="my-8">
+    <a
+      href="{{ .Site.Home.Permalink }}"
+      class="text-base inline-block mb-1 py-2 px-6 cursor-pointer font-mono font-bold text-primary border border-solid border-primary bg-bright no-underline"
+    >
+      Visit homepage
+    </a>
+  </div>
+  {{ end }} {{ if not (.Params.hide_comments) }} {{ if
+  .Site.Params.DisqusShortname }}
+  <!-- Comments -->
+  <div class="my-8">{{ template "_internal/disqus.html" . }}</div>
+  {{ end }} {{ end }}
+</div>
 {{ end }}

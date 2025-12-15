@@ -17,9 +17,7 @@
     "build": "hugo server --gc --buildDrafts",
     "debug": "NODE_ENV=production hugo server --gc",
     "pr": "gh pr create --fill --draft",
-    "fix": "npm run fix:css; npm run fix:md",
-    "fix:css": "prettier --write 'assets/**/*.css'",
-    "fix:md": "prettier --write './*.md'; prettier --write './**/*.md'"
+    "fix": "ffx --all"
   },
   "browserslist": [
     "supports es6-module"

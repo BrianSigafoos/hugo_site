@@ -1,3 +1,7 @@
 {{- $url := printf "https://gist.github.com/%s/%s.js" (.Get 0) (.Get 1) -}}
 <script src="{{ $url }}"></script>
-<noscript>View the code on <a href="https://gist.github.com/{{ .Get 0 }}/{{ .Get 1 }}">Gist</a>.</noscript>
+<noscript
+  >View the code on
+  <a href="https://gist.github.com/{{ .Get 0 }}/{{ .Get 1 }}">Gist</a
+  >.</noscript
+>
